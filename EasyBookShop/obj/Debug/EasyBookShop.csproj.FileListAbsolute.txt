@@ -10,3 +10,4 @@ C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookSho
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.exe
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.pdb
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Retail_Invoice.resources

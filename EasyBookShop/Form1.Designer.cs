@@ -41,6 +41,7 @@
             this.metroTile1.TabIndex = 0;
             this.metroTile1.Text = "Retail";
             this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // metroTile2
             // 

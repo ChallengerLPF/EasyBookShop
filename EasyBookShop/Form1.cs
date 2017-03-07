@@ -23,5 +23,46 @@ namespace EasyBookShop
             whole_sale sale = new whole_sale();
             sale.Show();
         }
+
+        private void textBox1_MouseEnter(object sender, EventArgs e)
+        {
+            removeText(txt_uname);
+        }
+
+        private void setText(TextBox name, String text)
+        {
+            if (name.Text == "")
+            {
+                name.Text = text;
+            }
+            
+
+        }
+
+        private void removeText(TextBox name)
+        {
+           
+            name.Text = "";
+        }
+
+        private void txt_uname_MouseLeave(object sender, EventArgs e)
+        {
+            setText(txt_uname, "U s e r  N a m e");
+        }
+
+        private void textBox2_MouseEnter(object sender, EventArgs e)
+        {
+            removeText(txt_psw);
+        }
+
+        private void txt_psw_MouseLeave(object sender, EventArgs e)
+        {
+            setText(txt_psw, "P a s s w o r d");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

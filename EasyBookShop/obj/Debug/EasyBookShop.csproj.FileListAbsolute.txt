@@ -10,3 +10,15 @@ C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookSho
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.exe
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.pdb
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.exe.config
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.exe
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.pdb
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.exe
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.pdb
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.dll
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.Fonts.dll
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csprojResolveAssemblyReference.cache
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.whole_sale.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csproj.GenerateResource.Cache

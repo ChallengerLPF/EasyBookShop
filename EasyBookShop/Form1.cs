@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyBookShop.com.easy.view;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace EasyBookShop
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            whole_sale sale = new whole_sale();
+            sale.Show();
         }
     }
 }

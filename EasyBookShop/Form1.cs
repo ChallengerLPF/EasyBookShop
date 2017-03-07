@@ -64,5 +64,11 @@ namespace EasyBookShop
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainWindow mwin = new MainWindow();
+            mwin.Show();
+        }
     }
 }

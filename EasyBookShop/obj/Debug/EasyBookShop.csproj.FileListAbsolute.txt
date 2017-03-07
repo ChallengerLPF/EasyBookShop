@@ -22,3 +22,4 @@ G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csproj.GenerateResource.Cache
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.MainWindow.resources

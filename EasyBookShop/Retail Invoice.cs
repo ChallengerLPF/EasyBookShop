@@ -16,5 +16,20 @@ namespace EasyBookShop
         {
             InitializeComponent();
         }
+
+        private void metroLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

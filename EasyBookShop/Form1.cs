@@ -20,8 +20,7 @@ namespace EasyBookShop
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            whole_sale sale = new whole_sale();
-            sale.Show();
+            
         }
 
         private void textBox1_MouseEnter(object sender, EventArgs e)

@@ -26,5 +26,12 @@ namespace EasyBookShop.com.easy.view
         {
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            wholesale sale = new wholesale();
+            Main_Panel.Controls.Add(sale);
+
+        }
     }
 }

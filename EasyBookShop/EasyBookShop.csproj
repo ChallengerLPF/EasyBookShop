@@ -63,11 +63,11 @@
     <Compile Include="com.easy.view\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="com.easy.view\whole_sale.cs">
-      <SubType>Form</SubType>
+    <Compile Include="com.easy.view\wholesale.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="com.easy.view\whole_sale.Designer.cs">
-      <DependentUpon>whole_sale.cs</DependentUpon>
+    <Compile Include="com.easy.view\wholesale.Designer.cs">
+      <DependentUpon>wholesale.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     <EmbeddedResource Include="com.easy.view\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="com.easy.view\whole_sale.resx">
-      <DependentUpon>whole_sale.cs</DependentUpon>
+    <EmbeddedResource Include="com.easy.view\wholesale.resx">
+      <DependentUpon>wholesale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\appbar.eye.png" />
     <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

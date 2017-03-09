@@ -58,6 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="com.easy.utility\DBconnection.cs" />
+    <Compile Include="com.easy.view\DB_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\DB_Settings.Designer.cs">
+      <DependentUpon>DB_Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="com.easy.view\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +85,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="com.easy.view\DB_Settings.resx">
+      <DependentUpon>DB_Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

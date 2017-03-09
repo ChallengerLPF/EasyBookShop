@@ -69,5 +69,11 @@ namespace EasyBookShop
             MainWindow mwin = new MainWindow();
             mwin.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DB_Settings DB = new DB_Settings();
+            DB.Show();
+        }
     }
 }

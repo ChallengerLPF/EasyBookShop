@@ -1,4 +1,6 @@
-﻿using EasyBookShop.com.easy.view;
+﻿using EasyBookShop.com.easy.controal;
+using EasyBookShop.com.easy.model;
+using EasyBookShop.com.easy.view;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,8 +68,26 @@ namespace EasyBookShop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainWindow mwin = new MainWindow();
-            mwin.Show();
+            String uname = txt_uname.Text;
+            String pw = txt_psw.Text;
+
+            Login lg = new Login();
+            lg.Uname = uname;
+            lg.Pw = pw;
+
+            LoginControal lgc = new LoginControal();
+
+
+            if (lgc.logincheck(lg))
+            {
+                MainWindow mwin = new MainWindow();
+                mwin.Show();
+            }
+            else
+            {
+                MessageBox.Show("User Name or Password incorrect");
+            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

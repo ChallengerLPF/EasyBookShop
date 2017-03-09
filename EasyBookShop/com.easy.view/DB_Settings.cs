@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyBookShop.com.easy.utility;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,57 +43,71 @@ namespace EasyBookShop.com.easy.view
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            txt_host.Text = "localhost";
-            txt_port.Text = "3306";
-            txt_uname.Text = "root";
-            txt_pw.Text = "123,";
+            String txt = "localhost,3306,root,123,";
+            writetxt(txt);
+
 
         }
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                using (StreamWriter objWriter = new StreamWriter("dbconfig.txt")){
-
-                    String txt = txt_host.Text + "," + txt_port.Text + "," + txt_uname.Text + "," + txt_pw.Text;
-
-                    objWriter.Write(txt);
-                    redtext();
-                }
-
-                
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            String txt = txt_host.Text + "/" + txt_port.Text + "/" + txt_uname.Text + "/" + txt_pw.Text;
+            writetxt(txt);
             
         }
 
-        private void redtext(){
+        private void writetxt(String txt)
+        {
+            try
+            {
+                using (StreamWriter objWriter = new StreamWriter("dbconfig.txt"))
+                {
+
+                    objWriter.Write(txt);
+                    redtext();
+                    MessageBox.Show("Saved Success");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void redtext(){
 
         try{
             using (StreamReader sr = new StreamReader("dbconfig.txt"))
             {
 	        
                 String line = sr.ReadToEnd();
-                char spliter = ',';
+                char spliter = '/';
                 String[] data = line.Split(spliter);
 
                 txt_host.Text = data[0];
                 txt_port.Text = data[1];
                 txt_uname.Text = data[2];
                 txt_pw.Text = data[3];
+
+               // DBconnection dbc = new DBconnection();
+                
+
+                
             }
         }
         catch (Exception e)
         {
-            Console.WriteLine("The file could not be read:");
+            MessageBox.Show("The file could not be read:");
             Console.WriteLine(e.Message);
         }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

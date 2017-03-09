@@ -58,7 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="com.easy.controal\LoginControal.cs" />
+    <Compile Include="com.easy.model\Login.cs" />
     <Compile Include="com.easy.utility\DBconnection.cs" />
+    <Compile Include="com.easy.utility\Redtxt.cs" />
     <Compile Include="com.easy.view\DB_Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +129,7 @@
     <None Include="Resources\appbar.eye.png" />
     <None Include="Resources\user.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

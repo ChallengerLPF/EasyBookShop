@@ -60,7 +60,6 @@
             this.txt_host.Name = "txt_host";
             this.txt_host.Size = new System.Drawing.Size(164, 23);
             this.txt_host.TabIndex = 1;
-            this.txt_host.Text = "localhost";
             this.txt_host.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // txt_port
@@ -69,7 +68,6 @@
             this.txt_port.Name = "txt_port";
             this.txt_port.Size = new System.Drawing.Size(164, 23);
             this.txt_port.TabIndex = 3;
-            this.txt_port.Text = "3306";
             // 
             // metroLabel2
             // 
@@ -86,7 +84,6 @@
             this.txt_uname.Name = "txt_uname";
             this.txt_uname.Size = new System.Drawing.Size(164, 23);
             this.txt_uname.TabIndex = 5;
-            this.txt_uname.Text = "root";
             // 
             // metroLabel3
             // 
@@ -104,7 +101,6 @@
             this.txt_pw.PasswordChar = '.';
             this.txt_pw.Size = new System.Drawing.Size(164, 23);
             this.txt_pw.TabIndex = 7;
-            this.txt_pw.Text = "123,";
             // 
             // metroLabel4
             // 
@@ -117,17 +113,18 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(23, 235);
+            this.metroButton1.Location = new System.Drawing.Point(23, 242);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(248, 23);
+            this.metroButton1.Size = new System.Drawing.Size(248, 30);
             this.metroButton1.TabIndex = 8;
             this.metroButton1.Text = "Cancle";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroButton2
             // 
             this.metroButton2.Location = new System.Drawing.Point(23, 206);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(117, 23);
+            this.metroButton2.Size = new System.Drawing.Size(117, 30);
             this.metroButton2.TabIndex = 9;
             this.metroButton2.Text = "Reset Default";
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
@@ -136,7 +133,7 @@
             // 
             this.metroButton3.Location = new System.Drawing.Point(154, 206);
             this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(117, 23);
+            this.metroButton3.Size = new System.Drawing.Size(117, 30);
             this.metroButton3.TabIndex = 10;
             this.metroButton3.Text = "Save Changes";
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
@@ -198,17 +195,17 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txt_host;
-        private MetroFramework.Controls.MetroTextBox txt_port;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox txt_uname;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroTextBox txt_pw;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroLabel metroLabel11;
+        public MetroFramework.Controls.MetroTextBox txt_host;
+        public MetroFramework.Controls.MetroTextBox txt_port;
+        public MetroFramework.Controls.MetroTextBox txt_uname;
+        public MetroFramework.Controls.MetroTextBox txt_pw;
     }
 }

@@ -17,6 +17,7 @@ namespace EasyBookShop.com.easy.view
         public DB_Settings()
         {
             InitializeComponent();
+            redtext();
         }
 
         private void DB_Settings_Load(object sender, EventArgs e)
@@ -53,12 +54,15 @@ namespace EasyBookShop.com.easy.view
 
             try
             {
-                StreamWriter objWriter = new StreamWriter("dbconfig.txt");
+                using (StreamWriter objWriter = new StreamWriter("dbconfig.txt")){
 
-                objWriter.Write(txt_host.Text);
-                objWriter.Write(txt_port.Text);
-                objWriter.Write(txt_uname.Text);
-                objWriter.Write(txt_pw.Text);
+                    String txt = txt_host.Text + "," + txt_port.Text + "," + txt_uname.Text + "," + txt_pw.Text;
+
+                    objWriter.Write(txt);
+                    redtext();
+                }
+
+                
             }
             catch (IOException ex)
             {
@@ -66,6 +70,29 @@ namespace EasyBookShop.com.easy.view
             }
 
             
+        }
+
+        private void redtext(){
+
+        try{
+            using (StreamReader sr = new StreamReader("dbconfig.txt"))
+            {
+	        
+                String line = sr.ReadToEnd();
+                char spliter = ',';
+                String[] data = line.Split(spliter);
+
+                txt_host.Text = data[0];
+                txt_port.Text = data[1];
+                txt_uname.Text = data[2];
+                txt_pw.Text = data[3];
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("The file could not be read:");
+            Console.WriteLine(e.Message);
+        }
         }
     }
 }

@@ -12,6 +12,21 @@ namespace EasyBookShop.com.easy.model
         private String brnd;
         private int qty;
         private Decimal price;
+        private String code;
+        private Decimal orprice;
+
+        public Decimal Orprice
+        {
+            get { return orprice; }
+            set { orprice = value; }
+        }
+
+
+        public String Code
+        {
+            get { return code; }
+            set { code = value; }
+        }
 
         public String Dis
         {

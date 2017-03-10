@@ -53,5 +53,74 @@ namespace EasyBookShop.com.easy.view
         {
 
         }
+
+        private void metroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txt_icode_KeyUp(object sender, KeyEventArgs e)
+        {
+            String itemcode = txt_icode.Text;
+            
+            Productcontroaler pc = new Productcontroaler();
+            Wholesale data = pc.findone(itemcode);
+
+            int qty = (int)data.Qty;
+            double price = (double)data.Price;
+            String p = price.ToString();
+            double op = (double)data.Orprice;
+            String orp = op.ToString();
+
+            txt_dis.Text = (String)data.Dis;
+            txt_qty.Text = qty.ToString();
+            txt_selprice.Text = p;
+            txt_orprice.Text = orp;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String dis = txt_dis.Text;
+            String qty = txt_rqty.Text;
+            String uprice = txt_selprice.Text;
+
+            String[] dataset={dis,qty,uprice};
+
+            setTable(dataset);
+            calnettotal();
+        }
+
+        private void setTable(String[] data)
+        {
+            try
+            {
+                double total = double.Parse(data[2]) * int.Parse(data[1]);
+
+                datagrid_bill.Rows.Add(datagrid_bill.RowCount, data[0], data[1], data[2], total);
+
+               
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+           
+        }
+
+        private void calnettotal()
+        {
+            
+            double nettotal=0;
+            //datagrid_bill dg = new datagrid_bill(); 
+
+            for (int i = 0; i < datagrid_bill.RowCount; i++)
+            {
+                double val=Convert.ToDouble(datagrid_bill.Rows[i].Cells[4].Value);
+                nettotal += val;
+
+            }
+
+            txt_nettotal.Text = nettotal.ToString();
+        }
     }
 }

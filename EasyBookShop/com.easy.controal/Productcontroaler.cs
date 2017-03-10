@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EasyBookShop.com.easy.controal
 {
@@ -54,5 +55,55 @@ namespace EasyBookShop.com.easy.controal
 
             return list;
         }
+
+        public Wholesale findone(String code)
+        {
+            
+            Wholesale wl = new Wholesale();
+
+            String sql = "select description,category,quantity,wholesale_price,original_price from items where barcode=@code";
+            DBconnection db = new DBconnection();
+
+            Redtxt rdv = new Redtxt();
+            String[] list = rdv.redtext();
+
+            db.setConnecton(list[0], list[2], list[3], list[1]);
+            MySqlConnection con = db.getConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@code",code);
+            cmd.Prepare();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            //while (reader.HasRows)
+            //{
+            //Console.WriteLine("test1");
+            if (reader.Read())
+            {
+                
+
+                String dis = (String)reader.GetValue(0);
+                String cat = (String)reader.GetValue(1);
+                int qty = (int)reader.GetValue(2);
+                Decimal price = (Decimal)reader.GetValue(3);
+                Decimal orprice = (Decimal)reader.GetValue(4);
+
+                wl.Dis = dis;
+                wl.Brnd = cat;
+                wl.Qty = qty;
+                wl.Price = price;
+                wl.Orprice = orprice;
+
+                Console.WriteLine(wl.Dis);
+
+            }
+           
+
+            // }
+
+            return wl;
+        }
+
+
     }
 }

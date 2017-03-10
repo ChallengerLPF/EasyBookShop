@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wholesale));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
@@ -45,24 +46,28 @@
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox8 = new MetroFramework.Controls.MetroTextBox();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
+            this.metroTextBox8 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.datagrid_srch = new System.Windows.Forms.DataGridView();
+            this.clm_dis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clm_brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clm_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clm_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid_srch)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -70,7 +75,6 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Controls.Add(this.metroTextBox5);
             this.panel3.Controls.Add(this.metroLabel8);
             this.panel3.Controls.Add(this.metroLabel9);
@@ -87,23 +91,37 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(797, 670);
             this.panel3.TabIndex = 12;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // tableLayoutPanel1
+            // button2
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 211);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(768, 96);
-            this.tableLayoutPanel1.TabIndex = 21;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(520, 155);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 34);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "C l e a r";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(659, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 34);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "A d d";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // metroTextBox5
             // 
@@ -258,6 +276,22 @@
             this.button4.Text = "Pay";
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Gray;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(34, 112);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(140, 34);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "     Full Report";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
@@ -284,6 +318,15 @@
             this.metroLabel6.TabIndex = 12;
             this.metroLabel6.Text = "WholeSale Customer";
             this.metroLabel6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::EasyBookShop.Properties.Resources.user;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Location = new System.Drawing.Point(66, 33);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(80, 73);
+            this.panel1.TabIndex = 11;
             // 
             // metroLabel5
             // 
@@ -321,34 +364,10 @@
             this.metroTextBox3.Size = new System.Drawing.Size(292, 30);
             this.metroTextBox3.TabIndex = 8;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Gray;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(34, 112);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 34);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "     Full Report";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::EasyBookShop.Properties.Resources.user;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Location = new System.Drawing.Point(66, 33);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(80, 73);
-            this.panel1.TabIndex = 11;
-            // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.datagrid_srch);
             this.panel4.Controls.Add(this.metroRadioButton2);
             this.panel4.Controls.Add(this.metroLabel12);
             this.panel4.Controls.Add(this.metroRadioButton1);
@@ -358,6 +377,49 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(555, 505);
             this.panel4.TabIndex = 14;
+            // 
+            // metroRadioButton2
+            // 
+            this.metroRadioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.metroRadioButton2.Location = new System.Drawing.Point(352, 38);
+            this.metroRadioButton2.Name = "metroRadioButton2";
+            this.metroRadioButton2.Size = new System.Drawing.Size(109, 20);
+            this.metroRadioButton2.TabIndex = 24;
+            this.metroRadioButton2.TabStop = true;
+            this.metroRadioButton2.Text = "Brand Name";
+            this.metroRadioButton2.UseVisualStyleBackColor = true;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.CustomBackground = true;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel12.Location = new System.Drawing.Point(124, 39);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel12.TabIndex = 22;
+            this.metroLabel12.Text = "Seaech By ";
+            this.metroLabel12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // metroRadioButton1
+            // 
+            this.metroRadioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.metroRadioButton1.Location = new System.Drawing.Point(228, 38);
+            this.metroRadioButton1.Name = "metroRadioButton1";
+            this.metroRadioButton1.Size = new System.Drawing.Size(109, 20);
+            this.metroRadioButton1.TabIndex = 23;
+            this.metroRadioButton1.TabStop = true;
+            this.metroRadioButton1.Text = "Item Name";
+            this.metroRadioButton1.UseVisualStyleBackColor = true;
+            // 
+            // metroTextBox8
+            // 
+            this.metroTextBox8.Location = new System.Drawing.Point(123, 4);
+            this.metroTextBox8.Name = "metroTextBox8";
+            this.metroTextBox8.Size = new System.Drawing.Size(427, 30);
+            this.metroTextBox8.TabIndex = 22;
             // 
             // metroLabel11
             // 
@@ -374,78 +436,51 @@
             this.metroLabel11.Text = "Item Search";
             this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // metroTextBox8
+            // datagrid_srch
             // 
-            this.metroTextBox8.Location = new System.Drawing.Point(123, 4);
-            this.metroTextBox8.Name = "metroTextBox8";
-            this.metroTextBox8.Size = new System.Drawing.Size(427, 30);
-            this.metroTextBox8.TabIndex = 22;
+            this.datagrid_srch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.datagrid_srch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagrid_srch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clm_dis,
+            this.clm_brand,
+            this.clm_qty,
+            this.clm_price});
+            this.datagrid_srch.Location = new System.Drawing.Point(4, 76);
+            this.datagrid_srch.Name = "datagrid_srch";
+            this.datagrid_srch.Size = new System.Drawing.Size(546, 424);
+            this.datagrid_srch.TabIndex = 23;
+            this.datagrid_srch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid_srch_CellContentClick);
             // 
-            // metroRadioButton1
+            // clm_dis
             // 
-            this.metroRadioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroRadioButton1.Location = new System.Drawing.Point(228, 38);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(109, 20);
-            this.metroRadioButton1.TabIndex = 23;
-            this.metroRadioButton1.TabStop = true;
-            this.metroRadioButton1.Text = "Item Name";
-            this.metroRadioButton1.UseVisualStyleBackColor = true;
+            this.clm_dis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clm_dis.FillWeight = 81F;
+            this.clm_dis.HeaderText = "Discription";
+            this.clm_dis.Name = "clm_dis";
+            this.clm_dis.ReadOnly = true;
+            this.clm_dis.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // metroLabel12
+            // clm_brand
             // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.CustomBackground = true;
-            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel12.Location = new System.Drawing.Point(124, 39);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(74, 19);
-            this.metroLabel12.TabIndex = 22;
-            this.metroLabel12.Text = "Seaech By ";
-            this.metroLabel12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.clm_brand.HeaderText = "Brand";
+            this.clm_brand.Name = "clm_brand";
+            this.clm_brand.ReadOnly = true;
+            this.clm_brand.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.clm_brand.Width = 60;
             // 
-            // metroRadioButton2
+            // clm_qty
             // 
-            this.metroRadioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroRadioButton2.Location = new System.Drawing.Point(352, 38);
-            this.metroRadioButton2.Name = "metroRadioButton2";
-            this.metroRadioButton2.Size = new System.Drawing.Size(109, 20);
-            this.metroRadioButton2.TabIndex = 24;
-            this.metroRadioButton2.TabStop = true;
-            this.metroRadioButton2.Text = "Brand Name";
-            this.metroRadioButton2.UseVisualStyleBackColor = true;
+            this.clm_qty.HeaderText = "Stock Quentity";
+            this.clm_qty.Name = "clm_qty";
+            this.clm_qty.ReadOnly = true;
+            this.clm_qty.Width = 102;
             // 
-            // button1
+            // clm_price
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(659, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 34);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "A d d";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(520, 155);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 34);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "C l e a r";
-            this.button2.UseVisualStyleBackColor = false;
+            this.clm_price.HeaderText = "Wholesale Price";
+            this.clm_price.Name = "clm_price";
+            this.clm_price.ReadOnly = true;
+            this.clm_price.Width = 109;
             // 
             // wholesale
             // 
@@ -462,6 +497,7 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid_srch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -469,7 +505,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MetroFramework.Controls.MetroTextBox metroTextBox5;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel9;
@@ -499,5 +534,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView datagrid_srch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clm_dis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clm_brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clm_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clm_price;
     }
 }

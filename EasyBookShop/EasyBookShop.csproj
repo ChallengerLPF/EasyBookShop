@@ -59,7 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="com.easy.controal\LoginControal.cs" />
+    <Compile Include="com.easy.controal\Productcontroaler.cs" />
     <Compile Include="com.easy.model\Login.cs" />
+    <Compile Include="com.easy.model\Wholesale.cs" />
     <Compile Include="com.easy.utility\DBconnection.cs" />
     <Compile Include="com.easy.utility\Redtxt.cs" />
     <Compile Include="com.easy.view\DB_Settings.cs">

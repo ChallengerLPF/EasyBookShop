@@ -6,9 +6,9 @@ C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookSho
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.Design.dll
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.dll
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\MySql.Data.dll
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\EntityFramework.xml
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csprojResolveAssemblyReference.cache
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.ItemsView.resources
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources

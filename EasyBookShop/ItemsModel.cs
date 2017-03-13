@@ -8,21 +8,21 @@ namespace EasyBookShop
 {
     class ItemsModel
     {
-        int id;
-        string barcode;
-        string description;
-        string category;
-        string sub_category;
-        decimal retail_price;
-        decimal wholesale_price;
-        decimal special_price;
-        decimal last_price;
-        int quantity;
-        decimal discount;
-        int pack_size;
-        decimal pack_price;
-        DateTime last_updated;
-        bool deleted;        
+        int id { get; set; }
+        string barcode { get; set; }
+        string description { get; set; }
+        string category { get; set; }
+        string sub_category { get; set; }
+        decimal retail_price { get; set; }
+        decimal wholesale_price { get; set; }
+        decimal special_price { get; set; }
+        decimal last_price { get; set; }
+        int quantity { get; set; }
+        decimal discount { get; set; }
+        int pack_size { get; set; }
+        decimal pack_price { get; set; }
+        DateTime last_updated { get; set; }
+        bool deleted { get; set; }
 
     }
 }

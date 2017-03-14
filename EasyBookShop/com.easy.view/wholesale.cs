@@ -15,6 +15,7 @@ namespace EasyBookShop.com.easy.view
 {
     public partial class wholesale : UserControl
     {
+        List<String[]> item = new List<string[]>();
         public wholesale()
         {
             InitializeComponent();
@@ -71,11 +72,13 @@ namespace EasyBookShop.com.easy.view
             String p = price.ToString();
             double op = (double)data.Orprice;
             String orp = op.ToString();
+            int id=data.Id;
 
             txt_dis.Text = (String)data.Dis;
             txt_qty.Text = qty.ToString();
             txt_selprice.Text = p;
             txt_orprice.Text = orp;
+            lbl_id.Text = id.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,27 +86,44 @@ namespace EasyBookShop.com.easy.view
             String dis = txt_dis.Text;
             String qty = txt_rqty.Text;
             String uprice = txt_selprice.Text;
+            String id = lbl_id.Text;
 
-            String[] dataset={dis,qty,uprice};
+            String[] dataset={dis,qty,uprice,id};
 
-            setTable(dataset);
+            additem(dataset);
             calnettotal();
         }
 
-        private void setTable(String[] data)
+        private void additem(String[] data)
         {
-            try
+            item.Add(data);
+            setTable();
+        }
+
+        private void setTable()
+        {
+            ClearGrid(datagrid_bill);
+            int count = 1;
+            foreach (String[] items in item)
             {
-                double total = double.Parse(data[2]) * int.Parse(data[1]);
-
-                datagrid_bill.Rows.Add(datagrid_bill.RowCount, data[0], data[1], data[2], total);
-
                
+                
+                    try
+                    {
+                        double total = double.Parse(items[2]) * int.Parse(items[1]);
+
+                        datagrid_bill.Rows.Add(count, items[0], items[1], items[2], total);
+
+                        count++;
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+
+            calnettotal();
            
         }
 
@@ -146,6 +166,59 @@ namespace EasyBookShop.com.easy.view
                 else
                     ClearAllText(c);
             }
+        }
+
+        private void datagrid_bill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private int rowIndex;
+        private void datagrid_bill_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            
+        }
+
+        private void contextMenuStrip1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
+            if (!this.datagrid_bill.Rows[this.rowIndex].IsNewRow)
+            {
+                int row = this.rowIndex;
+                this.datagrid_bill.Rows.RemoveAt(this.rowIndex);
+                item.RemoveAt(row);
+                setTable();
+
+            }
+        }
+
+        private void datagrid_bill_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.datagrid_bill.Rows[e.RowIndex].Selected = true;
+                this.rowIndex = e.RowIndex;
+                this.datagrid_bill.CurrentCell = this.datagrid_bill.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip1.Show(this.datagrid_bill, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+
+            }
+        }
+
+        private void btn_sell_Click(object sender, EventArgs e)
+        {
+            //ClearAllText(this);
+            //ClearGrid(datagrid_bill);
+            //item.Clear();
+
+            Perchuspopup pup = new Perchuspopup();
+            pup.Show();
         }
     }
 }

@@ -61,7 +61,7 @@ namespace EasyBookShop.com.easy.controal
             
             Wholesale wl = new Wholesale();
 
-            String sql = "select description,category,quantity,wholesale_price,original_price from items where barcode=@code";
+            String sql = "select description,category,quantity,wholesale_price,original_price,id from items where barcode=@code";
             DBconnection db = new DBconnection();
 
             Redtxt rdv = new Redtxt();
@@ -87,12 +87,14 @@ namespace EasyBookShop.com.easy.controal
                 int qty = (int)reader.GetValue(2);
                 Decimal price = (Decimal)reader.GetValue(3);
                 Decimal orprice = (Decimal)reader.GetValue(4);
+                int id = (int)reader.GetValue(5);
 
                 wl.Dis = dis;
                 wl.Brnd = cat;
                 wl.Qty = qty;
                 wl.Price = price;
                 wl.Orprice = orprice;
+                wl.Id = id;
 
                 Console.WriteLine(wl.Dis);
 

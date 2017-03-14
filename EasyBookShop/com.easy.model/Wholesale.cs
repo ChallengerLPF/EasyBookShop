@@ -8,6 +8,7 @@ namespace EasyBookShop.com.easy.model
 {
     class Wholesale
     {
+        private int id;
         private String dis;      
         private String brnd;
         private int qty;
@@ -51,6 +52,12 @@ namespace EasyBookShop.com.easy.model
         {
             get { return price; }
             set { price = value; }
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
     }
 }

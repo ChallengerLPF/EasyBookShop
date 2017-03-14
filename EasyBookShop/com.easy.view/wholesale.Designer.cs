@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wholesale));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -77,16 +78,21 @@
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroTextBox8 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detete = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_id = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_bill)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_srch)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lbl_id);
             this.panel3.Controls.Add(this.btn_sell);
             this.panel3.Controls.Add(this.txt_nettotal);
             this.panel3.Controls.Add(this.metroLabel13);
@@ -126,6 +132,7 @@
             this.btn_sell.TabIndex = 27;
             this.btn_sell.Text = "Sell";
             this.btn_sell.UseVisualStyleBackColor = false;
+            this.btn_sell.Click += new System.EventHandler(this.btn_sell_Click);
             // 
             // txt_nettotal
             // 
@@ -179,6 +186,9 @@
             this.datagrid_bill.RowTemplate.Height = 30;
             this.datagrid_bill.Size = new System.Drawing.Size(789, 423);
             this.datagrid_bill.TabIndex = 23;
+            this.datagrid_bill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid_bill_CellContentClick);
+            this.datagrid_bill.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagrid_bill_CellMouseClick);
+            this.datagrid_bill.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagrid_bill_CellMouseUp);
             // 
             // No
             // 
@@ -615,6 +625,30 @@
             this.metroLabel11.Text = "Item Search";
             this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 26);
+            this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
+            this.contextMenuStrip1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.contextMenuStrip1_MouseClick);
+            // 
+            // detete
+            // 
+            this.detete.Name = "detete";
+            this.detete.Size = new System.Drawing.Size(107, 22);
+            this.detete.Text = "Delete";
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Location = new System.Drawing.Point(30, 642);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(0, 13);
+            this.lbl_id.TabIndex = 28;
+            this.lbl_id.Visible = false;
+            // 
             // wholesale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,6 +666,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_srch)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -682,5 +717,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uprice;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem detete;
+        private System.Windows.Forms.Label lbl_id;
     }
 }

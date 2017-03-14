@@ -76,7 +76,9 @@
     <Compile Include="com.easy.view\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="com.easy.view\Perchuspopup.cs" />
+    <Compile Include="com.easy.view\Perchuspopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="com.easy.view\Perchuspopup.Designer.cs">
       <DependentUpon>Perchuspopup.cs</DependentUpon>
     </Compile>

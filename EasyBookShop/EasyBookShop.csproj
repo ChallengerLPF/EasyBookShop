@@ -76,6 +76,10 @@
     <Compile Include="com.easy.view\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="com.easy.view\Perchuspopup.cs" />
+    <Compile Include="com.easy.view\Perchuspopup.Designer.cs">
+      <DependentUpon>Perchuspopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="com.easy.view\wholesale.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\Perchuspopup.resx">
+      <DependentUpon>Perchuspopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\wholesale.resx">
       <DependentUpon>wholesale.cs</DependentUpon>

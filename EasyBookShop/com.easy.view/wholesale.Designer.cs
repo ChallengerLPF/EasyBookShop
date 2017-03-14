@@ -30,15 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wholesale));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_sell = new System.Windows.Forms.Button();
             this.txt_nettotal = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.datagrid_bill = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_orprice = new MetroFramework.Controls.MetroTextBox();
@@ -72,11 +77,6 @@
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroTextBox8 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Uprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_bill)).BeginInit();
             this.panel2.SuspendLayout();
@@ -129,7 +129,7 @@
             // 
             // txt_nettotal
             // 
-            this.txt_nettotal.Location = new System.Drawing.Point(355, 632);
+            this.txt_nettotal.Location = new System.Drawing.Point(352, 632);
             this.txt_nettotal.Name = "txt_nettotal";
             this.txt_nettotal.ReadOnly = true;
             this.txt_nettotal.Size = new System.Drawing.Size(294, 30);
@@ -141,7 +141,7 @@
             this.metroLabel13.CustomBackground = true;
             this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel13.Location = new System.Drawing.Point(206, 634);
+            this.metroLabel13.Location = new System.Drawing.Point(202, 634);
             this.metroLabel13.Name = "metroLabel13";
             this.metroLabel13.Size = new System.Drawing.Size(143, 25);
             this.metroLabel13.TabIndex = 25;
@@ -180,6 +180,46 @@
             this.datagrid_bill.Size = new System.Drawing.Size(789, 423);
             this.datagrid_bill.TabIndex = 23;
             // 
+            // No
+            // 
+            this.No.FillWeight = 34.63671F;
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            // 
+            // Dis
+            // 
+            this.Dis.FillWeight = 203.0455F;
+            this.Dis.HeaderText = "Discription";
+            this.Dis.Name = "Dis";
+            this.Dis.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.FillWeight = 51.89243F;
+            this.Qty.HeaderText = "Quentity";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            // 
+            // Uprice
+            // 
+            this.Uprice.FillWeight = 101.4096F;
+            this.Uprice.HeaderText = "Unit Price";
+            this.Uprice.Name = "Uprice";
+            this.Uprice.ReadOnly = true;
+            // 
+            // total
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            this.total.DefaultCellStyle = dataGridViewCellStyle1;
+            this.total.FillWeight = 109.0154F;
+            this.total.HeaderText = "Total Price";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
@@ -194,6 +234,7 @@
             this.button2.TabIndex = 22;
             this.button2.Text = "C l e a r";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -573,46 +614,6 @@
             this.metroLabel11.TabIndex = 16;
             this.metroLabel11.Text = "Item Search";
             this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // No
-            // 
-            this.No.FillWeight = 34.63671F;
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            // 
-            // Dis
-            // 
-            this.Dis.FillWeight = 203.0455F;
-            this.Dis.HeaderText = "Discription";
-            this.Dis.Name = "Dis";
-            this.Dis.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.FillWeight = 51.89243F;
-            this.Qty.HeaderText = "Quentity";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            // 
-            // Uprice
-            // 
-            this.Uprice.FillWeight = 101.4096F;
-            this.Uprice.HeaderText = "Unit Price";
-            this.Uprice.Name = "Uprice";
-            this.Uprice.ReadOnly = true;
-            // 
-            // total
-            // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            this.total.DefaultCellStyle = dataGridViewCellStyle1;
-            this.total.FillWeight = 109.0154F;
-            this.total.HeaderText = "Total Price";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
             // 
             // wholesale
             // 

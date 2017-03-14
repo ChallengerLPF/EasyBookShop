@@ -122,5 +122,30 @@ namespace EasyBookShop.com.easy.view
 
             txt_nettotal.Text = nettotal.ToString();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ClearGrid(datagrid_bill);
+            ClearAllText(this);
+        }
+
+        public void ClearGrid(DataGridView grid)
+        {
+            if (grid.RowCount > 0)
+            {
+                grid.Rows.Clear();
+            }
+        }
+
+        void ClearAllText(Control obj)
+        {
+            foreach (Control c in obj.Controls)
+            {
+                if (c is TextBox)
+                    ((TextBox)c).Clear();
+                else
+                    ClearAllText(c);
+            }
+        }
     }
 }

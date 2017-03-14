@@ -24,3 +24,4 @@ G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csp
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.MainWindow.resources
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.wholesale.resources
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.DB_Settings.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.Perchuspopup.resources

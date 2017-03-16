@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 
-namespace EasyBookShop
+namespace EasyBookShop.controllers
 {
-    public class ItemsContext:DbContext
+    interface IController
     {
+        //List<?> findAll();
     }
 }

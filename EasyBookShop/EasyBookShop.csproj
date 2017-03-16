@@ -47,10 +47,7 @@
     <Reference Include="MetroFramework.Fonts">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,39 +63,103 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="controllers\IController.cs" />
+    <Compile Include="controllers\SubCategoryController.cs" />
+    <Compile Include="controllers\CategoryController.cs" />
+    <Compile Include="controllers\ItemController.cs" />
+    <Compile Include="controllers\UsersController.cs" />
+    <Compile Include="views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemsContext.cs" />
-    <Compile Include="ItemsController.cs" />
-    <Compile Include="ItemsModel.cs" />
-    <Compile Include="ItemsView.cs">
-      <SubType>Form</SubType>
+    <Compile Include="models\categories_sub_categories.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="ItemsView.Designer.cs">
-      <DependentUpon>ItemsView.cs</DependentUpon>
+    <Compile Include="models\category.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
+    <Compile Include="models\cheque.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\customer.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\DbEasyBookShop.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>DbEasyBookShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\DbEasyBookShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\DbEasyBookShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbEasyBookShop.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="models\item.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\item_variants.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\login.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\retail_invoices.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\retail_invoice_items.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\retail_returns.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\role.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\sub_categories.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\user.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\users_roles.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\voucher.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\voucher_sales.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\wholesale_invoices.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\wholesale_invoice_items.cs">
+      <DependentUpon>DbEasyBookShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Retail Invoice.cs">
+    <Compile Include="views\RetailInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Retail Invoice.Designer.cs">
-      <DependentUpon>Retail Invoice.cs</DependentUpon>
+    <Compile Include="views\RetailInvoice.Designer.cs">
+      <DependentUpon>RetailInvoice.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="utilities\NotificationException.cs" />
+    <Compile Include="views\NewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\NewItem.Designer.cs">
+      <DependentUpon>NewItem.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ItemsView.resx">
-      <DependentUpon>ItemsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,15 +170,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Retail Invoice.resx">
-      <DependentUpon>Retail Invoice.cs</DependentUpon>
+    <EmbeddedResource Include="views\RetailInvoice.resx">
+      <DependentUpon>RetailInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
+    <EmbeddedResource Include="views\NewItem.resx">
+      <DependentUpon>NewItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="models\DbEasyBookShop.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DbEasyBookShop.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="models\DbEasyBookShop.edmx.diagram">
+      <DependentUpon>DbEasyBookShop.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -132,6 +196,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="models\DbEasyBookShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbEasyBookShop.edmx</DependentUpon>
+      <LastGenOutput>DbEasyBookShop.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="models\DbEasyBookShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbEasyBookShop.edmx</DependentUpon>
+      <LastGenOutput>DbEasyBookShop.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="items" Relationship="Self.fk_cat" FromRole="categories" ToRole="items" />
+    <NavigationProperty Name="categories_sub_categories" Relationship="Self.fk_categories_has_sub_categories_categories1" FromRole="categories" ToRole="categories_sub_categories" />
+  </EntityType>
+  <EntityType Name="categories_sub_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category" Type="Int32" />
+    <Property Name="sub_category" Type="Int32" />
+    <NavigationProperty Name="category1" Relationship="Self.fk_categories_has_sub_categories_categories1" FromRole="categories_sub_categories" ToRole="categories" />
+    <NavigationProperty Name="sub_categories" Relationship="Self.fk_categories_has_sub_categories_sub_categories1" FromRole="categories_sub_categories" ToRole="sub_categories" />
+  </EntityType>
+  <EntityType Name="cheque">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="date" Type="DateTime" />
+    <NavigationProperty Name="wholesale_invoices" Relationship="Self.fk_cheque1" FromRole="cheques" ToRole="wholesale_invoices" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone_no" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="full_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="level" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="retail_invoices" Relationship="Self.fk_cus" FromRole="customers" ToRole="retail_invoices" />
+    <NavigationProperty Name="wholesale_invoices" Relationship="Self.fk_cus1" FromRole="customers" ToRole="wholesale_invoices" />
+    <NavigationProperty Name="voucher_sales" Relationship="Self.fk_cus32" FromRole="customers" ToRole="voucher_sales" />
+  </EntityType>
+  <EntityType Name="item_variants">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="items_id" Type="Int32" />
+    <Property Name="bought_price" Type="Decimal" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="item" Relationship="Self.fk_item_variants_items" FromRole="item_variants" ToRole="items" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="barcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="retail_price" Type="Decimal" />
+    <Property Name="wholesale_price" Type="Decimal" />
+    <Property Name="special_price" Type="Decimal" />
+    <Property Name="last_price" Type="Decimal" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="discount" Type="Decimal" />
+    <Property Name="pack_size" Type="Int32" />
+    <Property Name="pack_price" Type="Decimal" />
+    <Property Name="category" Type="Int32" />
+    <Property Name="sub_category" Type="Int32" />
+    <Property Name="last_updated" Type="DateTime" />
+    <Property Name="deleted" Type="Boolean" />
+    <NavigationProperty Name="category1" Relationship="Self.fk_cat" FromRole="items" ToRole="categories" />
+    <NavigationProperty Name="item_variants" Relationship="Self.fk_item_variants_items" FromRole="items" ToRole="item_variants" />
+    <NavigationProperty Name="retail_invoice_items" Relationship="Self.fk_item" FromRole="items" ToRole="retail_invoice_items" />
+    <NavigationProperty Name="wholesale_invoice_items" Relationship="Self.fk_item0" FromRole="items" ToRole="wholesale_invoice_items" />
+    <NavigationProperty Name="retail_returns" Relationship="Self.fk_item112" FromRole="items" ToRole="retail_returns" />
+    <NavigationProperty Name="sub_categories" Relationship="Self.fk_sub_cat" FromRole="items" ToRole="sub_categories" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user" Type="Int32" />
+    <Property Name="login_datetime" Type="DateTime" />
+    <Property Name="logout_datetime" Type="DateTime" />
+    <NavigationProperty Name="user1" Relationship="Self.fk_userr" FromRole="logins" ToRole="users" />
+  </EntityType>
+  <EntityType Name="retail_invoice_items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="invoice" Type="Int32" />
+    <Property Name="item" Type="Int32" />
+    <Property Name="quantity" Type="Decimal" />
+    <Property Name="unit_price" Type="Decimal" />
+    <Property Name="discount" Type="Decimal" />
+    <NavigationProperty Name="item1" Relationship="Self.fk_item" FromRole="retail_invoice_items" ToRole="items" />
+    <NavigationProperty Name="retail_invoices" Relationship="Self.fk_invoice" FromRole="retail_invoice_items" ToRole="retail_invoices" />
+  </EntityType>
+  <EntityType Name="retail_invoices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer" Type="Int32" />
+    <Property Name="date" Type="DateTime" />
+    <Property Name="discount" Type="Decimal" />
+    <Property Name="total" Type="Decimal" />
+    <Property Name="customer_level" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cashier" Type="Int32" />
+    <NavigationProperty Name="customer1" Relationship="Self.fk_cus" FromRole="retail_invoices" ToRole="customers" />
+    <NavigationProperty Name="retail_invoice_items" Relationship="Self.fk_invoice" FromRole="retail_invoices" ToRole="retail_invoice_items" />
+    <NavigationProperty Name="user" Relationship="Self.fk_cashier" FromRole="retail_invoices" ToRole="users" />
+    <NavigationProperty Name="retail_returns" Relationship="Self.fk_invoice112" FromRole="retail_invoices" ToRole="retail_returns" />
+  </EntityType>
+  <EntityType Name="retail_returns">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="item" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="relevant_invoice" Type="Int32" />
+    <Property Name="cashier" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="item1" Relationship="Self.fk_item112" FromRole="retail_returns" ToRole="items" />
+    <NavigationProperty Name="retail_invoices" Relationship="Self.fk_invoice112" FromRole="retail_returns" ToRole="retail_invoices" />
+    <NavigationProperty Name="user" Relationship="Self.fk_cashier112" FromRole="retail_returns" ToRole="users" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="level" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users_roles" Relationship="Self.fk_role" FromRole="roles" ToRole="users_roles" />
+  </EntityType>
+  <EntityType Name="sub_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="categories_sub_categories" Relationship="Self.fk_categories_has_sub_categories_sub_categories1" FromRole="sub_categories" ToRole="categories_sub_categories" />
+    <NavigationProperty Name="items" Relationship="Self.fk_sub_cat" FromRole="sub_categories" ToRole="items" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="logins" Relationship="Self.fk_userr" FromRole="users" ToRole="logins" />
+    <NavigationProperty Name="retail_invoices" Relationship="Self.fk_cashier" FromRole="users" ToRole="retail_invoices" />
+    <NavigationProperty Name="retail_returns" Relationship="Self.fk_cashier112" FromRole="users" ToRole="retail_returns" />
+    <NavigationProperty Name="voucher_sales" Relationship="Self.fk_cash32" FromRole="users" ToRole="voucher_sales" />
+    <NavigationProperty Name="wholesale_invoices" Relationship="Self.fk_cashier1" FromRole="users" ToRole="wholesale_invoices" />
+    <NavigationProperty Name="users_roles" Relationship="Self.fk_user" FromRole="users" ToRole="users_roles" />
+  </EntityType>
+  <EntityType Name="users_roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user" Type="Int32" />
+    <Property Name="role" Type="Int32" />
+    <NavigationProperty Name="role1" Relationship="Self.fk_role" FromRole="users_roles" ToRole="roles" />
+    <NavigationProperty Name="user1" Relationship="Self.fk_user" FromRole="users_roles" ToRole="users" />
+  </EntityType>
+  <EntityType Name="voucher_sales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="voucher" Type="Int32" />
+    <Property Name="customer" Type="Int32" />
+    <Property Name="cashier" Type="Int32" />
+    <Property Name="date" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="customer1" Relationship="Self.fk_cus32" FromRole="voucher_sales" ToRole="customers" />
+    <NavigationProperty Name="user" Relationship="Self.fk_cash32" FromRole="voucher_sales" ToRole="users" />
+    <NavigationProperty Name="voucher1" Relationship="Self.fk_vou32" FromRole="voucher_sales" ToRole="vouchers" />
+  </EntityType>
+  <EntityType Name="voucher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="validity_period" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="voucher_sales" Relationship="Self.fk_vou32" FromRole="vouchers" ToRole="voucher_sales" />
+  </EntityType>
+  <EntityType Name="wholesale_invoice_items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="invoice" Type="Int32" />
+    <Property Name="item" Type="Int32" />
+    <Property Name="quantity" Type="Decimal" />
+    <Property Name="unit_price" Type="Decimal" />
+    <Property Name="discount" Type="Decimal" />
+    <NavigationProperty Name="item1" Relationship="Self.fk_item0" FromRole="wholesale_invoice_items" ToRole="items" />
+    <NavigationProperty Name="wholesale_invoices" Relationship="Self.fk_invoice0" FromRole="wholesale_invoice_items" ToRole="wholesale_invoices" />
+  </EntityType>
+  <EntityType Name="wholesale_invoices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer" Type="Int32" />
+    <Property Name="date" Type="DateTime" />
+    <Property Name="discount" Type="Decimal" />
+    <Property Name="total" Type="Decimal" />
+    <Property Name="customer_level" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="cashier" Type="Int32" />
+    <Property Name="method" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="cheque" Type="Int32" />
+    <NavigationProperty Name="cheque1" Relationship="Self.fk_cheque1" FromRole="wholesale_invoices" ToRole="cheques" />
+    <NavigationProperty Name="customer1" Relationship="Self.fk_cus1" FromRole="wholesale_invoices" ToRole="customers" />
+    <NavigationProperty Name="user" Relationship="Self.fk_cashier1" FromRole="wholesale_invoices" ToRole="users" />
+    <NavigationProperty Name="wholesale_invoice_items" Relationship="Self.fk_invoice0" FromRole="wholesale_invoices" ToRole="wholesale_invoice_items" />
+  </EntityType>
+  <Association Name="fk_cat">
+    <End Role="categories" Type="Self.category" Multiplicity="0..1" />
+    <End Role="items" Type="Self.item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_categories_has_sub_categories_categories1">
+    <End Role="categories" Type="Self.category" Multiplicity="0..1" />
+    <End Role="categories_sub_categories" Type="Self.categories_sub_categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="categories_sub_categories">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_categories_has_sub_categories_sub_categories1">
+    <End Role="sub_categories" Type="Self.sub_categories" Multiplicity="0..1" />
+    <End Role="categories_sub_categories" Type="Self.categories_sub_categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sub_categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="categories_sub_categories">
+        <PropertyRef Name="sub_category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cheque1">
+    <End Role="cheques" Type="Self.cheque" Multiplicity="0..1" />
+    <End Role="wholesale_invoices" Type="Self.wholesale_invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cheques">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wholesale_invoices">
+        <PropertyRef Name="cheque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cus">
+    <End Role="customers" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="retail_invoices" Type="Self.retail_invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="retail_invoices">
+        <PropertyRef Name="customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cus1">
+    <End Role="customers" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="wholesale_invoices" Type="Self.wholesale_invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wholesale_invoices">
+        <PropertyRef Name="customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cus32">
+    <End Role="customers" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="voucher_sales" Type="Self.voucher_sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="voucher_sales">
+        <PropertyRef Name="customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_variants_items">
+    <End Role="items" Type="Self.item" Multiplicity="0..1" />
+    <End Role="item_variants" Type="Self.item_variants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="item_variants">
+        <PropertyRef Name="items_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item">
+    <End Role="items" Type="Self.item" Multiplicity="0..1" />
+    <End Role="retail_invoice_items" Type="Self.retail_invoice_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="retail_invoice_items">
+        <PropertyRef Name="item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item0">
+    <End Role="items" Type="Self.item" Multiplicity="0..1" />
+    <End Role="wholesale_invoice_items" Type="Self.wholesale_invoice_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wholesale_invoice_items">
+        <PropertyRef Name="item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item112">
+    <End Role="items" Type="Self.item" Multiplicity="0..1" />
+    <End Role="retail_returns" Type="Self.retail_returns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="retail_returns">
+        <PropertyRef Name="item" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_sub_cat">
+    <End Role="sub_categories" Type="Self.sub_categories" Multiplicity="0..1" />
+    <End Role="items" Type="Self.item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sub_categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="items">
+        <PropertyRef Name="sub_category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_userr">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="logins" Type="Self.login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="logins">
+        <PropertyRef Name="user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_invoice">
+    <End Role="retail_invoices" Type="Self.retail_invoices" Multiplicity="0..1" />
+    <End Role="retail_invoice_items" Type="Self.retail_invoice_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="retail_invoices">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="retail_invoice_items">
+        <PropertyRef Name="invoice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cashier">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="retail_invoices" Type="Self.retail_invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="retail_invoices">
+        <PropertyRef Name="cashier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_invoice112">
+    <End Role="retail_invoices" Type="Self.retail_invoices" Multiplicity="0..1" />
+    <End Role="retail_returns" Type="Self.retail_returns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="retail_invoices">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="retail_returns">
+        <PropertyRef Name="relevant_invoice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cashier112">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="retail_returns" Type="Self.retail_returns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="retail_returns">
+        <PropertyRef Name="cashier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_role">
+    <End Role="roles" Type="Self.role" Multiplicity="0..1" />
+    <End Role="users_roles" Type="Self.users_roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users_roles">
+        <PropertyRef Name="role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cash32">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="voucher_sales" Type="Self.voucher_sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="voucher_sales">
+        <PropertyRef Name="cashier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cashier1">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="wholesale_invoices" Type="Self.wholesale_invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wholesale_invoices">
+        <PropertyRef Name="cashier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_user">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="users_roles" Type="Self.users_roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users_roles">
+        <PropertyRef Name="user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_vou32">
+    <End Role="vouchers" Type="Self.voucher" Multiplicity="0..1" />
+    <End Role="voucher_sales" Type="Self.voucher_sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vouchers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="voucher_sales">
+        <PropertyRef Name="voucher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_invoice0">
+    <End Role="wholesale_invoices" Type="Self.wholesale_invoices" Multiplicity="0..1" />
+    <End Role="wholesale_invoice_items" Type="Self.wholesale_invoice_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wholesale_invoices">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wholesale_invoice_items">
+        <PropertyRef Name="invoice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbCon" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="categories_sub_categories" EntityType="Self.categories_sub_categories" />
+    <EntitySet Name="cheques" EntityType="Self.cheque" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="item_variants" EntityType="Self.item_variants" />
+    <EntitySet Name="items" EntityType="Self.item" />
+    <EntitySet Name="logins" EntityType="Self.login" />
+    <EntitySet Name="retail_invoice_items" EntityType="Self.retail_invoice_items" />
+    <EntitySet Name="retail_invoices" EntityType="Self.retail_invoices" />
+    <EntitySet Name="retail_returns" EntityType="Self.retail_returns" />
+    <EntitySet Name="roles" EntityType="Self.role" />
+    <EntitySet Name="sub_categories" EntityType="Self.sub_categories" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="users_roles" EntityType="Self.users_roles" />
+    <EntitySet Name="voucher_sales" EntityType="Self.voucher_sales" />
+    <EntitySet Name="vouchers" EntityType="Self.voucher" />
+    <EntitySet Name="wholesale_invoice_items" EntityType="Self.wholesale_invoice_items" />
+    <EntitySet Name="wholesale_invoices" EntityType="Self.wholesale_invoices" />
+    <AssociationSet Name="fk_cat" Association="Self.fk_cat">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="fk_categories_has_sub_categories_categories1" Association="Self.fk_categories_has_sub_categories_categories1">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="categories_sub_categories" EntitySet="categories_sub_categories" />
+    </AssociationSet>
+    <AssociationSet Name="fk_categories_has_sub_categories_sub_categories1" Association="Self.fk_categories_has_sub_categories_sub_categories1">
+      <End Role="sub_categories" EntitySet="sub_categories" />
+      <End Role="categories_sub_categories" EntitySet="categories_sub_categories" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cheque1" Association="Self.fk_cheque1">
+      <End Role="cheques" EntitySet="cheques" />
+      <End Role="wholesale_invoices" EntitySet="wholesale_invoices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cus" Association="Self.fk_cus">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="retail_invoices" EntitySet="retail_invoices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cus1" Association="Self.fk_cus1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="wholesale_invoices" EntitySet="wholesale_invoices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cus32" Association="Self.fk_cus32">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="voucher_sales" EntitySet="voucher_sales" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_variants_items" Association="Self.fk_item_variants_items">
+      <End Role="items" EntitySet="items" />
+      <End Role="item_variants" EntitySet="item_variants" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item" Association="Self.fk_item">
+      <End Role="items" EntitySet="items" />
+      <End Role="retail_invoice_items" EntitySet="retail_invoice_items" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item0" Association="Self.fk_item0">
+      <End Role="items" EntitySet="items" />
+      <End Role="wholesale_invoice_items" EntitySet="wholesale_invoice_items" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item112" Association="Self.fk_item112">
+      <End Role="items" EntitySet="items" />
+      <End Role="retail_returns" EntitySet="retail_returns" />
+    </AssociationSet>
+    <AssociationSet Name="fk_sub_cat" Association="Self.fk_sub_cat">
+      <End Role="sub_categories" EntitySet="sub_categories" />
+      <End Role="items" EntitySet="items" />
+    </AssociationSet>
+    <AssociationSet Name="fk_userr" Association="Self.fk_userr">
+      <End Role="users" EntitySet="users" />
+      <End Role="logins" EntitySet="logins" />
+    </AssociationSet>
+    <AssociationSet Name="fk_invoice" Association="Self.fk_invoice">
+      <End Role="retail_invoices" EntitySet="retail_invoices" />
+      <End Role="retail_invoice_items" EntitySet="retail_invoice_items" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cashier" Association="Self.fk_cashier">
+      <End Role="users" EntitySet="users" />
+      <End Role="retail_invoices" EntitySet="retail_invoices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_invoice112" Association="Self.fk_invoice112">
+      <End Role="retail_invoices" EntitySet="retail_invoices" />
+      <End Role="retail_returns" EntitySet="retail_returns" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cashier112" Association="Self.fk_cashier112">
+      <End Role="users" EntitySet="users" />
+      <End Role="retail_returns" EntitySet="retail_returns" />
+    </AssociationSet>
+    <AssociationSet Name="fk_role" Association="Self.fk_role">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users_roles" EntitySet="users_roles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cash32" Association="Self.fk_cash32">
+      <End Role="users" EntitySet="users" />
+      <End Role="voucher_sales" EntitySet="voucher_sales" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cashier1" Association="Self.fk_cashier1">
+      <End Role="users" EntitySet="users" />
+      <End Role="wholesale_invoices" EntitySet="wholesale_invoices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_user" Association="Self.fk_user">
+      <End Role="users" EntitySet="users" />
+      <End Role="users_roles" EntitySet="users_roles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_vou32" Association="Self.fk_vou32">
+      <End Role="vouchers" EntitySet="vouchers" />
+      <End Role="voucher_sales" EntitySet="voucher_sales" />
+    </AssociationSet>
+    <AssociationSet Name="fk_invoice0" Association="Self.fk_invoice0">
+      <End Role="wholesale_invoices" EntitySet="wholesale_invoices" />
+      <End Role="wholesale_invoice_items" EntitySet="wholesale_invoice_items" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wholesale));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_id = new System.Windows.Forms.Label();
             this.btn_sell = new System.Windows.Forms.Button();
@@ -146,11 +146,13 @@
             // 
             // txt_nettotal
             // 
+            this.txt_nettotal.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_nettotal.Location = new System.Drawing.Point(352, 632);
             this.txt_nettotal.Name = "txt_nettotal";
             this.txt_nettotal.ReadOnly = true;
             this.txt_nettotal.Size = new System.Drawing.Size(294, 30);
             this.txt_nettotal.TabIndex = 26;
+            this.txt_nettotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // metroLabel13
             // 
@@ -191,8 +193,8 @@
             this.total});
             this.datagrid_bill.Location = new System.Drawing.Point(3, 203);
             this.datagrid_bill.Name = "datagrid_bill";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datagrid_bill.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datagrid_bill.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.datagrid_bill.RowTemplate.Height = 30;
             this.datagrid_bill.Size = new System.Drawing.Size(789, 423);
             this.datagrid_bill.TabIndex = 23;
@@ -230,11 +232,11 @@
             // 
             // total
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            this.total.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(1);
+            this.total.DefaultCellStyle = dataGridViewCellStyle9;
             this.total.FillWeight = 109.0154F;
             this.total.HeaderText = "Total Price";
             this.total.Name = "total";
@@ -274,11 +276,13 @@
             // 
             // txt_orprice
             // 
+            this.txt_orprice.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_orprice.Location = new System.Drawing.Point(520, 112);
             this.txt_orprice.Name = "txt_orprice";
             this.txt_orprice.ReadOnly = true;
             this.txt_orprice.Size = new System.Drawing.Size(260, 30);
             this.txt_orprice.TabIndex = 20;
+            this.txt_orprice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // metroLabel8
             // 
@@ -308,10 +312,12 @@
             // 
             // txt_qty
             // 
+            this.txt_qty.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_qty.Location = new System.Drawing.Point(365, 112);
             this.txt_qty.Name = "txt_qty";
             this.txt_qty.Size = new System.Drawing.Size(128, 30);
             this.txt_qty.TabIndex = 18;
+            this.txt_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // metroLabel10
             // 
@@ -328,18 +334,22 @@
             // 
             // txt_dis
             // 
+            this.txt_dis.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_dis.Location = new System.Drawing.Point(12, 112);
             this.txt_dis.Name = "txt_dis";
             this.txt_dis.Size = new System.Drawing.Size(325, 30);
             this.txt_dis.TabIndex = 16;
+            this.txt_dis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_selprice
             // 
+            this.txt_selprice.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_selprice.Location = new System.Drawing.Point(520, 36);
             this.txt_selprice.Name = "txt_selprice";
             this.txt_selprice.ReadOnly = true;
             this.txt_selprice.Size = new System.Drawing.Size(260, 30);
             this.txt_selprice.TabIndex = 14;
+            this.txt_selprice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // metroLabel3
             // 
@@ -356,10 +366,12 @@
             // 
             // txt_rqty
             // 
+            this.txt_rqty.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_rqty.Location = new System.Drawing.Point(365, 36);
             this.txt_rqty.Name = "txt_rqty";
             this.txt_rqty.Size = new System.Drawing.Size(128, 30);
             this.txt_rqty.TabIndex = 6;
+            this.txt_rqty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // metroLabel1
             // 
@@ -376,10 +388,12 @@
             // 
             // txt_icode
             // 
+            this.txt_icode.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_icode.Location = new System.Drawing.Point(12, 36);
             this.txt_icode.Name = "txt_icode";
             this.txt_icode.Size = new System.Drawing.Size(325, 30);
             this.txt_icode.TabIndex = 4;
+            this.txt_icode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_icode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBox1_KeyPress);
             this.txt_icode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_icode_KeyUp);
             // 
@@ -511,10 +525,12 @@
             // 
             // cus_nic
             // 
+            this.cus_nic.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.cus_nic.Location = new System.Drawing.Point(228, 12);
             this.cus_nic.Name = "cus_nic";
             this.cus_nic.Size = new System.Drawing.Size(292, 30);
             this.cus_nic.TabIndex = 8;
+            this.cus_nic.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cus_nic.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metroTextBox3_KeyUp);
             // 
             // panel4
@@ -533,11 +549,11 @@
             // 
             // datagrid_srch
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.datagrid_srch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.datagrid_srch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.datagrid_srch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagrid_srch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagrid_srch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -545,14 +561,14 @@
             this.clm_brand,
             this.clm_qty,
             this.clm_price});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagrid_srch.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagrid_srch.DefaultCellStyle = dataGridViewCellStyle12;
             this.datagrid_srch.Location = new System.Drawing.Point(4, 76);
             this.datagrid_srch.Name = "datagrid_srch";
             this.datagrid_srch.RowTemplate.Height = 30;

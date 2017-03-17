@@ -17,11 +17,13 @@ namespace EasyBookShop.com.easy.view
     {
         Spliter sp = new Spliter();
         int customer;
+        String cuslevel;
+        List<String[]> items = new List<string[]>();
 
         public Perchuspopup()
         {
             InitializeComponent();
-            SetBillNo();
+            
         }
 
         public void getdata(String[] data, String total)
@@ -54,7 +56,7 @@ namespace EasyBookShop.com.easy.view
 
         }
 
-        private void SetBillNo()
+        public void SetBill(wholesale obj)
         {
             Perchuspopup_controaler ppc = new Perchuspopup_controaler();
             Puschespopup pp=ppc.setbilno();
@@ -62,23 +64,36 @@ namespace EasyBookShop.com.easy.view
             int id=pp.Id;
             
             txt_bno.Text = id.ToString();
+
+            txt_nettotal.Text = obj.txt_nettotal.Text;
+
+            /*assining values*/
+            this.items = obj.item;
+            String cus=obj.lbl_cno.Text;
+            customer = int.Parse(cus.Substring(13, (cus.Length-13)));
+            cuslevel = obj.lbl_level.Text;
+
+            txt_cusno.Text = customer.ToString();
+
+
         }
 
-        public void insert_invoice(wholesale obj)
+        public void insert_invoice()
         {
 
             /*get user*/
             String user = MainWindow.user;
             char[] chaeset = { '[', ']' };
-            String[] rtxt = sp.Split_text(user,chaeset);
+            String[] rtxt = sp.Split_text(user, chaeset);
 
+            
             /*set model object...*/
             Puschespopup pup = new Puschespopup();
-            pup.Total = Convert.ToDecimal(obj.txt_nettotal.Text);
-            pup.Cus = int.Parse(obj.lbl_cno.Text);
-            pup.Cashire=int.Parse(rtxt[1]);
-            pup.Cuslevel = obj.lbl_level.Text;
+            pup.Total = decimal.Parse(txt_nettotal.Text);
+            pup.Cus = customer;
+            pup.Cuslevel = cuslevel;
             pup.Method="cash";
+            pup.Cashire = int.Parse(rtxt[1]);
 
             /*set controller object...*/
             Perchuspopup_controaler ppc = new Perchuspopup_controaler();
@@ -90,7 +105,54 @@ namespace EasyBookShop.com.easy.view
 
         private void btn_sell_Click(object sender, EventArgs e)
         {
+            try
+            {
+                insert_invoice();
+                add_invoice_items();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
+        }
+
+        private void txt_pmnt_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                decimal total = decimal.Parse(txt_nettotal.Text);
+                decimal payment = decimal.Parse(txt_pmnt.Text);
+
+                decimal balance = payment - total;
+
+                txt_balance.Text = balance.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Invalide Number");
+                txt_pmnt.Text = "";
+            }
+            
+
+        }
+
+        private void add_invoice_items()
+        {
+            Perchuspopup_controaler ppc = new Perchuspopup_controaler();
+            Puschespopup pup = new Puschespopup();
+
+            foreach(String[] item in items){
+
+                pup.Id = int.Parse(txt_bno.Text);
+                pup.Item = int.Parse(item[3]);
+                pup.Qty = int.Parse(item[1]);
+                pup.Uprice=decimal.Parse(item[2]);
+
+                
+                ppc.insert_items(pup);
+
+            }
         }
     }
 }

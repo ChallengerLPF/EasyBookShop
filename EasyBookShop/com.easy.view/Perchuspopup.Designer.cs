@@ -33,17 +33,17 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txt_bno = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_nettotal = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_pmnt = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_sell = new System.Windows.Forms.Button();
-            this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_balance = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_cusno = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -97,12 +97,12 @@
             this.txt_bno.Size = new System.Drawing.Size(247, 30);
             this.txt_bno.TabIndex = 13;
             // 
-            // metroTextBox1
+            // txt_nettotal
             // 
-            this.metroTextBox1.Location = new System.Drawing.Point(120, 126);
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.Size = new System.Drawing.Size(247, 30);
-            this.metroTextBox1.TabIndex = 15;
+            this.txt_nettotal.Location = new System.Drawing.Point(120, 126);
+            this.txt_nettotal.Name = "txt_nettotal";
+            this.txt_nettotal.Size = new System.Drawing.Size(247, 30);
+            this.txt_nettotal.TabIndex = 15;
             // 
             // metroLabel2
             // 
@@ -119,12 +119,13 @@
             this.metroLabel2.Text = "Net Total Rs";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // metroTextBox2
+            // txt_pmnt
             // 
-            this.metroTextBox2.Location = new System.Drawing.Point(120, 162);
-            this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.Size = new System.Drawing.Size(247, 30);
-            this.metroTextBox2.TabIndex = 17;
+            this.txt_pmnt.Location = new System.Drawing.Point(120, 162);
+            this.txt_pmnt.Name = "txt_pmnt";
+            this.txt_pmnt.Size = new System.Drawing.Size(247, 30);
+            this.txt_pmnt.TabIndex = 17;
+            this.txt_pmnt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_pmnt_KeyUp);
             // 
             // metroLabel3
             // 
@@ -187,12 +188,12 @@
             this.btn_sell.UseVisualStyleBackColor = false;
             this.btn_sell.Click += new System.EventHandler(this.btn_sell_Click);
             // 
-            // metroTextBox3
+            // txt_balance
             // 
-            this.metroTextBox3.Location = new System.Drawing.Point(120, 198);
-            this.metroTextBox3.Name = "metroTextBox3";
-            this.metroTextBox3.Size = new System.Drawing.Size(247, 30);
-            this.metroTextBox3.TabIndex = 30;
+            this.txt_balance.Location = new System.Drawing.Point(120, 198);
+            this.txt_balance.Name = "txt_balance";
+            this.txt_balance.Size = new System.Drawing.Size(247, 30);
+            this.txt_balance.TabIndex = 30;
             // 
             // button3
             // 
@@ -213,30 +214,30 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel2.Controls.Add(this.metroTextBox4);
+            this.panel2.Controls.Add(this.txt_cusno);
             this.panel2.Controls.Add(this.metroLabel6);
             this.panel2.Controls.Add(this.txt_bno);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.metroLabel4);
             this.panel2.Controls.Add(this.metroLabel1);
-            this.panel2.Controls.Add(this.metroTextBox3);
+            this.panel2.Controls.Add(this.txt_balance);
             this.panel2.Controls.Add(this.metroLabel2);
             this.panel2.Controls.Add(this.metroLabel5);
-            this.panel2.Controls.Add(this.metroTextBox1);
+            this.panel2.Controls.Add(this.txt_nettotal);
             this.panel2.Controls.Add(this.metroLabel3);
-            this.panel2.Controls.Add(this.metroTextBox2);
+            this.panel2.Controls.Add(this.txt_pmnt);
             this.panel2.Location = new System.Drawing.Point(0, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(380, 243);
             this.panel2.TabIndex = 35;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // metroTextBox4
+            // txt_cusno
             // 
-            this.metroTextBox4.Location = new System.Drawing.Point(120, 94);
-            this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.Size = new System.Drawing.Size(247, 30);
-            this.metroTextBox4.TabIndex = 32;
+            this.txt_cusno.Location = new System.Drawing.Point(120, 94);
+            this.txt_cusno.Name = "txt_cusno";
+            this.txt_cusno.Size = new System.Drawing.Size(247, 30);
+            this.txt_cusno.TabIndex = 32;
             // 
             // metroLabel6
             // 
@@ -306,19 +307,19 @@
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txt_bno;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox txt_nettotal;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroTextBox txt_pmnt;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_sell;
-        private MetroFramework.Controls.MetroTextBox metroTextBox3;
+        private MetroFramework.Controls.MetroTextBox txt_balance;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox4;
+        private MetroFramework.Controls.MetroTextBox txt_cusno;
         private MetroFramework.Controls.MetroLabel metroLabel6;
     }
 }

@@ -16,7 +16,7 @@ namespace EasyBookShop.com.easy.view
 {
     public partial class wholesale : UserControl
     {
-        List<String[]> item = new List<string[]>();
+        public List<String[]> item = new List<string[]>();
         
         MainWindow mw = new MainWindow();
         public wholesale()
@@ -224,7 +224,7 @@ namespace EasyBookShop.com.easy.view
             
             Perchuspopup pup = new Perchuspopup();
             pup.Show();
-            pup.insert_invoice(this);
+            pup.SetBill(this);
         }
 
         private void metroLabel14_Click(object sender, EventArgs e)

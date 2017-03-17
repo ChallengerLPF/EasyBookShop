@@ -58,12 +58,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="com.easy.controal\Customer_controal.cs" />
     <Compile Include="com.easy.controal\LoginControal.cs" />
     <Compile Include="com.easy.controal\Productcontroaler.cs" />
+    <Compile Include="com.easy.model\Customer.cs" />
     <Compile Include="com.easy.model\Login.cs" />
     <Compile Include="com.easy.model\Wholesale.cs" />
     <Compile Include="com.easy.utility\DBconnection.cs" />
     <Compile Include="com.easy.utility\Redtxt.cs" />
+    <Compile Include="com.easy.view\Customer_view.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\Customer_view.Designer.cs">
+      <DependentUpon>Customer_view.cs</DependentUpon>
+    </Compile>
     <Compile Include="com.easy.view\DB_Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +104,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="com.easy.view\Customer_view.resx">
+      <DependentUpon>Customer_view.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\DB_Settings.resx">
       <DependentUpon>DB_Settings.cs</DependentUpon>
     </EmbeddedResource>

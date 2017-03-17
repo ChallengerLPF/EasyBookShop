@@ -220,5 +220,43 @@ namespace EasyBookShop.com.easy.view
             Perchuspopup pup = new Perchuspopup();
             pup.Show();
         }
+
+        private void metroLabel14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTextBox3_KeyUp(object sender, KeyEventArgs e)
+        {
+            getcustomer();
+        }
+
+        private void getcustomer()
+        {
+            String nic = cus_nic.Text;
+
+            Customer_controal cus = new Customer_controal();
+
+            Customer cs = cus.getuser(nic);
+            Console.WriteLine(cs);
+            if (string.IsNullOrEmpty(Convert.ToString(cs)))
+            {
+                String gen = cs.Gender;
+
+                if (gen.Equals("male"))
+                {
+                    lbl_name.Text = "Mr. " + cs.Fname;
+                }
+                else
+                {
+                    lbl_name.Text = "Ms. " + cs.Fname;
+                }
+
+                String id = Convert.ToString(cs.Id);
+                lbl_cno.Text = "Customer No : " + id;
+                lbl_level.Text = cs.Level;
+            }
+            
+        }
     }
 }

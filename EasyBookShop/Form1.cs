@@ -76,16 +76,18 @@ namespace EasyBookShop
             lg.Pw = pw;
 
             LoginControal lgc = new LoginControal();
+            Login uid = lgc.logincheck(lg);
 
-
-            if (lgc.logincheck(lg))
+            if (uid.Id>0)
             {
-                MainWindow mwin = new MainWindow();
+                int id = uid.Id;
+                uname = uid.Uname;
+                MainWindow mwin = new MainWindow(id,uname);
                 mwin.Show();
             }
             else
             {
-                MessageBox.Show("User Name or Password incorrect");
+               // MessageBox.Show("User Name or Password incorrect");
             }
             
         }

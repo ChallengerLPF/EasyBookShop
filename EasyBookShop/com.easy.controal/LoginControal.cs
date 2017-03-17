@@ -13,11 +13,13 @@ namespace EasyBookShop.com.easy.controal
 {
     class LoginControal
     {
-        public bool logincheck(Login user){
+        public Login logincheck(Login user){
+
+            Login loged = new Login();
 
             try
             {
-                String sql = "select * from users where username=@uname and password=@pw";
+                String sql = "select id,username from users where username=@uname and password=@pw";
                 DBconnection db = new DBconnection();
 
                 Redtxt rdv = new Redtxt();
@@ -33,12 +35,14 @@ namespace EasyBookShop.com.easy.controal
 
                 if (reader.Read())
                 {
-                    return true;
+                    int id = (int)reader.GetValue(0);
+                    loged.Id = id;
+                    loged.Uname = (String)reader.GetValue(1);
                 }
                 else
                 {
-                    //MessageBox.Show("User Name or Password incorrect");
-                    return false;
+                    MessageBox.Show("User Name or Password incorrect");
+                    
                     
                 }
 
@@ -47,7 +51,7 @@ namespace EasyBookShop.com.easy.controal
             {
                 MessageBox.Show(e.Message);
             }
-            return false;
+            return loged;
         }
     }
 }

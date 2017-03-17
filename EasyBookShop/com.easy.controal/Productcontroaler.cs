@@ -96,7 +96,7 @@ namespace EasyBookShop.com.easy.controal
                 wl.Orprice = orprice;
                 wl.Id = id;
 
-                Console.WriteLine(wl.Dis);
+                
 
             }
            

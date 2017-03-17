@@ -10,6 +10,13 @@ namespace EasyBookShop.com.easy.model
     {
         private String uname;
         private String pw;
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public String Uname
         {

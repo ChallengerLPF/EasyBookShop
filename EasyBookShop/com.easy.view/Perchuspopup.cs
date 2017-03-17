@@ -17,6 +17,11 @@ namespace EasyBookShop.com.easy.view
             InitializeComponent();
         }
 
+        public void getdata(String[] data, String total)
+        {
+
+        }
+
         private void Perchuspopup_Load(object sender, EventArgs e)
         {
 
@@ -28,6 +33,16 @@ namespace EasyBookShop.com.easy.view
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void metroLabel6_Click(object sender, EventArgs e)
         {
 
         }

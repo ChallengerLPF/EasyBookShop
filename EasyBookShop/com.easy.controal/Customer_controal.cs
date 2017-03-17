@@ -19,10 +19,7 @@ namespace EasyBookShop.com.easy.controal
             String sql = "select id,full_name,level,gender from customers where nic=@nic";
             DBconnection db = new DBconnection();
 
-            Redtxt rdv = new Redtxt();
-            String[] list = rdv.redtext();
-
-            db.setConnecton(list[0], list[2], list[3], list[1]);
+            db.init();
             MySqlConnection con = db.getConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@nic", nic);
@@ -44,11 +41,7 @@ namespace EasyBookShop.com.easy.controal
                 cus.Gender = gen;
 
             }
-            else
-            {
-                MessageBox.Show("invalide NIC");
-            }
-
+           
             return cus;
         }
     }

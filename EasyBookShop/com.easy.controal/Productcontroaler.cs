@@ -38,7 +38,7 @@ namespace EasyBookShop.com.easy.controal
                     Wholesale wl = new Wholesale();
 
                     String dis = (String)reader.GetValue(0);
-                    String cat = (String)reader.GetValue(1);
+                    int cat = (int)reader.GetValue(1);
                     int qty = (int)reader.GetValue(2);
                     Decimal price = (Decimal)reader.GetValue(3);
 
@@ -83,7 +83,7 @@ namespace EasyBookShop.com.easy.controal
                 
 
                 String dis = (String)reader.GetValue(0);
-                String cat = (String)reader.GetValue(1);
+                int cat = (int)reader.GetValue(1);
                 int qty = (int)reader.GetValue(2);
                 Decimal price = (Decimal)reader.GetValue(3);
                 Decimal orprice = (Decimal)reader.GetValue(4);

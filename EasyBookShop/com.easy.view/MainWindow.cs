@@ -14,13 +14,11 @@ namespace EasyBookShop.com.easy.view
     {
         private int uid;
         String uname;
-        public MainWindow(int uid,String uname)
+        public static String user;
+        public MainWindow()
         {
             InitializeComponent();
-            this.uid = uid;
-            this.uname = uname;
-            lbl_user.Text = uname + " [" + uid.ToString() + "]";
-            
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -51,6 +49,14 @@ namespace EasyBookShop.com.easy.view
             Customer_view cv = new Customer_view();
             Main_Panel.Controls.Clear();
             Main_Panel.Controls.Add(cv);
+        }
+
+        public void set_user(int uid, String uname)
+        {
+            this.uid = uid;
+            this.uname = uname;
+            lbl_user.Text = uname + " [" + uid.ToString() + "]";
+            user = uname + " [" + uid.ToString() + "]";
         }
     }
 }

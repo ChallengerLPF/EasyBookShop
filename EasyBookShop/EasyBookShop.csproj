@@ -60,12 +60,16 @@
   <ItemGroup>
     <Compile Include="com.easy.controal\Customer_controal.cs" />
     <Compile Include="com.easy.controal\LoginControal.cs" />
+    <Compile Include="com.easy.controal\Perchuspopup_controaler.cs" />
     <Compile Include="com.easy.controal\Productcontroaler.cs" />
     <Compile Include="com.easy.model\Customer.cs" />
     <Compile Include="com.easy.model\Login.cs" />
+    <Compile Include="com.easy.model\Puschespopup.cs" />
     <Compile Include="com.easy.model\Wholesale.cs" />
+    <Compile Include="com.easy.model\Whole_Sale.cs" />
     <Compile Include="com.easy.utility\DBconnection.cs" />
     <Compile Include="com.easy.utility\Redtxt.cs" />
+    <Compile Include="com.easy.utility\Spliter.cs" />
     <Compile Include="com.easy.view\Customer_view.cs">
       <SubType>UserControl</SubType>
     </Compile>

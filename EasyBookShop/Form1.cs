@@ -82,7 +82,8 @@ namespace EasyBookShop
             {
                 int id = uid.Id;
                 uname = uid.Uname;
-                MainWindow mwin = new MainWindow(id,uname);
+                MainWindow mwin = new MainWindow();
+                mwin.set_user(id, uname);
                 mwin.Show();
             }
             else

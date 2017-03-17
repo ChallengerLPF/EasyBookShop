@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txt_rqty = new MetroFramework.Controls.MetroTextBox();
+            this.txt_bno = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
@@ -43,10 +43,10 @@
             this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -90,12 +90,12 @@
             this.metroLabel1.Text = "Bill No ";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // txt_rqty
+            // txt_bno
             // 
-            this.txt_rqty.Location = new System.Drawing.Point(120, 58);
-            this.txt_rqty.Name = "txt_rqty";
-            this.txt_rqty.Size = new System.Drawing.Size(247, 30);
-            this.txt_rqty.TabIndex = 13;
+            this.txt_bno.Location = new System.Drawing.Point(120, 58);
+            this.txt_bno.Name = "txt_bno";
+            this.txt_bno.Size = new System.Drawing.Size(247, 30);
+            this.txt_bno.TabIndex = 13;
             // 
             // metroTextBox1
             // 
@@ -185,6 +185,7 @@
             this.btn_sell.TabIndex = 28;
             this.btn_sell.Text = "D E R E C T   S E L L";
             this.btn_sell.UseVisualStyleBackColor = false;
+            this.btn_sell.Click += new System.EventHandler(this.btn_sell_Click);
             // 
             // metroTextBox3
             // 
@@ -214,7 +215,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Controls.Add(this.metroTextBox4);
             this.panel2.Controls.Add(this.metroLabel6);
-            this.panel2.Controls.Add(this.txt_rqty);
+            this.panel2.Controls.Add(this.txt_bno);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.metroLabel4);
             this.panel2.Controls.Add(this.metroLabel1);
@@ -229,6 +230,29 @@
             this.panel2.Size = new System.Drawing.Size(380, 243);
             this.panel2.TabIndex = 35;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // metroTextBox4
+            // 
+            this.metroTextBox4.Location = new System.Drawing.Point(120, 94);
+            this.metroTextBox4.Name = "metroTextBox4";
+            this.metroTextBox4.Size = new System.Drawing.Size(247, 30);
+            this.metroTextBox4.TabIndex = 32;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.CustomBackground = true;
+            this.metroLabel6.CustomForeColor = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel6.ForeColor = System.Drawing.Color.Black;
+            this.metroLabel6.Location = new System.Drawing.Point(6, 94);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(123, 25);
+            this.metroLabel6.TabIndex = 31;
+            this.metroLabel6.Text = "Customer No ";
+            this.metroLabel6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroLabel6.Click += new System.EventHandler(this.metroLabel6_Click);
             // 
             // panel3
             // 
@@ -258,29 +282,6 @@
             this.button1.Text = "P A Y   L A T E R";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // metroTextBox4
-            // 
-            this.metroTextBox4.Location = new System.Drawing.Point(120, 94);
-            this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.Size = new System.Drawing.Size(247, 30);
-            this.metroTextBox4.TabIndex = 32;
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.CustomBackground = true;
-            this.metroLabel6.CustomForeColor = true;
-            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.ForeColor = System.Drawing.Color.Black;
-            this.metroLabel6.Location = new System.Drawing.Point(6, 94);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(123, 25);
-            this.metroLabel6.TabIndex = 31;
-            this.metroLabel6.Text = "Customer No ";
-            this.metroLabel6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroLabel6.Click += new System.EventHandler(this.metroLabel6_Click);
-            // 
             // Perchuspopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,7 +305,7 @@
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txt_rqty;
+        private MetroFramework.Controls.MetroTextBox txt_bno;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox metroTextBox2;

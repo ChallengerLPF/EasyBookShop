@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using EasyBookShop.com.easy.controal;
 using System.Collections;
 using EasyBookShop.com.easy.model;
+using EasyBookShop.com.easy.utility;
 
 namespace EasyBookShop.com.easy.view
 {
     public partial class wholesale : UserControl
     {
         List<String[]> item = new List<string[]>();
+        
+        MainWindow mw = new MainWindow();
         public wholesale()
         {
             InitializeComponent();
@@ -187,7 +190,7 @@ namespace EasyBookShop.com.easy.view
 
         private void contextMenuStrip1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("test");
+            
             if (!this.datagrid_bill.Rows[this.rowIndex].IsNewRow)
             {
                 int row = this.rowIndex;
@@ -217,8 +220,11 @@ namespace EasyBookShop.com.easy.view
             //ClearGrid(datagrid_bill);
             //item.Clear();
 
+            
+            
             Perchuspopup pup = new Perchuspopup();
             pup.Show();
+            pup.insert_invoice(this);
         }
 
         private void metroLabel14_Click(object sender, EventArgs e)
@@ -239,9 +245,11 @@ namespace EasyBookShop.com.easy.view
 
             Customer cs = cus.getuser(nic);
             Console.WriteLine(cs);
-            if (string.IsNullOrEmpty(Convert.ToString(cs)))
-            {
+            
                 String gen = cs.Gender;
+                MessageBox.Show("Gender "+gen);
+
+            try{
 
                 if (gen.Equals("male"))
                 {
@@ -251,11 +259,17 @@ namespace EasyBookShop.com.easy.view
                 {
                     lbl_name.Text = "Ms. " + cs.Fname;
                 }
-
-                String id = Convert.ToString(cs.Id);
-                lbl_cno.Text = "Customer No : " + id;
-                lbl_level.Text = cs.Level;
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("Invalide NIC");
+            }
+                
+
+            String id = Convert.ToString(cs.Id);
+            lbl_cno.Text = "Customer No : " + id;
+            lbl_level.Text = cs.Level;
+            
             
         }
     }

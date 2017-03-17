@@ -10,7 +10,7 @@ namespace EasyBookShop.com.easy.model
     {
         private int id;
         private String dis;      
-        private String brnd;
+        private int brnd;
         private int qty;
         private Decimal price;
         private String code;
@@ -35,7 +35,7 @@ namespace EasyBookShop.com.easy.model
             set { dis = value; }
         }
 
-        public String Brnd
+        public int Brnd
         {
             get { return brnd; }
             set { brnd = value; }

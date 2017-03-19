@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EasyBookShop.views;
 
 namespace EasyBookShop
 {
@@ -20,6 +21,11 @@ namespace EasyBookShop
         private void metroTile1_Click(object sender, EventArgs e)
         {
             new Retail_Invoice().Show();
+        }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            new NewItem().Show();
         }
     }
 }

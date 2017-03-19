@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EasyBookShop.models;
 
 namespace EasyBookShop
 {
@@ -29,7 +30,7 @@ namespace EasyBookShop
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-
+            gridItemList.Rows.Add(new item());
         }
     }
 }

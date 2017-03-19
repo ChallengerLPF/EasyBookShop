@@ -80,6 +80,7 @@ namespace EasyBookShop.views
             try {
                
                 itemCtrl.create(newItem);
+                MessageBox.Show("item added");
             }
             catch(NotificationException ne) {
             
@@ -96,6 +97,21 @@ namespace EasyBookShop.views
 
 
 
+        }
+
+        private void txtRetailPrice_Leave(object sender, EventArgs e)
+        {
+
+            if(string.IsNullOrWhiteSpace(txtRetailPrice.Text))
+            {
+                MessageBox.Show("vali fail emp");
+            }
+
+
+            if(!DataTypeValidator.isOnlyAlphaNumeric(txtRetailPrice.Text))
+            {
+                MessageBox.Show("vali fail");
+            }
         }
     }
 }

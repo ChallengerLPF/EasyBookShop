@@ -68,6 +68,7 @@
     <Compile Include="controllers\CategoryController.cs" />
     <Compile Include="controllers\ItemController.cs" />
     <Compile Include="controllers\UsersController.cs" />
+    <Compile Include="utilities\DataTypeValidator.cs" />
     <Compile Include="views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

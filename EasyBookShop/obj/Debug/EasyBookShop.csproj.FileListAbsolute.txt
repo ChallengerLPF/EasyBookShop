@@ -15,28 +15,8 @@ C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookSho
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Retail_Invoice.resources
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.views.NewItem.resources
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csproj.GenerateResource.Cache
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.exe
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.pdb
-<<<<<<< HEAD
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.views.NewItem.resources
-=======
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.exe.config
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.exe
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.pdb
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.exe
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.pdb
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EntityFramework.dll
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EntityFramework.SqlServer.dll
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.Design.dll
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.dll
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.Fonts.dll
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EntityFramework.xml
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EntityFramework.SqlServer.xml
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csprojResolveAssemblyReference.cache
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.ItemsView.resources
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Retail_Invoice.resources
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csproj.GenerateResource.Cache
->>>>>>> 0b83de456d74b10f27d16b75b98fea31a8b5b7fe
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csprojResolveAssemblyReference.cache

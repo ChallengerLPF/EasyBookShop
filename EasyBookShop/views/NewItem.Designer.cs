@@ -166,7 +166,7 @@
             this.txtRetailPrice.CustomButton.UseSelectable = true;
             this.txtRetailPrice.CustomButton.Visible = false;
             this.txtRetailPrice.Lines = new string[0];
-            this.txtRetailPrice.Location = new System.Drawing.Point(386, 95);
+            this.txtRetailPrice.Location = new System.Drawing.Point(414, 95);
             this.txtRetailPrice.MaxLength = 32767;
             this.txtRetailPrice.Name = "txtRetailPrice";
             this.txtRetailPrice.PasswordChar = '\0';
@@ -180,6 +180,7 @@
             this.txtRetailPrice.UseSelectable = true;
             this.txtRetailPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtRetailPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtRetailPrice.Leave += new System.EventHandler(this.txtRetailPrice_Leave);
             // 
             // metroLabel5
             // 
@@ -244,7 +245,7 @@
             this.txtSpecialPrice.CustomButton.UseSelectable = true;
             this.txtSpecialPrice.CustomButton.Visible = false;
             this.txtSpecialPrice.Lines = new string[0];
-            this.txtSpecialPrice.Location = new System.Drawing.Point(386, 199);
+            this.txtSpecialPrice.Location = new System.Drawing.Point(414, 199);
             this.txtSpecialPrice.MaxLength = 32767;
             this.txtSpecialPrice.Name = "txtSpecialPrice";
             this.txtSpecialPrice.PasswordChar = '\0';
@@ -283,7 +284,7 @@
             this.txtLastPrice.CustomButton.UseSelectable = true;
             this.txtLastPrice.CustomButton.Visible = false;
             this.txtLastPrice.Lines = new string[0];
-            this.txtLastPrice.Location = new System.Drawing.Point(386, 246);
+            this.txtLastPrice.Location = new System.Drawing.Point(414, 246);
             this.txtLastPrice.MaxLength = 32767;
             this.txtLastPrice.Name = "txtLastPrice";
             this.txtLastPrice.PasswordChar = '\0';
@@ -322,7 +323,7 @@
             this.txtQuantity.CustomButton.UseSelectable = true;
             this.txtQuantity.CustomButton.Visible = false;
             this.txtQuantity.Lines = new string[0];
-            this.txtQuantity.Location = new System.Drawing.Point(386, 291);
+            this.txtQuantity.Location = new System.Drawing.Point(414, 291);
             this.txtQuantity.MaxLength = 32767;
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.PasswordChar = '\0';
@@ -361,7 +362,7 @@
             this.txtDiscount.CustomButton.UseSelectable = true;
             this.txtDiscount.CustomButton.Visible = false;
             this.txtDiscount.Lines = new string[0];
-            this.txtDiscount.Location = new System.Drawing.Point(386, 338);
+            this.txtDiscount.Location = new System.Drawing.Point(414, 338);
             this.txtDiscount.MaxLength = 32767;
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.PasswordChar = '\0';
@@ -400,7 +401,7 @@
             this.txtPackSize.CustomButton.UseSelectable = true;
             this.txtPackSize.CustomButton.Visible = false;
             this.txtPackSize.Lines = new string[0];
-            this.txtPackSize.Location = new System.Drawing.Point(386, 390);
+            this.txtPackSize.Location = new System.Drawing.Point(414, 390);
             this.txtPackSize.MaxLength = 32767;
             this.txtPackSize.Name = "txtPackSize";
             this.txtPackSize.PasswordChar = '\0';
@@ -439,7 +440,7 @@
             this.txtPackPrice.CustomButton.UseSelectable = true;
             this.txtPackPrice.CustomButton.Visible = false;
             this.txtPackPrice.Lines = new string[0];
-            this.txtPackPrice.Location = new System.Drawing.Point(386, 442);
+            this.txtPackPrice.Location = new System.Drawing.Point(414, 442);
             this.txtPackPrice.MaxLength = 32767;
             this.txtPackPrice.Name = "txtPackPrice";
             this.txtPackPrice.PasswordChar = '\0';

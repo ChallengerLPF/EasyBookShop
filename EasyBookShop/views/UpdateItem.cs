@@ -14,18 +14,56 @@ using MetroFramework.Controls;
 
 namespace EasyBookShop.views
 {
-    public partial class NewItem : MetroFramework.Forms.MetroForm
+    public partial class UpdateItem : MetroFramework.Forms.MetroForm
     {
-        private UpdateItem updateItemUi;
         private Color errorColor;
-        
-        public NewItem()
+        private item _item;
+        public item item 
+        { 
+        get { return _item; } 
+        set {
+                var itemCtrl = new ItemController();
+                _item = itemCtrl.findByBarcode(value.barcode);                
+
+                fillTheFields(); 
+        }
+        }
+        public UpdateItem()
         {
-            InitializeComponent();            
+            InitializeComponent();
             errorColor = Color.FromArgb(255, 205, 205);
-            btnAddItem.Enabled = false;
+            btnUpdateItem.Enabled = false;
+
             loadCategories();
             loadSubCategories();
+        }
+
+       
+        private void fillTheFields()
+        {
+            txtBarcode.Text = item.barcode;
+
+            txtRetailPrice.Text = item.retail_price.ToString();
+            txtWholesalePrice.Text = item.wholesale_price.ToString();
+            txtSpecialPrice.Text = item.special_price.ToString();
+            txtLastPrice.Text = item.last_price.ToString();
+            txtPackPrice.Text = item.pack_price.ToString();
+
+            txtQuantity.Text = item.quantity.ToString();
+            txtDiscount.Text = item.discount.ToString();
+            txtPackSize.Text = item.pack_size.ToString();
+            txtDescription.Text = item.description;
+
+            CategoryController catCtrl = new CategoryController();
+            category itemCat =  catCtrl.find(item.category.GetValueOrDefault());
+
+            //MessageBox.Show(itemCat.name);
+            listCategory.SelectedItem = itemCat;
+            //MessageBox.Show(listCategory.SelectedItem);
+            SubCategoryController subCatCtrl = new SubCategoryController();
+            sub_categories itemSubCat = subCatCtrl.find(item.sub_category.GetValueOrDefault());
+            listSubCategory.SelectedItem = itemSubCat.name;
+
         }
 
         private void loadCategories()
@@ -52,71 +90,9 @@ namespace EasyBookShop.views
 
             listSubCategory.DisplayMember = "Name";
             listSubCategory.ValueMember = "id";
-        }             
-
-        private void btnAddItem_Click(object sender, EventArgs e)
-        {
-        
-            string addItemProblem1 = "Do you want to update the existing item ?"; //when barcode is already available in the items table
-
-            ItemController itemCtrl = new ItemController();
-
-            category c = (category)listCategory.SelectedItem;
-            sub_categories sc = (sub_categories)listSubCategory.SelectedItem;
-            item newItem = new item()
-            {
-                barcode = txtBarcode.Text,
-                description = txtDescription.Text,
-                category = c.id,
-                sub_category = (int)sc.id,
-                retail_price = Convert.ToDecimal(txtRetailPrice.Text),
-                wholesale_price = Convert.ToDecimal(txtWholesalePrice.Text),
-                special_price = Convert.ToDecimal(txtSpecialPrice.Text),
-                last_price = Convert.ToDecimal(txtLastPrice.Text),
-                quantity = Convert.ToInt32(txtQuantity.Text),
-                discount = Convert.ToDecimal(txtDiscount.Text),
-                pack_size = Convert.ToInt32(txtPackSize.Text),
-                pack_price = Convert.ToInt32(txtPackPrice.Text)
-
-            };
-
-            try {               
-                itemCtrl.create(newItem);
-                MessageBox.Show("item added");
-            }
-            catch(NotificationException ne) {
-                //barcode already found
-                if(ne.alertType==NotificationException.AlertType.UNSUCCESS)
-                {
-                    DialogResult answer =  MessageBox.Show(ne.message+"."+addItemProblem1, "data error", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    
-                    if(answer == DialogResult.Yes)
-                    {
-                        //MessageBox.Show(newItem.barcode);
-                        if(updateItemUi==null ||  updateItemUi.GetType() != typeof(UpdateItem) || updateItemUi.IsDisposed) {
-                            //MessageBox.Show("sas");
-                            updateItemUi = new UpdateItem();
-                            updateItemUi.item = newItem;
-                            updateItemUi.Show();
-                            
-                        }else {
-                            //MessageBox.Show("Type"+updateItemUi.IsDisposed.ToString());
-                            updateItemUi.item = newItem;
-                            updateItemUi.Show();
-                        }
-                            
-                    }
-                    else 
-                    {
-                        
-                        txtBarcode.Focus();
-                        txtBarcode.BackColor = errorColor;
-                    }
-                }
-            }           
-            
         }
 
+        //-------------
         private void allValidated()
         {
             foreach (var item in this.Controls)
@@ -124,39 +100,25 @@ namespace EasyBookShop.views
                 if (item.GetType() == typeof(MetroTextBox))
                 {
                     var a = (MetroTextBox)item;
-                    if(a.BackColor == errorColor)
+                    if (a.BackColor == errorColor)
                     {
-                        btnAddItem.Enabled = false;
+                        btnUpdateItem.Enabled = false;
                         return;
                     }
                 }
             }
-            btnAddItem.Enabled = true;
+            btnUpdateItem.Enabled = true;
         }
 
 
-        private void reset()
-        {
-            foreach (var item in this.Controls)
-            {
-                if (item.GetType() == typeof(MetroTextBox))
-                {
-                    var a = (MetroTextBox)item;
-                    a.Text = "";
-                }
-            }
-            btnAddItem.Enabled = true;
-        }
-
-
-        private void txtBarcode_Leave(object sender, EventArgs e)
+        private void txtBarcode_Leave(object sender, KeyEventArgs e)
         {
             var uiComp = (MetroTextBox)sender;
             if (DataTypeValidator.isEmpty(uiComp.Text))
             {
 
                 uiComp.BackColor = errorColor;
-                
+
                 //MessageBox.Show("Last Price Not Valid");
             }
             else
@@ -167,7 +129,7 @@ namespace EasyBookShop.views
 
         }
 
-        private void txtRetailPrice_Leave(object sender, EventArgs e)
+        private void txtRetailPrice_Leave(object sender, KeyEventArgs e)
         {
 
             var uiComp = (MetroTextBox)sender;
@@ -175,7 +137,7 @@ namespace EasyBookShop.views
             {
 
                 uiComp.BackColor = errorColor;
-                
+
                 //MessageBox.Show("Last Price Not Valid");
             }
             else
@@ -187,14 +149,14 @@ namespace EasyBookShop.views
 
         }
 
-        private void txtWholesalePrice_Leave(object sender, EventArgs e)
+        private void txtWholesalePrice_Leave(object sender, KeyEventArgs e)
         {
             var uiComp = (MetroTextBox)sender;
             if (!DataTypeValidator.decimalTypeValidated(uiComp.Text))
             {
 
                 uiComp.BackColor = errorColor;
-                
+
                 //MessageBox.Show("Last Price Not Valid");
             }
             else
@@ -204,23 +166,7 @@ namespace EasyBookShop.views
             }
         }
 
-        private void txtSpecialPrice_Leave(object sender, EventArgs e)
-        {
-            var uiComp = (MetroTextBox)sender;
-            if (!DataTypeValidator.decimalTypeValidated(uiComp.Text))
-            {
-
-                uiComp.BackColor = errorColor;
-                //MessageBox.Show("Last Price Not Valid");
-            }
-            else
-            {
-                uiComp.BackColor = Color.Empty;
-                allValidated();
-            }
-        }
-
-        private void txtLastPrice_Leave(object sender, EventArgs e)
+        private void txtSpecialPrice_Leave(object sender, KeyEventArgs e)
         {
             var uiComp = (MetroTextBox)sender;
             if (!DataTypeValidator.decimalTypeValidated(uiComp.Text))
@@ -233,72 +179,88 @@ namespace EasyBookShop.views
             {
                 uiComp.BackColor = Color.Empty;
                 allValidated();
+            }
+        }
+
+        private void txtLastPrice_Leave(object sender, KeyEventArgs e)
+        {
+            var uiComp = (MetroTextBox)sender;
+            if (!DataTypeValidator.decimalTypeValidated(uiComp.Text))
+            {
+
+                uiComp.BackColor = errorColor;
+                //MessageBox.Show("Last Price Not Valid");
+            }
+            else
+            {
+                uiComp.BackColor = Color.Empty;
+                allValidated();
 
             }
         }
 
-        private void txtQuantity_Leave(object sender, EventArgs e)
+        private void txtQuantity_Leave(object sender, KeyEventArgs e)
         {
             var uiComp = (MetroTextBox)sender;
             if (!DataTypeValidator.intTypeValidated(uiComp.Text))
             {
 
                 uiComp.BackColor = errorColor;
-                
+
                 //MessageBox.Show("Last Price Not Valid");
             }
             else
             {
-                
+
                 uiComp.BackColor = Color.Empty;
                 allValidated();
             }
         }
 
-        private void txtDiscount_Leave(object sender, EventArgs e)
+        private void txtDiscount_Leave(object sender, KeyEventArgs e)
         {
             var uiComp = (MetroTextBox)sender;
             if (!DataTypeValidator.decimalTypeValidated(uiComp.Text))
             {
 
                 uiComp.BackColor = errorColor;
-                
+
                 //MessageBox.Show("Last Price Not Valid");
             }
             else
             {
-                
+
                 uiComp.BackColor = Color.Empty;
                 allValidated();
             }
         }
 
-        private void txtPackSize_Leave(object sender, EventArgs e)
+        private void txtPackSize_Leave(object sender, KeyEventArgs e)
         {
             var uiComp = (MetroTextBox)sender;
             if (!DataTypeValidator.intTypeValidated(uiComp.Text))
             {
 
                 uiComp.BackColor = errorColor;
-                
+
                 //MessageBox.Show("Last Price Not Valid");
             }
             else
             {
-                
+
                 uiComp.BackColor = Color.Empty;
                 allValidated();
             }
         }
 
-        private void txtPackPrice_Leave(object sender, EventArgs e)
+        private void txtPackPrice_Leave(object sender, KeyEventArgs e)
         {
             var uiComp = (MetroTextBox)sender;
             if (!DataTypeValidator.decimalTypeValidated(uiComp.Text))
             {
 
                 uiComp.BackColor = errorColor;
-                
+
                 //MessageBox.Show("Last Price Not Valid");
             }
             else
@@ -309,10 +271,9 @@ namespace EasyBookShop.views
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void txtBarcode_KeyUp(object sender, KeyEventArgs e)
         {
-            reset();
-            btnAddItem.Enabled = false;
+
         }
     }
 }

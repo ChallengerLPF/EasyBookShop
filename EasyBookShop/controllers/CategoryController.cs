@@ -17,5 +17,19 @@ namespace EasyBookShop.controllers
                 return allcats;
             }
         }
+
+        public category find(int id)
+        {
+
+            using (var db = new dbCon())
+            {
+
+                category cat = db.categories.Find(id);
+
+                return cat;
+
+            }
+
+        }
     }
 }

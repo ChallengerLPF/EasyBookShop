@@ -26,6 +26,20 @@ namespace EasyBookShop.controllers
 
         }
 
+        public item findByBarcode(string barcode)
+        {
+
+            using (var db = new dbCon())
+            {
+
+                var item = db.items.SingleOrDefault(i => i.barcode == barcode);
+
+                return item;
+
+            }
+
+        }
+
         public item create(item newItem)
         {                                   
 
@@ -33,11 +47,11 @@ namespace EasyBookShop.controllers
             {
 
                 //before adding new item need to check whether barcode is already available
-                MessageBox.Show(newItem.barcode);
+                //MessageBox.Show(newItem.barcode);
                 var itm= db.items.SingleOrDefault(i => i.barcode == newItem.barcode);
                 if (itm!=null)
                 {
-                    MessageBox.Show(itm.GetType().ToString());
+                    //MessageBox.Show(itm.GetType().ToString());
                     throw new NotificationException("barcode already found", NotificationException.AlertType.UNSUCCESS); 
                 }
 

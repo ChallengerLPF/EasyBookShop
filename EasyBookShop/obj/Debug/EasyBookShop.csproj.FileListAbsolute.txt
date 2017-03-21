@@ -18,7 +18,11 @@ G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.pdb
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.dll
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\bin\Debug\MetroFramework.Fonts.dll
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csprojResolveAssemblyReference.cache
-G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.whole_sale.resources
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources
 G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csproj.GenerateResource.Cache
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.MainWindow.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.wholesale.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.DB_Settings.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.Perchuspopup.resources
+G:\Finance_project\OneDrive\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.com.easy.view.Customer_view.resources

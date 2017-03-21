@@ -45,6 +45,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,11 +58,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="com.easy.view\whole_sale.cs">
+    <Compile Include="com.easy.controal\Customer_controal.cs" />
+    <Compile Include="com.easy.controal\LoginControal.cs" />
+    <Compile Include="com.easy.controal\Perchuspopup_controaler.cs" />
+    <Compile Include="com.easy.controal\Productcontroaler.cs" />
+    <Compile Include="com.easy.model\Customer.cs" />
+    <Compile Include="com.easy.model\Login.cs" />
+    <Compile Include="com.easy.model\Puschespopup.cs" />
+    <Compile Include="com.easy.model\Wholesale.cs" />
+    <Compile Include="com.easy.model\Whole_Sale.cs" />
+    <Compile Include="com.easy.utility\DBconnection.cs" />
+    <Compile Include="com.easy.utility\Redtxt.cs" />
+    <Compile Include="com.easy.utility\Spliter.cs" />
+    <Compile Include="com.easy.view\Customer_view.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\Customer_view.Designer.cs">
+      <DependentUpon>Customer_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.easy.view\DB_Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="com.easy.view\whole_sale.Designer.cs">
-      <DependentUpon>whole_sale.cs</DependentUpon>
+    <Compile Include="com.easy.view\DB_Settings.Designer.cs">
+      <DependentUpon>DB_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.easy.view\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.easy.view\Perchuspopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\Perchuspopup.Designer.cs">
+      <DependentUpon>Perchuspopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.easy.view\wholesale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\wholesale.Designer.cs">
+      <DependentUpon>wholesale.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -71,8 +108,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="com.easy.view\whole_sale.resx">
-      <DependentUpon>whole_sale.cs</DependentUpon>
+    <EmbeddedResource Include="com.easy.view\Customer_view.resx">
+      <DependentUpon>Customer_view.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\DB_Settings.resx">
+      <DependentUpon>DB_Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\Perchuspopup.resx">
+      <DependentUpon>Perchuspopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\wholesale.resx">
+      <DependentUpon>wholesale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -103,8 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\appbar.eye.png" />
     <None Include="Resources\user.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -32,6 +32,7 @@
     <EntitySetMapping Name="customers">
       <EntityTypeMapping TypeName="models.customer">
         <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nic" ColumnName="nic" />
           <ScalarProperty Name="phone_no" ColumnName="phone_no" />

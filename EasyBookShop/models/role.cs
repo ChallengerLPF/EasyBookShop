@@ -17,7 +17,7 @@ namespace EasyBookShop.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public role()
         {
-            this.users_roles = new HashSet<users_roles>();
+            this.users_roles = new ObservableListSource<users_roles>();
         }
     
         public int id { get; set; }
@@ -26,6 +26,6 @@ namespace EasyBookShop.models
         public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<users_roles> users_roles { get; set; }
+        public virtual ObservableListSource<users_roles> users_roles { get; set; }
     }
 }

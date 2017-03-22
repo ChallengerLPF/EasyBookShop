@@ -31,10 +31,11 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nic" Type="varchar" MaxLength="255" />
-    <Property Name="phone_no" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone_no" Type="varchar" MaxLength="255" />
     <Property Name="full_name" Type="varchar" MaxLength="255" />
-    <Property Name="gender" Type="varchar" MaxLength="250" />
+    <Property Name="gender" Type="enum" />
     <Property Name="level" Type="varchar" MaxLength="255" />
+    <Property Name="type" Type="enum" />
   </EntityType>
   <EntityType Name="item_variants">
     <Key>

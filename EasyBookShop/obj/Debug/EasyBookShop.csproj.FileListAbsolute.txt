@@ -1,3 +1,8 @@
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Retail_Invoice.resources
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.views.UpdateItem.resources
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csproj.GenerateResource.Cache
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.exe.config
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.exe
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\EasyBookShop.pdb
@@ -12,11 +17,6 @@ C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookSho
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\bin\Debug\MySql.Data.xml
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Form1.resources
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Properties.Resources.resources
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.Retail_Invoice.resources
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.views.NewItem.resources
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.csproj.GenerateResource.Cache
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.exe
 C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.pdb
-C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.views.UpdateItem.resources
+C:\Users\lahir\OneDrive\My Projects\Projects With Munna\The Software\EasyBookShop\EasyBookShop\obj\Debug\EasyBookShop.views.NewItemOr.resources

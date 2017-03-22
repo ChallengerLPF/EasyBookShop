@@ -17,7 +17,7 @@ namespace EasyBookShop.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public cheque()
         {
-            this.wholesale_invoices = new HashSet<wholesale_invoices>();
+            this.wholesale_invoices = new ObservableListSource<wholesale_invoices>();
         }
     
         public int id { get; set; }
@@ -26,6 +26,6 @@ namespace EasyBookShop.models
         public Nullable<System.DateTime> date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wholesale_invoices> wholesale_invoices { get; set; }
+        public virtual ObservableListSource<wholesale_invoices> wholesale_invoices { get; set; }
     }
 }

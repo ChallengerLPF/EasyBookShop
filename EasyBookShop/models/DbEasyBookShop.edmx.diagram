@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="models.category" Width="1.5" PointX="2" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="models.categories_sub_categories" Width="1.5" PointX="9" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="models.cheque" Width="1.5" PointX="3.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="models.customer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="models.customer" Width="1.5" PointX="3.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="models.item_variants" Width="1.5" PointX="8.25" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="models.item" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
         <EntityTypeShape EntityType="models.login" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />

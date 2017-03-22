@@ -17,10 +17,10 @@ namespace EasyBookShop.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public item()
         {
-            this.item_variants = new HashSet<item_variants>();
-            this.retail_invoice_items = new HashSet<retail_invoice_items>();
-            this.wholesale_invoice_items = new HashSet<wholesale_invoice_items>();
-            this.retail_returns = new HashSet<retail_returns>();
+            this.item_variants = new ObservableListSource<item_variants>();
+            this.retail_invoice_items = new ObservableListSource<retail_invoice_items>();
+            this.wholesale_invoice_items = new ObservableListSource<wholesale_invoice_items>();
+            this.retail_returns = new ObservableListSource<retail_returns>();
         }
     
         public int id { get; set; }
@@ -41,13 +41,13 @@ namespace EasyBookShop.models
     
         public virtual category category1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item_variants> item_variants { get; set; }
+        public virtual ObservableListSource<item_variants> item_variants { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<retail_invoice_items> retail_invoice_items { get; set; }
+        public virtual ObservableListSource<retail_invoice_items> retail_invoice_items { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wholesale_invoice_items> wholesale_invoice_items { get; set; }
+        public virtual ObservableListSource<wholesale_invoice_items> wholesale_invoice_items { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<retail_returns> retail_returns { get; set; }
+        public virtual ObservableListSource<retail_returns> retail_returns { get; set; }
         public virtual sub_categories sub_categories { get; set; }
     }
 }

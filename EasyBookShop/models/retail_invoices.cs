@@ -17,8 +17,8 @@ namespace EasyBookShop.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public retail_invoices()
         {
-            this.retail_invoice_items = new HashSet<retail_invoice_items>();
-            this.retail_returns = new HashSet<retail_returns>();
+            this.retail_invoice_items = new ObservableListSource<retail_invoice_items>();
+            this.retail_returns = new ObservableListSource<retail_returns>();
         }
     
         public int id { get; set; }
@@ -31,9 +31,9 @@ namespace EasyBookShop.models
     
         public virtual customer customer1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<retail_invoice_items> retail_invoice_items { get; set; }
+        public virtual ObservableListSource<retail_invoice_items> retail_invoice_items { get; set; }
         public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<retail_returns> retail_returns { get; set; }
+        public virtual ObservableListSource<retail_returns> retail_returns { get; set; }
     }
 }

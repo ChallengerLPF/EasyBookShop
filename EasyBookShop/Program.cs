@@ -17,7 +17,7 @@ namespace EasyBookShop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NewItem());
+            Application.Run(new NewItemOr());
         }
     }
 }

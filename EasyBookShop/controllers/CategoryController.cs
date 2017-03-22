@@ -13,7 +13,7 @@ namespace EasyBookShop.controllers
         {
             using (var db = new dbCon())
             {
-                List<category> allcats =  db.categories.ToList();
+                List<category> allcats = db.categories.ToList();
                 return allcats;
             }
         }

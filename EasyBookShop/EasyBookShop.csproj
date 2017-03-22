@@ -69,6 +69,7 @@
     <Compile Include="controllers\ItemController.cs" />
     <Compile Include="controllers\UsersController.cs" />
     <Compile Include="utilities\DataTypeValidator.cs" />
+    <Compile Include="models\ObservableListSource.cs" />
     <Compile Include="views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,11 +154,11 @@
       <DependentUpon>RetailInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="utilities\NotificationException.cs" />
-    <Compile Include="views\NewItem.cs">
+    <Compile Include="views\NewItemOr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\NewItem.Designer.cs">
-      <DependentUpon>NewItem.cs</DependentUpon>
+    <Compile Include="views\NewItemOr.Designer.cs">
+      <DependentUpon>NewItemOr.cs</DependentUpon>
     </Compile>
     <Compile Include="views\UpdateItem.cs">
       <SubType>Form</SubType>
@@ -180,8 +181,8 @@
     <EmbeddedResource Include="views\RetailInvoice.resx">
       <DependentUpon>RetailInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\NewItem.resx">
-      <DependentUpon>NewItem.cs</DependentUpon>
+    <EmbeddedResource Include="views\NewItemOr.resx">
+      <DependentUpon>NewItemOr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\UpdateItem.resx">
       <DependentUpon>UpdateItem.cs</DependentUpon>
@@ -194,6 +195,8 @@
       <DependentUpon>DbEasyBookShop.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EasyBookShop.models.category.datasource" />
+    <None Include="Properties\DataSources\EasyBookShop.models.sub_categories.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

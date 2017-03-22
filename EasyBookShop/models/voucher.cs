@@ -17,7 +17,7 @@ namespace EasyBookShop.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public voucher()
         {
-            this.voucher_sales = new HashSet<voucher_sales>();
+            this.voucher_sales = new ObservableListSource<voucher_sales>();
         }
     
         public int id { get; set; }
@@ -26,6 +26,6 @@ namespace EasyBookShop.models
         public string validity_period { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<voucher_sales> voucher_sales { get; set; }
+        public virtual ObservableListSource<voucher_sales> voucher_sales { get; set; }
     }
 }

@@ -17,8 +17,8 @@ namespace EasyBookShop.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public sub_categories()
         {
-            this.categories_sub_categories = new HashSet<categories_sub_categories>();
-            this.items = new HashSet<item>();
+            this.categories_sub_categories = new ObservableListSource<categories_sub_categories>();
+            this.items = new ObservableListSource<item>();
         }
     
         public int id { get; set; }
@@ -26,8 +26,8 @@ namespace EasyBookShop.models
         public string description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<categories_sub_categories> categories_sub_categories { get; set; }
+        public virtual ObservableListSource<categories_sub_categories> categories_sub_categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<item> items { get; set; }
+        public virtual ObservableListSource<item> items { get; set; }
     }
 }

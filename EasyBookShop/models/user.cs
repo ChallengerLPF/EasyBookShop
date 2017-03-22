@@ -17,12 +17,12 @@ namespace EasyBookShop.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public user()
         {
-            this.logins = new HashSet<login>();
-            this.retail_invoices = new HashSet<retail_invoices>();
-            this.retail_returns = new HashSet<retail_returns>();
-            this.voucher_sales = new HashSet<voucher_sales>();
-            this.wholesale_invoices = new HashSet<wholesale_invoices>();
-            this.users_roles = new HashSet<users_roles>();
+            this.logins = new ObservableListSource<login>();
+            this.retail_invoices = new ObservableListSource<retail_invoices>();
+            this.retail_returns = new ObservableListSource<retail_returns>();
+            this.voucher_sales = new ObservableListSource<voucher_sales>();
+            this.wholesale_invoices = new ObservableListSource<wholesale_invoices>();
+            this.users_roles = new ObservableListSource<users_roles>();
         }
     
         public int id { get; set; }
@@ -30,16 +30,16 @@ namespace EasyBookShop.models
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<login> logins { get; set; }
+        public virtual ObservableListSource<login> logins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<retail_invoices> retail_invoices { get; set; }
+        public virtual ObservableListSource<retail_invoices> retail_invoices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<retail_returns> retail_returns { get; set; }
+        public virtual ObservableListSource<retail_returns> retail_returns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<voucher_sales> voucher_sales { get; set; }
+        public virtual ObservableListSource<voucher_sales> voucher_sales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wholesale_invoices> wholesale_invoices { get; set; }
+        public virtual ObservableListSource<wholesale_invoices> wholesale_invoices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<users_roles> users_roles { get; set; }
+        public virtual ObservableListSource<users_roles> users_roles { get; set; }
     }
 }

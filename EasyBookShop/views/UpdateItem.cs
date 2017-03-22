@@ -58,6 +58,7 @@ namespace EasyBookShop.views
             category itemCat =  catCtrl.find(item.category.GetValueOrDefault());
 
             //MessageBox.Show(itemCat.name);
+            
             listCategory.SelectedItem = itemCat;
             //MessageBox.Show(listCategory.SelectedItem);
             SubCategoryController subCatCtrl = new SubCategoryController();

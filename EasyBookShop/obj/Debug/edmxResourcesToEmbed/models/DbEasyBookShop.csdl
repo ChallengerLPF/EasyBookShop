@@ -43,6 +43,7 @@
     <NavigationProperty Name="retail_invoices" Relationship="Self.fk_cus" FromRole="customers" ToRole="retail_invoices" />
     <NavigationProperty Name="wholesale_invoices" Relationship="Self.fk_cus1" FromRole="customers" ToRole="wholesale_invoices" />
     <NavigationProperty Name="voucher_sales" Relationship="Self.fk_cus32" FromRole="customers" ToRole="voucher_sales" />
+    <Property Name="type" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="item_variants">
     <Key>

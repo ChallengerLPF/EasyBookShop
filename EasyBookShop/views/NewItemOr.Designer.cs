@@ -1,6 +1,6 @@
 ﻿namespace EasyBookShop.views
 {
-    partial class NewItem
+    partial class NewItemOr
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txtBarcode = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -54,13 +55,19 @@
             this.listCategory = new System.Windows.Forms.ListBox();
             this.listSubCategory = new System.Windows.Forms.ListBox();
             this.btnClear = new MetroFramework.Controls.MetroButton();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryListBox = new System.Windows.Forms.ListBox();
+            this.sub_categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sub_categoriesListBox = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sub_categoriesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
             // 
             this.metroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(80, 104);
+            this.metroLabel1.Location = new System.Drawing.Point(166, 104);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(62, 19);
             this.metroLabel1.TabIndex = 0;
@@ -82,7 +89,7 @@
             this.txtBarcode.CustomButton.UseSelectable = true;
             this.txtBarcode.CustomButton.Visible = false;
             this.txtBarcode.Lines = new string[0];
-            this.txtBarcode.Location = new System.Drawing.Point(212, 104);
+            this.txtBarcode.Location = new System.Drawing.Point(298, 104);
             this.txtBarcode.MaxLength = 32767;
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.PasswordChar = '\0';
@@ -98,13 +105,13 @@
             this.txtBarcode.UseSelectable = true;
             this.txtBarcode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBarcode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBarcode.Leave += new System.EventHandler(this.txtBarcode_Leave);
+            this.txtBarcode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyUp);
             // 
             // metroLabel2
             // 
             this.metroLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(371, 321);
+            this.metroLabel2.Location = new System.Drawing.Point(457, 321);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(74, 19);
             this.metroLabel2.TabIndex = 2;
@@ -126,7 +133,7 @@
             this.txtDescription.CustomButton.UseSelectable = true;
             this.txtDescription.CustomButton.Visible = false;
             this.txtDescription.Lines = new string[0];
-            this.txtDescription.Location = new System.Drawing.Point(479, 321);
+            this.txtDescription.Location = new System.Drawing.Point(565, 321);
             this.txtDescription.MaxLength = 32767;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -148,7 +155,7 @@
             // 
             this.metroLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(663, 179);
+            this.metroLabel3.Location = new System.Drawing.Point(749, 179);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(64, 19);
             this.metroLabel3.TabIndex = 4;
@@ -158,7 +165,7 @@
             // 
             this.metroLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(663, 321);
+            this.metroLabel4.Location = new System.Drawing.Point(749, 282);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(87, 19);
             this.metroLabel4.TabIndex = 7;
@@ -180,7 +187,7 @@
             this.txtRetailPrice.CustomButton.UseSelectable = true;
             this.txtRetailPrice.CustomButton.Visible = false;
             this.txtRetailPrice.Lines = new string[0];
-            this.txtRetailPrice.Location = new System.Drawing.Point(212, 179);
+            this.txtRetailPrice.Location = new System.Drawing.Point(298, 179);
             this.txtRetailPrice.MaxLength = 32767;
             this.txtRetailPrice.Name = "txtRetailPrice";
             this.txtRetailPrice.PasswordChar = '\0';
@@ -196,13 +203,13 @@
             this.txtRetailPrice.UseSelectable = true;
             this.txtRetailPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtRetailPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtRetailPrice.Leave += new System.EventHandler(this.txtRetailPrice_Leave);
+            this.txtRetailPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRetailPrice_KeyUp);
             // 
             // metroLabel5
             // 
             this.metroLabel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(80, 183);
+            this.metroLabel5.Location = new System.Drawing.Point(166, 183);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(74, 19);
             this.metroLabel5.TabIndex = 9;
@@ -224,7 +231,7 @@
             this.txtWholesalePrice.CustomButton.UseSelectable = true;
             this.txtWholesalePrice.CustomButton.Visible = false;
             this.txtWholesalePrice.Lines = new string[0];
-            this.txtWholesalePrice.Location = new System.Drawing.Point(212, 228);
+            this.txtWholesalePrice.Location = new System.Drawing.Point(298, 228);
             this.txtWholesalePrice.MaxLength = 32767;
             this.txtWholesalePrice.Name = "txtWholesalePrice";
             this.txtWholesalePrice.PasswordChar = '\0';
@@ -240,13 +247,13 @@
             this.txtWholesalePrice.UseSelectable = true;
             this.txtWholesalePrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtWholesalePrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtWholesalePrice.Leave += new System.EventHandler(this.txtWholesalePrice_Leave);
+            this.txtWholesalePrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtWholesalePrice_KeyUp);
             // 
             // metroLabel6
             // 
             this.metroLabel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(80, 232);
+            this.metroLabel6.Location = new System.Drawing.Point(166, 232);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(102, 19);
             this.metroLabel6.TabIndex = 11;
@@ -268,7 +275,7 @@
             this.txtSpecialPrice.CustomButton.UseSelectable = true;
             this.txtSpecialPrice.CustomButton.Visible = false;
             this.txtSpecialPrice.Lines = new string[0];
-            this.txtSpecialPrice.Location = new System.Drawing.Point(212, 269);
+            this.txtSpecialPrice.Location = new System.Drawing.Point(298, 269);
             this.txtSpecialPrice.MaxLength = 32767;
             this.txtSpecialPrice.Name = "txtSpecialPrice";
             this.txtSpecialPrice.PasswordChar = '\0';
@@ -284,13 +291,13 @@
             this.txtSpecialPrice.UseSelectable = true;
             this.txtSpecialPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSpecialPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtSpecialPrice.Leave += new System.EventHandler(this.txtSpecialPrice_Leave);
+            this.txtSpecialPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSpecialPrice_KeyUp);
             // 
             // metroLabel7
             // 
             this.metroLabel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(80, 273);
+            this.metroLabel7.Location = new System.Drawing.Point(166, 273);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(83, 19);
             this.metroLabel7.TabIndex = 13;
@@ -312,7 +319,7 @@
             this.txtLastPrice.CustomButton.UseSelectable = true;
             this.txtLastPrice.CustomButton.Visible = false;
             this.txtLastPrice.Lines = new string[0];
-            this.txtLastPrice.Location = new System.Drawing.Point(212, 317);
+            this.txtLastPrice.Location = new System.Drawing.Point(298, 317);
             this.txtLastPrice.MaxLength = 32767;
             this.txtLastPrice.Name = "txtLastPrice";
             this.txtLastPrice.PasswordChar = '\0';
@@ -328,13 +335,13 @@
             this.txtLastPrice.UseSelectable = true;
             this.txtLastPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtLastPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtLastPrice.Leave += new System.EventHandler(this.txtLastPrice_Leave);
+            this.txtLastPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtLastPrice_KeyUp);
             // 
             // metroLabel8
             // 
             this.metroLabel8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(80, 321);
+            this.metroLabel8.Location = new System.Drawing.Point(166, 321);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(64, 19);
             this.metroLabel8.TabIndex = 15;
@@ -356,7 +363,7 @@
             this.txtQuantity.CustomButton.UseSelectable = true;
             this.txtQuantity.CustomButton.Visible = false;
             this.txtQuantity.Lines = new string[0];
-            this.txtQuantity.Location = new System.Drawing.Point(479, 179);
+            this.txtQuantity.Location = new System.Drawing.Point(565, 179);
             this.txtQuantity.MaxLength = 32767;
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.PasswordChar = '\0';
@@ -372,12 +379,12 @@
             this.txtQuantity.UseSelectable = true;
             this.txtQuantity.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtQuantity.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtQuantity.Leave += new System.EventHandler(this.txtQuantity_Leave);
+            this.txtQuantity.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQuantity_KeyUp);
             // 
             // metroLabel9
             // 
             this.metroLabel9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.metroLabel9.Location = new System.Drawing.Point(371, 179);
+            this.metroLabel9.Location = new System.Drawing.Point(457, 179);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(58, 19);
             this.metroLabel9.TabIndex = 17;
@@ -399,7 +406,7 @@
             this.txtDiscount.CustomButton.UseSelectable = true;
             this.txtDiscount.CustomButton.Visible = false;
             this.txtDiscount.Lines = new string[0];
-            this.txtDiscount.Location = new System.Drawing.Point(479, 226);
+            this.txtDiscount.Location = new System.Drawing.Point(565, 226);
             this.txtDiscount.MaxLength = 32767;
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.PasswordChar = '\0';
@@ -415,13 +422,13 @@
             this.txtDiscount.UseSelectable = true;
             this.txtDiscount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDiscount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtDiscount.Leave += new System.EventHandler(this.txtDiscount_Leave);
+            this.txtDiscount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDiscount_KeyUp);
             // 
             // metroLabel10
             // 
             this.metroLabel10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(371, 226);
+            this.metroLabel10.Location = new System.Drawing.Point(457, 226);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(58, 19);
             this.metroLabel10.TabIndex = 19;
@@ -443,7 +450,7 @@
             this.txtPackSize.CustomButton.UseSelectable = true;
             this.txtPackSize.CustomButton.Visible = false;
             this.txtPackSize.Lines = new string[0];
-            this.txtPackSize.Location = new System.Drawing.Point(479, 278);
+            this.txtPackSize.Location = new System.Drawing.Point(565, 278);
             this.txtPackSize.MaxLength = 32767;
             this.txtPackSize.Name = "txtPackSize";
             this.txtPackSize.PasswordChar = '\0';
@@ -459,13 +466,13 @@
             this.txtPackSize.UseSelectable = true;
             this.txtPackSize.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPackSize.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPackSize.Leave += new System.EventHandler(this.txtPackSize_Leave);
+            this.txtPackSize.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPackSize_KeyUp);
             // 
             // metroLabel11
             // 
             this.metroLabel11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(371, 278);
+            this.metroLabel11.Location = new System.Drawing.Point(457, 278);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(62, 19);
             this.metroLabel11.TabIndex = 21;
@@ -487,7 +494,7 @@
             this.txtPackPrice.CustomButton.UseSelectable = true;
             this.txtPackPrice.CustomButton.Visible = false;
             this.txtPackPrice.Lines = new string[0];
-            this.txtPackPrice.Location = new System.Drawing.Point(212, 367);
+            this.txtPackPrice.Location = new System.Drawing.Point(298, 367);
             this.txtPackPrice.MaxLength = 32767;
             this.txtPackPrice.Name = "txtPackPrice";
             this.txtPackPrice.PasswordChar = '\0';
@@ -503,13 +510,13 @@
             this.txtPackPrice.UseSelectable = true;
             this.txtPackPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPackPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPackPrice.Leave += new System.EventHandler(this.txtPackPrice_Leave);
+            this.txtPackPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPackPrice_KeyUp);
             // 
             // metroLabel12
             // 
             this.metroLabel12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(80, 371);
+            this.metroLabel12.Location = new System.Drawing.Point(166, 371);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(68, 19);
             this.metroLabel12.TabIndex = 23;
@@ -529,7 +536,7 @@
             // 
             this.listCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listCategory.FormattingEnabled = true;
-            this.listCategory.Location = new System.Drawing.Point(771, 183);
+            this.listCategory.Location = new System.Drawing.Point(953, 33);
             this.listCategory.Name = "listCategory";
             this.listCategory.Size = new System.Drawing.Size(120, 121);
             this.listCategory.TabIndex = 26;
@@ -538,7 +545,7 @@
             // 
             this.listSubCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listSubCategory.FormattingEnabled = true;
-            this.listSubCategory.Location = new System.Drawing.Point(771, 321);
+            this.listSubCategory.Location = new System.Drawing.Point(802, 46);
             this.listSubCategory.Name = "listSubCategory";
             this.listSubCategory.Size = new System.Drawing.Size(120, 108);
             this.listSubCategory.TabIndex = 27;
@@ -556,11 +563,43 @@
             this.btnClear.UseSelectable = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(EasyBookShop.models.category);
+            // 
+            // categoryListBox
+            // 
+            this.categoryListBox.DataSource = this.categoryBindingSource;
+            this.categoryListBox.DisplayMember = "name";
+            this.categoryListBox.FormattingEnabled = true;
+            this.categoryListBox.Location = new System.Drawing.Point(842, 179);
+            this.categoryListBox.Name = "categoryListBox";
+            this.categoryListBox.Size = new System.Drawing.Size(135, 82);
+            this.categoryListBox.TabIndex = 28;
+            this.categoryListBox.ValueMember = "categories_sub_categories";
+            // 
+            // sub_categoriesBindingSource
+            // 
+            this.sub_categoriesBindingSource.DataSource = typeof(EasyBookShop.models.sub_categories);
+            // 
+            // sub_categoriesListBox
+            // 
+            this.sub_categoriesListBox.DataSource = this.sub_categoriesBindingSource;
+            this.sub_categoriesListBox.DisplayMember = "name";
+            this.sub_categoriesListBox.FormattingEnabled = true;
+            this.sub_categoriesListBox.Location = new System.Drawing.Point(842, 295);
+            this.sub_categoriesListBox.Name = "sub_categoriesListBox";
+            this.sub_categoriesListBox.Size = new System.Drawing.Size(135, 95);
+            this.sub_categoriesListBox.TabIndex = 28;
+            this.sub_categoriesListBox.ValueMember = "categories_sub_categories";
+            // 
             // NewItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 524);
+            this.ClientSize = new System.Drawing.Size(1183, 587);
+            this.Controls.Add(this.sub_categoriesListBox);
+            this.Controls.Add(this.categoryListBox);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.listSubCategory);
             this.Controls.Add(this.listCategory);
@@ -589,6 +628,8 @@
             this.Controls.Add(this.metroLabel1);
             this.Name = "NewItem";
             this.Text = "Add New Item";
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sub_categoriesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,5 +663,9 @@
         private System.Windows.Forms.ListBox listCategory;
         private System.Windows.Forms.ListBox listSubCategory;
         private MetroFramework.Controls.MetroButton btnClear;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.ListBox categoryListBox;
+        private System.Windows.Forms.BindingSource sub_categoriesBindingSource;
+        private System.Windows.Forms.ListBox sub_categoriesListBox;
     }
 }

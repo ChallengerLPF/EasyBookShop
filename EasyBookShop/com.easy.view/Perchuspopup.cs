@@ -68,14 +68,14 @@ namespace EasyBookShop.com.easy.view
             txt_nettotal.Text = obj.txt_nettotal.Text;
 
             /*assining values*/
-            this.items = obj.item;
+            this.items = wholesale.item;
             String cus=obj.lbl_cno.Text;
             customer = int.Parse(cus.Substring(13, (cus.Length-13)));
             cuslevel = obj.lbl_level.Text;
 
             txt_cusno.Text = customer.ToString();
 
-
+            
         }
 
         public void insert_invoice()
@@ -109,12 +109,21 @@ namespace EasyBookShop.com.easy.view
             {
                 insert_invoice();
                 add_invoice_items();
+                updateitem();
+                ClearList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             
+        }
+
+        private void ClearList()
+        {
+            
+            items.Clear();
+            wholesale.item.Clear();
         }
 
         private void txt_pmnt_KeyUp(object sender, KeyEventArgs e)
@@ -141,9 +150,10 @@ namespace EasyBookShop.com.easy.view
         {
             Perchuspopup_controaler ppc = new Perchuspopup_controaler();
             Puschespopup pup = new Puschespopup();
+            
 
             foreach(String[] item in items){
-
+                
                 pup.Id = int.Parse(txt_bno.Text);
                 pup.Item = int.Parse(item[3]);
                 pup.Qty = int.Parse(item[1]);
@@ -151,6 +161,23 @@ namespace EasyBookShop.com.easy.view
 
                 
                 ppc.insert_items(pup);
+
+            }
+        }
+
+        private void updateitem()
+        {
+            Perchuspopup_controaler ppc = new Perchuspopup_controaler();
+            Item it = new Item();
+
+            foreach (String[] item in items)
+            {
+
+                it.Id = int.Parse(item[3]);
+                it.Qty = int.Parse(item[1]);
+                it.Rqty = int.Parse(item[4]);
+
+                ppc.update_items(it);
 
             }
         }

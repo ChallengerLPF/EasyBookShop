@@ -15,8 +15,6 @@ namespace EasyBookShop.com.easy.model
         private String method;
         private int check;
 
-        
-
         public int Customer
         {
             get { return customer; }

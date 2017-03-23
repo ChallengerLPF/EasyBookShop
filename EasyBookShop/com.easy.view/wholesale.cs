@@ -16,7 +16,7 @@ namespace EasyBookShop.com.easy.view
 {
     public partial class wholesale : UserControl
     {
-        public List<String[]> item = new List<string[]>();
+        public static List<String[]> item = new List<string[]>();
         
         MainWindow mw = new MainWindow();
         public wholesale()
@@ -67,6 +67,7 @@ namespace EasyBookShop.com.easy.view
         {
             String itemcode = txt_icode.Text;
             
+            Customer_validate cv=new Customer_validate();
             Productcontroaler pc = new Productcontroaler();
             Wholesale data = pc.findone(itemcode);
 
@@ -77,11 +78,23 @@ namespace EasyBookShop.com.easy.view
             String orp = op.ToString();
             int id=data.Id;
 
-            txt_dis.Text = (String)data.Dis;
-            txt_qty.Text = qty.ToString();
-            txt_selprice.Text = p;
-            txt_orprice.Text = orp;
-            lbl_id.Text = id.ToString();
+            if (cv.validate_text((String)data.Dis, "Item not found"))
+            {
+                txt_icode.BackColor = SystemColors.Control;
+                txt_dis.Text = (String)data.Dis;
+                txt_qty.Text = qty.ToString();
+                txt_selprice.Text = p;
+                txt_orprice.Text = orp;
+                lbl_id.Text = id.ToString();
+            }
+            else
+            {
+                txt_icode.Clear();
+                txt_icode.BackColor = Color.Red;
+                txt_dis.Text = (String)data.Dis;
+            }
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -90,8 +103,9 @@ namespace EasyBookShop.com.easy.view
             String qty = txt_rqty.Text;
             String uprice = txt_selprice.Text;
             String id = lbl_id.Text;
+            String sqty = txt_qty.Text;
 
-            String[] dataset={dis,qty,uprice,id};
+            String[] dataset={dis,qty,uprice,id,sqty};
 
             additem(dataset);
             calnettotal();
@@ -99,8 +113,14 @@ namespace EasyBookShop.com.easy.view
 
         private void additem(String[] data)
         {
-            item.Add(data);
-            setTable();
+            Customer_validate cv = new Customer_validate();
+
+            if (cv.Qty_validate(txt_qty.Text, txt_rqty.Text))
+            {
+                item.Add(data);
+                setTable();
+            }
+            
         }
 
         private void setTable()
@@ -150,6 +170,7 @@ namespace EasyBookShop.com.easy.view
         {
             ClearGrid(datagrid_bill);
             ClearAllText(this);
+            resetcustomer();
         }
 
         public void ClearGrid(DataGridView grid)
@@ -164,11 +185,22 @@ namespace EasyBookShop.com.easy.view
         {
             foreach (Control c in obj.Controls)
             {
+               // MessageBox.Show(c.ToString);
                 if (c is TextBox)
                     ((TextBox)c).Clear();
                 else
                     ClearAllText(c);
             }
+        }
+
+        private void resetcustomer()
+        {
+            lbl_cno.Text = "Customer No : ";
+            lbl_name.Text = "Customer Name : ";
+            lbl_pending.Text = "Pending Payments";
+            lbl_level.Text = "Customer Type";
+            cus_nic.Text = "";
+
         }
 
         private void datagrid_bill_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -216,15 +248,46 @@ namespace EasyBookShop.com.easy.view
 
         private void btn_sell_Click(object sender, EventArgs e)
         {
-            //ClearAllText(this);
-            //ClearGrid(datagrid_bill);
-            //item.Clear();
+
+            Customer_validate cv = new Customer_validate();
+
+            Console.WriteLine(datagrid_bill.RowCount);
+
+            if (datagrid_bill.RowCount > 1)
+            {
+                if (cv.customer(lbl_cno.Text))
+                {
+                    try
+                    {
+
+                        Perchuspopup pup = new Perchuspopup();
+                        pup.Show();
+                        pup.SetBill(this);
+                        ClearAllText(this);
+                        ClearGrid(datagrid_bill);
+                        resetcustomer();
+                        //item.Clear();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Customer Details Invalide");
+                    resetcustomer();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("There are no item to purches");
+            }
 
             
             
-            Perchuspopup pup = new Perchuspopup();
-            pup.Show();
-            pup.SetBill(this);
         }
 
         private void metroLabel14_Click(object sender, EventArgs e)
@@ -235,6 +298,7 @@ namespace EasyBookShop.com.easy.view
         private void metroTextBox3_KeyUp(object sender, KeyEventArgs e)
         {
             getcustomer();
+            getpending();
         }
 
         private void getcustomer()
@@ -244,8 +308,7 @@ namespace EasyBookShop.com.easy.view
             Customer_controal cus = new Customer_controal();
 
             Customer cs = cus.getuser(nic);
-            Console.WriteLine(cs);
-            
+
                 String gen = cs.Gender;
                 MessageBox.Show("Gender "+gen);
 
@@ -259,18 +322,87 @@ namespace EasyBookShop.com.easy.view
                 {
                     lbl_name.Text = "Ms. " + cs.Fname;
                 }
+
+                String id = Convert.ToString(cs.Id);
+                lbl_cno.Text = "Customer No : " + id;
+                lbl_level.Text = cs.Level;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Invalide NIC");
+                resetcustomer();
             }
                 
+    
+        }
 
-            String id = Convert.ToString(cs.Id);
-            lbl_cno.Text = "Customer No : " + id;
-            lbl_level.Text = cs.Level;
+        private void getpending()
+        {
+            int len = lbl_cno.Text.Length;
+            String customer=lbl_cno.Text;
+            String id = customer.Substring(13, len-13);
+
+            Customer_controal cus = new Customer_controal();
+
+            Customer cs = cus.getpending(id);
+
+            lbl_pending.Text = "Pending :" + cs.Pendings;
+
+        }
+
+        private void txt_rqty_KeyUp(object sender, KeyEventArgs e)
+        {
+            Customer_validate cs = new Customer_validate();
+
+            if (cs.Qty_validate(txt_qty.Text, txt_rqty.Text)==false)
+            {
+                txt_rqty.Clear();
+                txt_rqty.BackColor = Color.Red;
+            }
+            else
+            {
+                txt_rqty.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void metroTextBox8_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Rbtn_bname.Checked || Rbtn_iname.Checked)
+            {
+                if (Rbtn_iname.Checked)
+                {
+                    search_by_iname();
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select Search Option");
+            }
+        }
+
+        private void search_by_iname()
+        {
             
-            
+            String dis = txt_search.Text;
+
+            Productcontroaler pc = new Productcontroaler();
+            ArrayList list = pc.search_byIname(dis);
+
+            foreach (Wholesale data in list)
+            {
+                MessageBox.Show(data.Dis);
+                datagrid_srch.Rows.Add(data.Dis, data.Brnd, data.Qty, data.Price);
+            }
+
+        }
+
+        private void txt_search_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

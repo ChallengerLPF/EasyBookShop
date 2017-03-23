@@ -36,7 +36,7 @@ namespace EasyBookShop.com.easy.utility
                 String Connection = "datasource=" + host + ";port=" + pno + ";username=" + uname + ";password=" + pw + ";database=db_easy_book_shop";
                 con = new MySqlConnection(Connection);
                 con.Open();
-                MessageBox.Show("connection open");
+                //MessageBox.Show("connection open");
             }
             catch (Exception ex)
             {

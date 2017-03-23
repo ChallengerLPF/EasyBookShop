@@ -119,5 +119,31 @@ namespace EasyBookShop.com.easy.controal
             }
             
         }
+
+        internal void update_items(Item it)
+        {
+            try
+            {
+                int Id = it.Id;
+                int qty = it.Qty;
+                int sqty = it.Rqty;
+                int newqty = sqty-qty;
+
+               
+                db.init();
+                MySqlConnection con = db.getConnection();
+                String sql = "update items set quantity=@qty where id=@id";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@qty", newqty);
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
     }
 }

@@ -14,6 +14,13 @@ namespace EasyBookShop.com.easy.model
         private String fname;
         private String gender;
         private String level;
+        private decimal pendings;
+
+        public decimal Pendings
+        {
+            get { return pendings; }
+            set { pendings = value; }
+        }
 
         public String Gender
         {

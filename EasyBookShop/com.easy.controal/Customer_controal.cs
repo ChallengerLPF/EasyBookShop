@@ -16,7 +16,7 @@ namespace EasyBookShop.com.easy.controal
         {
             Customer cus=new Customer();
 
-            String sql = "select id,full_name,level,gender from customers where nic=@nic";
+            String sql = "select customers.id,full_name,level,gender from customers where nic=@nic";
             DBconnection db = new DBconnection();
 
             db.init();
@@ -43,6 +43,42 @@ namespace EasyBookShop.com.easy.controal
             }
            
             return cus;
+        }
+
+        public Customer getpending(String id)
+        {
+            Customer cus = new Customer();
+
+            String sql = "select sum(total) as total from wholesale_invoices where customer=@id and method='credit' ";
+
+            DBconnection db = new DBconnection();
+
+            db.init();
+            MySqlConnection con = db.getConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                try
+                {
+                    decimal total = reader.GetDecimal(0);
+
+                    cus.Pendings = total;
+
+                }
+                catch (Exception e)
+                {
+                    cus.Pendings = 0;
+                }
+                
+            }
+
+            return cus;
+
         }
     }
 }

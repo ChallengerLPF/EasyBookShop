@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wholesale));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_id = new System.Windows.Forms.Label();
             this.btn_sell = new System.Windows.Forms.Button();
@@ -75,10 +75,10 @@
             this.clm_brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clm_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clm_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
+            this.Rbtn_bname = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroTextBox8 = new MetroFramework.Controls.MetroTextBox();
+            this.Rbtn_iname = new MetroFramework.Controls.MetroRadioButton();
+            this.txt_search = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.detete = new System.Windows.Forms.ToolStripMenuItem();
@@ -193,8 +193,8 @@
             this.total});
             this.datagrid_bill.Location = new System.Drawing.Point(3, 203);
             this.datagrid_bill.Name = "datagrid_bill";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datagrid_bill.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datagrid_bill.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.datagrid_bill.RowTemplate.Height = 30;
             this.datagrid_bill.Size = new System.Drawing.Size(789, 423);
             this.datagrid_bill.TabIndex = 23;
@@ -232,11 +232,11 @@
             // 
             // total
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(1);
-            this.total.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(1);
+            this.total.DefaultCellStyle = dataGridViewCellStyle5;
             this.total.FillWeight = 109.0154F;
             this.total.HeaderText = "Total Price";
             this.total.Name = "total";
@@ -366,12 +366,14 @@
             // 
             // txt_rqty
             // 
+            this.txt_rqty.CustomBackground = true;
             this.txt_rqty.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_rqty.Location = new System.Drawing.Point(365, 36);
             this.txt_rqty.Name = "txt_rqty";
             this.txt_rqty.Size = new System.Drawing.Size(128, 30);
             this.txt_rqty.TabIndex = 6;
             this.txt_rqty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_rqty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_rqty_KeyUp);
             // 
             // metroLabel1
             // 
@@ -388,6 +390,8 @@
             // 
             // txt_icode
             // 
+            this.txt_icode.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_icode.CustomBackground = true;
             this.txt_icode.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_icode.Location = new System.Drawing.Point(12, 36);
             this.txt_icode.Name = "txt_icode";
@@ -537,10 +541,10 @@
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.datagrid_srch);
-            this.panel4.Controls.Add(this.metroRadioButton2);
+            this.panel4.Controls.Add(this.Rbtn_bname);
             this.panel4.Controls.Add(this.metroLabel12);
-            this.panel4.Controls.Add(this.metroRadioButton1);
-            this.panel4.Controls.Add(this.metroTextBox8);
+            this.panel4.Controls.Add(this.Rbtn_iname);
+            this.panel4.Controls.Add(this.txt_search);
             this.panel4.Controls.Add(this.metroLabel11);
             this.panel4.Location = new System.Drawing.Point(806, 168);
             this.panel4.Name = "panel4";
@@ -549,11 +553,11 @@
             // 
             // datagrid_srch
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.datagrid_srch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.datagrid_srch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.datagrid_srch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagrid_srch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagrid_srch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -561,14 +565,14 @@
             this.clm_brand,
             this.clm_qty,
             this.clm_price});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagrid_srch.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagrid_srch.DefaultCellStyle = dataGridViewCellStyle8;
             this.datagrid_srch.Location = new System.Drawing.Point(4, 76);
             this.datagrid_srch.Name = "datagrid_srch";
             this.datagrid_srch.RowTemplate.Height = 30;
@@ -608,17 +612,17 @@
             this.clm_price.Name = "clm_price";
             this.clm_price.ReadOnly = true;
             // 
-            // metroRadioButton2
+            // Rbtn_bname
             // 
-            this.metroRadioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroRadioButton2.Location = new System.Drawing.Point(352, 38);
-            this.metroRadioButton2.Name = "metroRadioButton2";
-            this.metroRadioButton2.Size = new System.Drawing.Size(109, 20);
-            this.metroRadioButton2.TabIndex = 24;
-            this.metroRadioButton2.TabStop = true;
-            this.metroRadioButton2.Text = "Brand Name";
-            this.metroRadioButton2.UseVisualStyleBackColor = true;
+            this.Rbtn_bname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Rbtn_bname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Rbtn_bname.Location = new System.Drawing.Point(352, 38);
+            this.Rbtn_bname.Name = "Rbtn_bname";
+            this.Rbtn_bname.Size = new System.Drawing.Size(109, 20);
+            this.Rbtn_bname.TabIndex = 24;
+            this.Rbtn_bname.TabStop = true;
+            this.Rbtn_bname.Text = "Brand Name";
+            this.Rbtn_bname.UseVisualStyleBackColor = true;
             // 
             // metroLabel12
             // 
@@ -632,24 +636,26 @@
             this.metroLabel12.Text = "Seaech By ";
             this.metroLabel12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // metroRadioButton1
+            // Rbtn_iname
             // 
-            this.metroRadioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroRadioButton1.Location = new System.Drawing.Point(228, 38);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(109, 20);
-            this.metroRadioButton1.TabIndex = 23;
-            this.metroRadioButton1.TabStop = true;
-            this.metroRadioButton1.Text = "Item Name";
-            this.metroRadioButton1.UseVisualStyleBackColor = true;
+            this.Rbtn_iname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Rbtn_iname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Rbtn_iname.Location = new System.Drawing.Point(228, 38);
+            this.Rbtn_iname.Name = "Rbtn_iname";
+            this.Rbtn_iname.Size = new System.Drawing.Size(109, 20);
+            this.Rbtn_iname.TabIndex = 23;
+            this.Rbtn_iname.TabStop = true;
+            this.Rbtn_iname.Text = "Item Name";
+            this.Rbtn_iname.UseVisualStyleBackColor = true;
             // 
-            // metroTextBox8
+            // txt_search
             // 
-            this.metroTextBox8.Location = new System.Drawing.Point(123, 4);
-            this.metroTextBox8.Name = "metroTextBox8";
-            this.metroTextBox8.Size = new System.Drawing.Size(427, 30);
-            this.metroTextBox8.TabIndex = 22;
+            this.txt_search.Location = new System.Drawing.Point(123, 4);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(427, 30);
+            this.txt_search.TabIndex = 22;
+            this.txt_search.Click += new System.EventHandler(this.txt_search_Click);
+            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metroTextBox8_KeyUp);
             // 
             // metroLabel11
             // 
@@ -727,9 +733,9 @@
         private MetroFramework.Controls.MetroTextBox cus_nic;
         private System.Windows.Forms.Panel panel4;
         private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox8;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
+        private MetroFramework.Controls.MetroRadioButton Rbtn_iname;
+        private MetroFramework.Controls.MetroTextBox txt_search;
+        private MetroFramework.Controls.MetroRadioButton Rbtn_bname;
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

@@ -72,6 +72,12 @@
     <Compile Include="com.easy.utility\DBconnection.cs" />
     <Compile Include="com.easy.utility\Redtxt.cs" />
     <Compile Include="com.easy.utility\Spliter.cs" />
+    <Compile Include="com.easy.view\Customer_del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\Customer_del.Designer.cs">
+      <DependentUpon>Customer_del.cs</DependentUpon>
+    </Compile>
     <Compile Include="com.easy.view\Customer_view.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="com.easy.view\Customer_del.resx">
+      <DependentUpon>Customer_del.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\Customer_view.resx">
       <DependentUpon>Customer_view.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,10 +163,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\rsz_become-customer-icon-blue.png" />
     <None Include="Resources\appbar.eye.png" />
     <None Include="Resources\user.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

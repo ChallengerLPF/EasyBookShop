@@ -11,6 +11,7 @@ using EasyBookShop.com.easy.controal;
 using System.Collections;
 using EasyBookShop.com.easy.model;
 using EasyBookShop.com.easy.utility;
+using MySql.Data.MySqlClient;
 
 namespace EasyBookShop.com.easy.view
 {
@@ -39,17 +40,11 @@ namespace EasyBookShop.com.easy.view
         {
            
             Productcontroaler pc = new Productcontroaler();
-            ArrayList list = pc.findall();
-
-            /*for (int i = 0; i < 4; i++)
-            {
-                datagrid_srch.Rows.Add(i, list);
-            }*/
-
-            foreach (Wholesale data in list)
-            {
-                datagrid_srch.Rows.Add(data.Dis,data.Brnd,data.Qty,data.Price);
-            }
+            MySqlDataAdapter list = pc.findall();
+            DataTable dt = new DataTable();
+            list.Fill(dt);
+            datagrid_srch.DataSource = dt;
+            
 
         }
 
@@ -329,7 +324,7 @@ namespace EasyBookShop.com.easy.view
             }
             catch (Exception e)
             {
-                MessageBox.Show("Invalide NIC");
+                MessageBox.Show(e.Message);
                 resetcustomer();
             }
                 
@@ -390,13 +385,10 @@ namespace EasyBookShop.com.easy.view
             String dis = txt_search.Text;
 
             Productcontroaler pc = new Productcontroaler();
-            ArrayList list = pc.search_byIname(dis);
-
-            foreach (Wholesale data in list)
-            {
-                MessageBox.Show(data.Dis);
-                datagrid_srch.Rows.Add(data.Dis, data.Brnd, data.Qty, data.Price);
-            }
+            MySqlDataAdapter list = pc.search_byIname(dis);
+            DataTable dt = new DataTable();
+            list.Fill(dt);
+            datagrid_srch.DataSource=dt;
 
         }
 

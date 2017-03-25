@@ -14,46 +14,17 @@ namespace EasyBookShop.com.easy.controal
 {
     class Productcontroaler
     {
-        public ArrayList findall(){
+        public MySqlDataAdapter findall(){
 
-            ArrayList list = new ArrayList();
-
-            String sql = "select description,category,quantity,wholesale_price from items";
+            String sql = "select items.description as Discription,categories.name as Category,items.quantity as Quantity ,wholesale_price as Price from items inner join categories on items.category = categories.id";
             DBconnection db = new DBconnection();
 
-            Redtxt rdv = new Redtxt();
-            String[] data = rdv.redtext();
-
-            db.setConnecton(data[0], data[2], data[3], data[1]);
+            db.init();
             MySqlConnection con = db.getConnection();
-            MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, con);
+            
 
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            //while (reader.HasRows)
-            //{
-                //Console.WriteLine("test1");
-                while (reader.Read())
-                {
-                    Wholesale wl = new Wholesale();
-
-                    String dis = (String)reader.GetValue(0);
-                    int cat = (int)reader.GetValue(1);
-                    int qty = (int)reader.GetValue(2);
-                    Decimal price = (Decimal)reader.GetValue(3);
-
-                    wl.Dis = dis;
-                    wl.Brnd = cat;
-                    wl.Qty = qty;
-                    wl.Price = price;
-
-                    list.Add(wl);
-
-                }
-                
-           // }
-
-            return list;
+            return da;
         }
 
         public Wholesale findone(String code)
@@ -111,47 +82,23 @@ namespace EasyBookShop.com.easy.controal
             return wl;
         }
 
-        public ArrayList search_byIname(String code)
+        public MySqlDataAdapter search_byIname(String code)
         {
 
-            ArrayList list = new ArrayList();
+            //ArrayList list = new ArrayList();
 
-            String sql = "select description,category,quantity,wholesale_price from items where description like '@code%' ";
+            String sql = "select items.description as Discription,categories.name as Category,items.quantity as Quantity ,wholesale_price as Price from items inner join categories on items.category = categories.id where items.description like '%" + code + "%' ";
             DBconnection db = new DBconnection();
             
             db.init();
             MySqlConnection con = db.getConnection();
-            MySqlCommand cmd = new MySqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("@code", code);
-            cmd.Prepare();
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-            MessageBox.Show(sql);
-            //while (reader.HasRows)
-            //{
-            //Console.WriteLine("test1");
-            while (reader.Read())
-            {
-                
-                Wholesale wl = new Wholesale();
-
-                String dis = (String)reader.GetValue(0);
-                int cat = (int)reader.GetValue(1);
-                int qty = (int)reader.GetValue(2);
-                Decimal price = (Decimal)reader.GetValue(3);
-
-                wl.Dis = dis;
-                wl.Brnd = cat;
-                wl.Qty = qty;
-                wl.Price = price;
-
-                list.Add(wl);
-
-            }
+            //MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, con);
+            //da.Parameters.AddWithValue("@code", "%"+code+"%");
 
             // }
 
-            return list;
+            return da;
         }
     }
 }

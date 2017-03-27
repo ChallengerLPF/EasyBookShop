@@ -21,7 +21,7 @@ namespace EasyBookShop.com.easy.view
         {
             InitializeComponent();
             setDefault();
-            findtalemode();
+            //findtalemode();
             customize_datagrid();
         }
 
@@ -74,7 +74,8 @@ namespace EasyBookShop.com.easy.view
 
         private void Customer_view_Load(object sender, EventArgs e)
         {
-            findtalemode();
+            for (int i = 0; i < 2;i++ )
+                findtalemode();
         }
 
         private void customize_datagrid()
@@ -205,7 +206,7 @@ namespace EasyBookShop.com.easy.view
 
         private void datagv_cus_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show(e.ColumnIndex.ToString());
+            //MessageBox.Show(e.ColumnIndex.ToString());
             
             if (e.ColumnIndex == 6 && e.RowIndex >= 0) //delete icon button is clicked
             {
@@ -231,9 +232,13 @@ namespace EasyBookShop.com.easy.view
                 String gen = datagv_cus.Rows[e.RowIndex].Cells[4].Value.ToString();
                 String level = datagv_cus.Rows[e.RowIndex].Cells[5].Value.ToString();
 
+                
+
                 txt_cunic.Text = nic;
                 txt_cuname.Text = name;
                 txt_cuphone.Text = tp;
+
+
                 cmb_cugen.SelectedItem = gen;
                 cmb_culevel.SelectedItem = level;
                 lbl_id.Text = id;
@@ -243,7 +248,8 @@ namespace EasyBookShop.com.easy.view
             {
                 
                 String id = datagv_cus.Rows[e.RowIndex].Cells[0].Value.ToString();
-                Customer_del cd = new Customer_del(id);
+                MessageBox.Show(id);
+                Customer_del cd = new Customer_del(id, "All payments");
                 cd.Show();
             }
         }
@@ -280,6 +286,11 @@ namespace EasyBookShop.com.easy.view
                 default:
                     break;
             }
+        }
+
+        private void txt_cname_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

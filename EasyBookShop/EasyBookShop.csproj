@@ -59,10 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="com.easy.controal\Customer_controal.cs" />
+    <Compile Include="com.easy.controal\Customer_delControal.cs" />
+    <Compile Include="com.easy.controal\Invoice_payment_steps_controal.cs" />
     <Compile Include="com.easy.controal\LoginControal.cs" />
     <Compile Include="com.easy.controal\Perchuspopup_controaler.cs" />
     <Compile Include="com.easy.controal\Productcontroaler.cs" />
     <Compile Include="com.easy.model\Customer.cs" />
+    <Compile Include="com.easy.model\Customer_del.cs" />
+    <Compile Include="com.easy.model\Invoice_payment_steps.cs" />
     <Compile Include="com.easy.model\Item.cs" />
     <Compile Include="com.easy.model\Login.cs" />
     <Compile Include="com.easy.model\Puschespopup.cs" />
@@ -163,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\rsz_billing.png" />
     <None Include="Resources\rsz_become-customer-icon-blue.png" />
     <None Include="Resources\appbar.eye.png" />
     <None Include="Resources\user.png" />

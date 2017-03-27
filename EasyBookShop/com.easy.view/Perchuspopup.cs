@@ -78,7 +78,7 @@ namespace EasyBookShop.com.easy.view
             
         }
 
-        public void insert_invoice()
+        public void insert_invoice(String method)
         {
 
             /*get user*/
@@ -92,7 +92,7 @@ namespace EasyBookShop.com.easy.view
             pup.Total = decimal.Parse(txt_nettotal.Text);
             pup.Cus = customer;
             pup.Cuslevel = cuslevel;
-            pup.Method="cash";
+            pup.Method=method;
             pup.Cashire = int.Parse(rtxt[1]);
 
             /*set controller object...*/
@@ -107,8 +107,9 @@ namespace EasyBookShop.com.easy.view
         {
             try
             {
-                insert_invoice();
+                insert_invoice("cash");
                 add_invoice_items();
+                insertpaymentsteps("cash");
                 updateitem();
                 ClearList();
             }
@@ -180,6 +181,85 @@ namespace EasyBookShop.com.easy.view
                 ppc.update_items(it);
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                insert_invoice("credit");
+                add_invoice_items();
+                insertpaymentsteps("credit");
+                updateitem();
+                ClearList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        
+
+        private void insertpaymentsteps(String method)
+        {
+
+            switch(method){
+
+                case "credit" :
+
+                    if (!txt_pmnt.Text.Equals(""))
+                    {
+                        try
+                        {
+                            decimal pay = decimal.Parse(txt_pmnt.Text);
+                            Invoice_payment_steps ips = new Invoice_payment_steps();
+                            ips.Invoice = int.Parse(txt_bno.Text);
+                            ips.Patial_payment1 = pay;
+
+                            Invoice_payment_steps_controal ipsc = new Invoice_payment_steps_controal();
+                            ipsc.insert_step(ips);
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show("Invalied number");
+                        }
+                    }
+                    else
+                    {
+                        decimal pay = 0;
+                        Invoice_payment_steps ips = new Invoice_payment_steps();
+                        ips.Invoice = int.Parse(txt_bno.Text);
+                        ips.Patial_payment1 = pay;
+
+                        Invoice_payment_steps_controal ipsc = new Invoice_payment_steps_controal();
+                        ipsc.insert_step(ips);
+                    }
+
+                    break;
+
+                case "cash":
+
+                        try
+                        {
+                            decimal pay = decimal.Parse(txt_nettotal.Text);
+                            Invoice_payment_steps ips = new Invoice_payment_steps();
+                            ips.Invoice = int.Parse(txt_bno.Text);
+                            ips.Patial_payment1 = pay;
+
+                            Invoice_payment_steps_controal ipsc = new Invoice_payment_steps_controal();
+                            ipsc.insert_step(ips);
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show("Invalied number");
+                        }
+
+                    break;
+
+            }
+
+            
         }
     }
 }

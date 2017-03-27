@@ -246,7 +246,7 @@ namespace EasyBookShop.com.easy.view
 
             Customer_validate cv = new Customer_validate();
 
-            Console.WriteLine(datagrid_bill.RowCount);
+            
 
             if (datagrid_bill.RowCount > 1)
             {

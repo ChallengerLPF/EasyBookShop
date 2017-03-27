@@ -255,7 +255,7 @@ namespace EasyBookShop.com.easy.controal
 
                 String nic = reader.GetString(0);
                 String fname = (String)reader.GetValue(1);
-                String level = (String)reader.GetValue(2);
+                String level = reader.GetString(2);
                 String gen = (String)reader.GetValue(3);
                 String phn = reader.GetString(4);
 

@@ -39,6 +39,15 @@ namespace EasyBookShop.com.easy.view
             cmb_method.SelectedItem = method;
         }
 
+        private void customize_datagrid()
+        {
+
+            datagrid_cusdel.Columns[0].Width = 100;
+            datagrid_cusdel.Columns[1].Width = 200;
+            datagrid_cusdel.Columns[2].Width = 100;
+            datagrid_cusdel.Columns[3].Width = 100;
+        }
+
         private void getDetails()
         {
             Customer cus = new Customer();
@@ -144,6 +153,8 @@ namespace EasyBookShop.com.easy.view
             viewbut.Image = Image.FromFile("../../images/view.png");
             viewbut.HeaderText = "View";
             datagrid_cusdel.Columns.Add(viewbut);
+
+            customize_datagrid();
         }
 
         public void ClearGrid()
@@ -160,7 +171,7 @@ namespace EasyBookShop.com.easy.view
             if (e.ColumnIndex == 7 && e.RowIndex >= 0)
             {
                 String blno = datagrid_cusdel.Rows[e.RowIndex].Cells[0].Value.ToString();
-                String total = datagrid_cusdel.Rows[e.RowIndex].Cells[2].Value.ToString();
+                String total = datagrid_cusdel.Rows[e.RowIndex].Cells[3].Value.ToString();
                 String pending = datagrid_cusdel.Rows[e.RowIndex].Cells[6].Value.ToString();
 
                 txt_blno.Text = blno;
@@ -215,6 +226,7 @@ namespace EasyBookShop.com.easy.view
             if (rbtn_cash.Checked)
             {
                 add_pamentStep();
+                findmethod();
             }
         }
 

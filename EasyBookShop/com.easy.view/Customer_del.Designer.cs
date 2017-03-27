@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_nic = new System.Windows.Forms.Label();
             this.cmb_method = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.txt_pending = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txt_expmt = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
@@ -56,11 +60,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.datagrid_cusdel = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.txt_pending = new MetroFramework.Controls.MetroTextBox();
             this.lbl_pending = new System.Windows.Forms.Label();
+            this.datagrid_cusdel = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_cusdel)).BeginInit();
@@ -149,6 +151,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(315, 626);
             this.panel2.TabIndex = 34;
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.CustomBackground = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel11.Location = new System.Drawing.Point(15, 154);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(109, 25);
+            this.metroLabel11.TabIndex = 44;
+            this.metroLabel11.Text = "Pending Rs :";
+            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txt_pending
+            // 
+            this.txt_pending.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txt_pending.Location = new System.Drawing.Point(15, 182);
+            this.txt_pending.Name = "txt_pending";
+            this.txt_pending.Size = new System.Drawing.Size(284, 30);
+            this.txt_pending.TabIndex = 45;
+            this.txt_pending.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // metroLabel1
             // 
@@ -433,15 +457,6 @@
             this.metroLabel2.Text = "Bill Details";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // datagrid_cusdel
-            // 
-            this.datagrid_cusdel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid_cusdel.Location = new System.Drawing.Point(3, 59);
-            this.datagrid_cusdel.Name = "datagrid_cusdel";
-            this.datagrid_cusdel.Size = new System.Drawing.Size(1023, 562);
-            this.datagrid_cusdel.TabIndex = 34;
-            this.datagrid_cusdel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::EasyBookShop.Properties.Resources.rsz_become_customer_icon_blue;
@@ -451,38 +466,43 @@
             this.panel1.Size = new System.Drawing.Size(87, 89);
             this.panel1.TabIndex = 0;
             // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.CustomBackground = true;
-            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel11.Location = new System.Drawing.Point(15, 154);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(109, 25);
-            this.metroLabel11.TabIndex = 44;
-            this.metroLabel11.Text = "Pending Rs :";
-            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txt_pending
-            // 
-            this.txt_pending.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txt_pending.Location = new System.Drawing.Point(15, 182);
-            this.txt_pending.Name = "txt_pending";
-            this.txt_pending.Size = new System.Drawing.Size(284, 30);
-            this.txt_pending.TabIndex = 45;
-            this.txt_pending.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // lbl_pending
             // 
             this.lbl_pending.AutoSize = true;
             this.lbl_pending.Font = new System.Drawing.Font("Minion Pro Cond", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_pending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lbl_pending.Location = new System.Drawing.Point(1044, 51);
+            this.lbl_pending.Location = new System.Drawing.Point(1010, 51);
             this.lbl_pending.Name = "lbl_pending";
             this.lbl_pending.Size = new System.Drawing.Size(94, 44);
             this.lbl_pending.TabIndex = 36;
             this.lbl_pending.Text = "label1";
+            // 
+            // datagrid_cusdel
+            // 
+            this.datagrid_cusdel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagrid_cusdel.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagrid_cusdel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.datagrid_cusdel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagrid_cusdel.DefaultCellStyle = dataGridViewCellStyle2;
+            this.datagrid_cusdel.Location = new System.Drawing.Point(3, 59);
+            this.datagrid_cusdel.Name = "datagrid_cusdel";
+            this.datagrid_cusdel.Size = new System.Drawing.Size(1023, 562);
+            this.datagrid_cusdel.TabIndex = 34;
+            this.datagrid_cusdel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Customer_del
             // 
@@ -525,7 +545,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroTextBox txt_blno;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView datagrid_cusdel;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
         private MetroFramework.Controls.MetroRadioButton rbtn_cash;
         private MetroFramework.Controls.MetroLabel metroLabel3;
@@ -546,5 +565,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroTextBox txt_pending;
         private System.Windows.Forms.Label lbl_pending;
+        private System.Windows.Forms.DataGridView datagrid_cusdel;
     }
 }

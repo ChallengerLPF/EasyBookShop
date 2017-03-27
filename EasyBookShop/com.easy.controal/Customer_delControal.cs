@@ -24,9 +24,9 @@ namespace EasyBookShop.com.easy.controal
 
                 try
                 {
-                    String sql = "SELECT wholesale_invoices.id as Invoice,wholesale_invoices.date as Date,total as Total,cashier as Cashier,method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
+                    String sql = "SELECT wholesale_invoices.id as Invoice,users.username as Cashier,wholesale_invoices.date as Date,total as Total,method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
                     "wholesale_invoices.total-sum(wholesale_invoice_payment_steps.paid_partial_amount) as Pending " +
-                    "FROM wholesale_invoices inner join wholesale_invoice_payment_steps on wholesale_invoices.id=wholesale_invoice_payment_steps.invoice" +
+                    "FROM users inner join wholesale_invoices inner join wholesale_invoice_payment_steps on users.id=wholesale_invoices.cashier and wholesale_invoices.id=wholesale_invoice_payment_steps.invoice" +
                     " where wholesale_invoices.customer=@cno group by wholesale_invoices.id";
 
                     db.init();
@@ -49,9 +49,9 @@ namespace EasyBookShop.com.easy.controal
             {
                 try
                 {
-                    String sql = "SELECT wholesale_invoices.id as Invoice,wholesale_invoices.date as Date,total as Total,cashier as Cashier,method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
+                    String sql = "SELECT wholesale_invoices.id as Invoice,users.username as Cashier,wholesale_invoices.date as Date,total as Total,cashier as Cashier,method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
                     "wholesale_invoices.total-sum(wholesale_invoice_payment_steps.paid_partial_amount) as Pending " +
-                    "FROM wholesale_invoices inner join wholesale_invoice_payment_steps on wholesale_invoices.id=wholesale_invoice_payment_steps.invoice" +
+                    "FROM users inner join wholesale_invoices inner join wholesale_invoice_payment_steps on users.id=wholesale_invoices.cashier and wholesale_invoices.id=wholesale_invoice_payment_steps.invoice" +
                     " where wholesale_invoices.customer=@cno and wholesale_invoices.method=@method group by wholesale_invoices.id";
 
                     db.init();

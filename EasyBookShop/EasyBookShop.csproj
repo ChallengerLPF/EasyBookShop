@@ -58,12 +58,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="com.easy.controal\ChequePaymentControal.cs" />
     <Compile Include="com.easy.controal\Customer_controal.cs" />
     <Compile Include="com.easy.controal\Customer_delControal.cs" />
     <Compile Include="com.easy.controal\Invoice_payment_steps_controal.cs" />
     <Compile Include="com.easy.controal\LoginControal.cs" />
     <Compile Include="com.easy.controal\Perchuspopup_controaler.cs" />
     <Compile Include="com.easy.controal\Productcontroaler.cs" />
+    <Compile Include="com.easy.controal\WhalesalePaymentStepControall.cs" />
+    <Compile Include="com.easy.model\ChequePayment.cs" />
     <Compile Include="com.easy.model\Customer.cs" />
     <Compile Include="com.easy.model\Customer_del.cs" />
     <Compile Include="com.easy.model\Invoice_payment_steps.cs" />
@@ -71,11 +74,18 @@
     <Compile Include="com.easy.model\Login.cs" />
     <Compile Include="com.easy.model\Puschespopup.cs" />
     <Compile Include="com.easy.model\Wholesale.cs" />
+    <Compile Include="com.easy.model\WholesalePayment_steps.cs" />
     <Compile Include="com.easy.model\Whole_Sale.cs" />
     <Compile Include="com.easy.utility\Customer_validate.cs" />
     <Compile Include="com.easy.utility\DBconnection.cs" />
     <Compile Include="com.easy.utility\Redtxt.cs" />
     <Compile Include="com.easy.utility\Spliter.cs" />
+    <Compile Include="com.easy.view\Cheque_Payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\Cheque_Payment.Designer.cs">
+      <DependentUpon>Cheque_Payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="com.easy.view\Customer_del.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,11 +110,29 @@
     <Compile Include="com.easy.view\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="com.easy.view\Multiple_Items.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\Multiple_Items.Designer.cs">
+      <DependentUpon>Multiple_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.easy.view\payment_steps.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\payment_steps.Designer.cs">
+      <DependentUpon>payment_steps.cs</DependentUpon>
+    </Compile>
     <Compile Include="com.easy.view\Perchuspopup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="com.easy.view\Perchuspopup.Designer.cs">
       <DependentUpon>Perchuspopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.easy.view\Popup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="com.easy.view\Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
     </Compile>
     <Compile Include="com.easy.view\wholesale.cs">
       <SubType>UserControl</SubType>
@@ -120,6 +148,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="com.easy.view\Cheque_Payment.resx">
+      <DependentUpon>Cheque_Payment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\Customer_del.resx">
       <DependentUpon>Customer_del.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,8 +163,17 @@
     <EmbeddedResource Include="com.easy.view\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\Multiple_Items.resx">
+      <DependentUpon>Multiple_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\payment_steps.resx">
+      <DependentUpon>payment_steps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\Perchuspopup.resx">
       <DependentUpon>Perchuspopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.easy.view\Popup.resx">
+      <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="com.easy.view\wholesale.resx">
       <DependentUpon>wholesale.cs</DependentUpon>
@@ -166,15 +206,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="images\rsz_close_grey.png" />
+    <None Include="images\rsz_fa6e16ae904eb5c381b10051e06775bc.png" />
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\rsz_billing.png" />
     <None Include="Resources\rsz_become-customer-icon-blue.png" />
     <None Include="Resources\appbar.eye.png" />
     <None Include="Resources\user.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

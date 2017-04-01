@@ -16,6 +16,8 @@ namespace EasyBookShop.com.easy.controal
         {
             int blno = invoice.Invoice;
             decimal payment = invoice.Patial_payment1;
+            String method = invoice.Method;
+            MessageBox.Show(method);
 
             DBconnection db = new DBconnection();
 
@@ -23,10 +25,11 @@ namespace EasyBookShop.com.easy.controal
             {
                 db.init();
                 MySqlConnection con = db.getConnection();
-                String sql = "insert into wholesale_invoice_payment_steps(invoice, paid_partial_amount, date) values(@invoice,@payment,now())";
+                String sql = "insert into wholesale_invoice_payment_steps(invoice, paid_partial_amount, date,method) values(@invoice,@payment,now(),@method)";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@invoice", blno);
                 cmd.Parameters.AddWithValue("@payment", payment);
+                cmd.Parameters.AddWithValue("@method", method);
 
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();

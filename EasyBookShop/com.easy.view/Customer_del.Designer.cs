@@ -35,6 +35,7 @@
             this.cmb_method = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_chid = new System.Windows.Forms.Label();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.txt_pending = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -49,7 +50,7 @@
             this.txt_balance = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txt_payment = new MetroFramework.Controls.MetroTextBox();
-            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtn_checque = new MetroFramework.Controls.MetroRadioButton();
             this.rbtn_cash = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
@@ -60,9 +61,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.datagrid_cusdel = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_pending = new System.Windows.Forms.Label();
-            this.datagrid_cusdel = new System.Windows.Forms.DataGridView();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.cmb_bank = new MetroFramework.Controls.MetroComboBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid_cusdel)).BeginInit();
@@ -125,6 +128,9 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.cmb_bank);
+            this.panel2.Controls.Add(this.metroLabel12);
+            this.panel2.Controls.Add(this.lbl_chid);
             this.panel2.Controls.Add(this.metroLabel11);
             this.panel2.Controls.Add(this.txt_pending);
             this.panel2.Controls.Add(this.metroLabel1);
@@ -139,7 +145,7 @@
             this.panel2.Controls.Add(this.txt_balance);
             this.panel2.Controls.Add(this.metroLabel5);
             this.panel2.Controls.Add(this.txt_payment);
-            this.panel2.Controls.Add(this.metroRadioButton2);
+            this.panel2.Controls.Add(this.rbtn_checque);
             this.panel2.Controls.Add(this.rbtn_cash);
             this.panel2.Controls.Add(this.metroLabel3);
             this.panel2.Controls.Add(this.metroLabel6);
@@ -151,6 +157,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(315, 626);
             this.panel2.TabIndex = 34;
+            // 
+            // lbl_chid
+            // 
+            this.lbl_chid.AutoSize = true;
+            this.lbl_chid.Location = new System.Drawing.Point(264, 230);
+            this.lbl_chid.Name = "lbl_chid";
+            this.lbl_chid.Size = new System.Drawing.Size(35, 13);
+            this.lbl_chid.TabIndex = 46;
+            this.lbl_chid.Text = "label1";
+            this.lbl_chid.Visible = false;
             // 
             // metroLabel11
             // 
@@ -204,9 +220,9 @@
             this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel9.Location = new System.Drawing.Point(15, 458);
             this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(162, 25);
+            this.metroLabel9.Size = new System.Drawing.Size(110, 25);
             this.metroLabel9.TabIndex = 40;
-            this.metroLabel9.Text = "Check Amount Rs :";
+            this.metroLabel9.Text = "Amount Rs :";
             this.metroLabel9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // button2
@@ -245,7 +261,7 @@
             this.txt_chvalue.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_chvalue.Location = new System.Drawing.Point(15, 486);
             this.txt_chvalue.Name = "txt_chvalue";
-            this.txt_chvalue.Size = new System.Drawing.Size(284, 30);
+            this.txt_chvalue.Size = new System.Drawing.Size(137, 30);
             this.txt_chvalue.TabIndex = 41;
             this.txt_chvalue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -317,21 +333,21 @@
             this.txt_payment.TabIndex = 35;
             this.txt_payment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // metroRadioButton2
+            // rbtn_checque
             // 
-            this.metroRadioButton2.AutoSize = true;
-            this.metroRadioButton2.CustomForeColor = true;
-            this.metroRadioButton2.FontSize = MetroFramework.MetroLinkSize.Tall;
-            this.metroRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.metroRadioButton2.Location = new System.Drawing.Point(158, 246);
-            this.metroRadioButton2.Name = "metroRadioButton2";
-            this.metroRadioButton2.Size = new System.Drawing.Size(120, 25);
-            this.metroRadioButton2.TabIndex = 33;
-            this.metroRadioButton2.TabStop = true;
-            this.metroRadioButton2.Text = "Cheque Pay";
-            this.metroRadioButton2.UseVisualStyleBackColor = true;
-            this.metroRadioButton2.CheckedChanged += new System.EventHandler(this.metroRadioButton2_CheckedChanged);
-            this.metroRadioButton2.Click += new System.EventHandler(this.metroRadioButton2_Click);
+            this.rbtn_checque.AutoSize = true;
+            this.rbtn_checque.CustomForeColor = true;
+            this.rbtn_checque.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.rbtn_checque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.rbtn_checque.Location = new System.Drawing.Point(158, 246);
+            this.rbtn_checque.Name = "rbtn_checque";
+            this.rbtn_checque.Size = new System.Drawing.Size(120, 25);
+            this.rbtn_checque.TabIndex = 33;
+            this.rbtn_checque.TabStop = true;
+            this.rbtn_checque.Text = "Cheque Pay";
+            this.rbtn_checque.UseVisualStyleBackColor = true;
+            this.rbtn_checque.CheckedChanged += new System.EventHandler(this.metroRadioButton2_CheckedChanged);
+            this.rbtn_checque.Click += new System.EventHandler(this.metroRadioButton2_Click);
             // 
             // rbtn_cash
             // 
@@ -457,26 +473,6 @@
             this.metroLabel2.Text = "Bill Details";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::EasyBookShop.Properties.Resources.rsz_become_customer_icon_blue;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(7, 8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(87, 89);
-            this.panel1.TabIndex = 0;
-            // 
-            // lbl_pending
-            // 
-            this.lbl_pending.AutoSize = true;
-            this.lbl_pending.Font = new System.Drawing.Font("Minion Pro Cond", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lbl_pending.Location = new System.Drawing.Point(1010, 51);
-            this.lbl_pending.Name = "lbl_pending";
-            this.lbl_pending.Size = new System.Drawing.Size(94, 44);
-            this.lbl_pending.TabIndex = 36;
-            this.lbl_pending.Text = "label1";
-            // 
             // datagrid_cusdel
             // 
             this.datagrid_cusdel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -503,6 +499,53 @@
             this.datagrid_cusdel.Size = new System.Drawing.Size(1023, 562);
             this.datagrid_cusdel.TabIndex = 34;
             this.datagrid_cusdel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::EasyBookShop.Properties.Resources.rsz_become_customer_icon_blue;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(7, 8);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(87, 89);
+            this.panel1.TabIndex = 0;
+            // 
+            // lbl_pending
+            // 
+            this.lbl_pending.AutoSize = true;
+            this.lbl_pending.Font = new System.Drawing.Font("Minion Pro Cond", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbl_pending.Location = new System.Drawing.Point(1010, 51);
+            this.lbl_pending.Name = "lbl_pending";
+            this.lbl_pending.Size = new System.Drawing.Size(94, 44);
+            this.lbl_pending.TabIndex = 36;
+            this.lbl_pending.Text = "label1";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.CustomBackground = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel12.Location = new System.Drawing.Point(158, 458);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(59, 25);
+            this.metroLabel12.TabIndex = 47;
+            this.metroLabel12.Text = "Bank :";
+            this.metroLabel12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // cmb_bank
+            // 
+            this.cmb_bank.FormattingEnabled = true;
+            this.cmb_bank.ItemHeight = 23;
+            this.cmb_bank.Items.AddRange(new object[] {
+            "BOC",
+            "NSB",
+            "HNB",
+            "Commercia"});
+            this.cmb_bank.Location = new System.Drawing.Point(158, 487);
+            this.cmb_bank.Name = "cmb_bank";
+            this.cmb_bank.Size = new System.Drawing.Size(141, 29);
+            this.cmb_bank.TabIndex = 48;
             // 
             // Customer_del
             // 
@@ -545,7 +588,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroTextBox txt_blno;
         private System.Windows.Forms.Panel panel3;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
+        private MetroFramework.Controls.MetroRadioButton rbtn_checque;
         private MetroFramework.Controls.MetroRadioButton rbtn_cash;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel6;
@@ -566,5 +609,8 @@
         private MetroFramework.Controls.MetroTextBox txt_pending;
         private System.Windows.Forms.Label lbl_pending;
         private System.Windows.Forms.DataGridView datagrid_cusdel;
+        private System.Windows.Forms.Label lbl_chid;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroComboBox cmb_bank;
     }
 }

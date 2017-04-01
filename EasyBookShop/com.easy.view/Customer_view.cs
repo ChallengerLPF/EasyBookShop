@@ -248,7 +248,7 @@ namespace EasyBookShop.com.easy.view
             {
                 
                 String id = datagv_cus.Rows[e.RowIndex].Cells[0].Value.ToString();
-                MessageBox.Show(id);
+                //MessageBox.Show(id);
                 Customer_del cd = new Customer_del(id, "All payments");
                 cd.Show();
             }
@@ -289,6 +289,16 @@ namespace EasyBookShop.com.easy.view
         }
 
         private void txt_cname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datagv_cus_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_cunic_Click(object sender, EventArgs e)
         {
 
         }

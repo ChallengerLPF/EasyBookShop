@@ -24,7 +24,7 @@ namespace EasyBookShop.com.easy.controal
 
                 try
                 {
-                    String sql = "SELECT wholesale_invoices.id as Invoice,users.username as Cashier,wholesale_invoices.date as Date,total as Total,method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
+                    String sql = "SELECT wholesale_invoices.id as Invoice,users.username as Cashier,wholesale_invoices.date as Date,total as Total,wholesale_invoices.method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
                     "wholesale_invoices.total-sum(wholesale_invoice_payment_steps.paid_partial_amount) as Pending " +
                     "FROM users inner join wholesale_invoices inner join wholesale_invoice_payment_steps on users.id=wholesale_invoices.cashier and wholesale_invoices.id=wholesale_invoice_payment_steps.invoice" +
                     " where wholesale_invoices.customer=@cno group by wholesale_invoices.id";
@@ -49,7 +49,7 @@ namespace EasyBookShop.com.easy.controal
             {
                 try
                 {
-                    String sql = "SELECT wholesale_invoices.id as Invoice,users.username as Cashier,wholesale_invoices.date as Date,total as Total,cashier as Cashier,method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
+                    String sql = "SELECT wholesale_invoices.id as Invoice,users.username as Cashier,wholesale_invoices.date as Date,total as Total,wholesale_invoices.method as Method,sum(wholesale_invoice_payment_steps.paid_partial_amount) as paied," +
                     "wholesale_invoices.total-sum(wholesale_invoice_payment_steps.paid_partial_amount) as Pending " +
                     "FROM users inner join wholesale_invoices inner join wholesale_invoice_payment_steps on users.id=wholesale_invoices.cashier and wholesale_invoices.id=wholesale_invoice_payment_steps.invoice" +
                     " where wholesale_invoices.customer=@cno and wholesale_invoices.method=@method group by wholesale_invoices.id";
@@ -111,23 +111,57 @@ namespace EasyBookShop.com.easy.controal
         {
             decimal pmt = pamt.Patialpayment;
             int invoice = pamt.Invoice;
+            String ppmethod = pamt.Ppmethod;
+            MessageBox.Show(ppmethod);
 
-            String sql = "insert into wholesale_invoice_payment_steps(invoice, paid_partial_amount, date) values (@invoice,@ppamount,now())";
+            if (ppmethod.Equals("cash"))
+            {
+               
+                String sql = "insert into wholesale_invoice_payment_steps(invoice, paid_partial_amount,date,method) values(@invoice,@ppamount,now(),@method)";
 
-            try{
-                DBconnection db = new DBconnection();
-                db.init();
-                MySqlConnection con = db.getConnection();
-                MySqlCommand cmd = new MySqlCommand(sql, con);
+                
+                    DBconnection db = new DBconnection();
+                    db.init();
+                    MySqlConnection con = db.getConnection();
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                cmd.Parameters.AddWithValue("@invoice", invoice);
-                cmd.Parameters.AddWithValue("@ppamount", pmt);
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@invoice", invoice);
+                    cmd.Parameters.AddWithValue("@ppamount", pmt);
+                    cmd.Parameters.AddWithValue("@method", "cash");
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                
             }
-            catch(Exception e){
-                MessageBox.Show(e.Message);
+            else if (ppmethod.Equals("cheque"))
+            {
+                
+                int chid = pamt.Checkid;
+                String sql = "insert into wholesale_invoice_payment_steps(invoice, paid_partial_amount, date,method,cheque) values (@invoice,@ppamount,now(),@method,@cheque)";
+
+                try
+                {
+                    DBconnection db = new DBconnection();
+                    db.init();
+                    MySqlConnection con = db.getConnection();
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+
+                    cmd.Parameters.AddWithValue("@invoice", invoice);
+                    cmd.Parameters.AddWithValue("@ppamount", pmt);
+                    MessageBox.Show(ppmethod);
+                    cmd.Parameters.AddWithValue("@method", ppmethod);
+                    cmd.Parameters.AddWithValue("@cheque", chid);
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show(sql);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
             }
+
+            
             
 
         }
@@ -198,7 +232,7 @@ namespace EasyBookShop.com.easy.controal
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                total = 0;
             }
 
             return total;
@@ -231,12 +265,42 @@ namespace EasyBookShop.com.easy.controal
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                paid = 0;
             }
 
             return paid;
         }
 
 
+        public void addcheque(Customerdetail cheque)
+        {
+            String chno = cheque.Chno;
+            decimal amount = cheque.Patialpayment;
+            String sts = cheque.Chstatus;
+            MessageBox.Show(sts);
+            String sql = "insert into cheques(number,amount,date,status) values(@chno,@amount,now(),@sts)";
+
+            DBconnection db = new DBconnection();
+
+            try
+            {
+
+                db.init();
+                MySqlConnection con = db.getConnection();
+                MySqlCommand cmd = new MySqlCommand(sql,con);
+                cmd.Parameters.AddWithValue("@chno", chno);
+                cmd.Parameters.AddWithValue("@amount", amount);
+                cmd.Parameters.AddWithValue("@sts", sts);
+
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("cheque checked");
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
     }
 }

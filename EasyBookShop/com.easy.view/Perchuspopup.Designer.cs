@@ -171,6 +171,7 @@
             this.button2.TabIndex = 33;
             this.button2.Text = "C H E Q U E ";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_sell
             // 
@@ -184,7 +185,7 @@
             this.btn_sell.Name = "btn_sell";
             this.btn_sell.Size = new System.Drawing.Size(181, 30);
             this.btn_sell.TabIndex = 28;
-            this.btn_sell.Text = "D E R E C T   S E L L";
+            this.btn_sell.Text = "C A S H";
             this.btn_sell.UseVisualStyleBackColor = false;
             this.btn_sell.Click += new System.EventHandler(this.btn_sell_Click);
             // 
@@ -280,7 +281,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 30);
             this.button1.TabIndex = 35;
-            this.button1.Text = "P A Y   L A T E R";
+            this.button1.Text = "C R E D I T";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

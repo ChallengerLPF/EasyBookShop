@@ -169,9 +169,9 @@
         private System.Windows.Forms.Label logout;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel Main_Panel;
         private System.Windows.Forms.Button button3;
         public System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Button button4;
+        public System.Windows.Forms.Panel Main_Panel;
     }
 }

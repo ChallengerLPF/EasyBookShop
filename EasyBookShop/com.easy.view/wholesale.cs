@@ -24,6 +24,7 @@ namespace EasyBookShop.com.easy.view
         {
             InitializeComponent();
             loadtb();
+            default_view();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -33,12 +34,58 @@ namespace EasyBookShop.com.easy.view
 
         private void datagrid_srch_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (datagrid_srch.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = datagrid_srch.SelectedCells[0].RowIndex;
 
+                DataGridViewRow selectedRow = datagrid_srch.Rows[selectedrowindex];
+
+                string a = Convert.ToString(selectedRow.Cells["Barcode"].Value);
+
+                txt_icode.Text = a;
+
+                //txt_icode.Select();
+                select_on_mouseclick();
+            }
         }
+
+        private void select_on_mouseclick()
+        {
+            String itemcode = txt_icode.Text;
+
+
+            Customer_validate cv = new Customer_validate();
+            Productcontroaler pc = new Productcontroaler();
+            Wholesale data = pc.findone(itemcode);
+            
+            int qty = (int)data.Qty;
+            String p = data.Price.ToString();
+            String orp = data.Orprice.ToString();
+            int id = data.Id;
+            
+            if (cv.validate_text((String)data.Dis, "Item not found"))
+            {
+                txt_icode.BackColor = SystemColors.Control;
+                txt_dis.Text = (String)data.Dis;
+                txt_qty.Text = qty.ToString();
+                txt_selprice.Text = p;
+                txt_orprice.Text = orp;
+                lbl_id.Text = id.ToString();
+
+                
+            }
+            else
+            {
+                txt_icode.Clear();
+                txt_icode.BackColor = Color.Red;
+                txt_dis.Text = (String)data.Dis;
+            }
+        }
+
 
         private void loadtb()
         {
-           
+            datagrid_srch.ClearSelection();
             Productcontroaler pc = new Productcontroaler();
             MySqlDataAdapter list = pc.findall();
             DataTable dt = new DataTable();
@@ -55,38 +102,74 @@ namespace EasyBookShop.com.easy.view
 
         private void metroTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //MessageBox.Show(e.KeyChar.ToString());
             
         }
 
         private void txt_icode_KeyUp(object sender, KeyEventArgs e)
         {
-            String itemcode = txt_icode.Text;
             
-            Customer_validate cv=new Customer_validate();
-            Productcontroaler pc = new Productcontroaler();
-            Wholesale data = pc.findone(itemcode);
-
-            int qty = (int)data.Qty;
-            double price = (double)data.Price;
-            String p = price.ToString();
-            double op = (double)data.Orprice;
-            String orp = op.ToString();
-            int id=data.Id;
-
-            if (cv.validate_text((String)data.Dis, "Item not found"))
+            if (e.KeyCode == Keys.Enter)
             {
-                txt_icode.BackColor = SystemColors.Control;
-                txt_dis.Text = (String)data.Dis;
-                txt_qty.Text = qty.ToString();
-                txt_selprice.Text = p;
-                txt_orprice.Text = orp;
-                lbl_id.Text = id.ToString();
+
+                Productcontroaler pc = new Productcontroaler();
+                String itemcode = txt_icode.Text;
+                
+                int rowcount=pc.getrowcount(itemcode);
+
+                if (rowcount == 1)
+                {
+                    Customer_validate cv = new Customer_validate();
+
+                    Wholesale data = pc.findone(itemcode);
+
+                    int qty = (int)data.Qty;
+                    String p = data.Price.ToString();
+                    String orp = data.Orprice.ToString();
+                    int id = data.Id;
+
+                    if (cv.validate_text((String)data.Dis, "Item not found"))
+                    {
+                        txt_icode.BackColor = SystemColors.Control;
+                        txt_dis.Text = (String)data.Dis;
+                        txt_qty.Text = qty.ToString();
+                        txt_selprice.Text = p;
+                        txt_orprice.Text = orp;
+                        lbl_id.Text = id.ToString();
+
+                        SendKeys.Send("{TAB}");
+                    }
+                    else
+                    {
+                        txt_icode.Clear();
+                        txt_icode.BackColor = Color.Red;
+                        txt_dis.Text = (String)data.Dis;
+                    }
+                }
+                else
+                {
+                    getmatching();
+                }
+
+                
+            } 
+
+        }
+
+        private void getmatching()
+        {
+            try
+            {
+                Multiple_Items mi = new Multiple_Items();
+                mi.loadtb(txt_icode.Text,this);
+                this.Controls.Add(mi);
+                mi.Location = new Point(300, 150);
+                mi.BringToFront();
+               
             }
-            else
+            catch (Exception e)
             {
-                txt_icode.Clear();
-                txt_icode.BackColor = Color.Red;
-                txt_dis.Text = (String)data.Dis;
+                MessageBox.Show(e.Message);
             }
 
             
@@ -104,9 +187,10 @@ namespace EasyBookShop.com.easy.view
 
             additem(dataset);
             calnettotal();
+            ClearItems();
         }
 
-        private void additem(String[] data)
+        public void additem(String[] data)
         {
             Customer_validate cv = new Customer_validate();
 
@@ -118,8 +202,9 @@ namespace EasyBookShop.com.easy.view
             
         }
 
-        private void setTable()
+        public void setTable()
         {
+            
             ClearGrid(datagrid_bill);
             int count = 1;
             foreach (String[] items in item)
@@ -145,6 +230,10 @@ namespace EasyBookShop.com.easy.view
            
         }
 
+        public void refesh(){
+            setTable();
+        }
+
         private void calnettotal()
         {
             
@@ -154,18 +243,22 @@ namespace EasyBookShop.com.easy.view
             for (int i = 0; i < datagrid_bill.RowCount; i++)
             {
                 double val=Convert.ToDouble(datagrid_bill.Rows[i].Cells[4].Value);
+                
                 nettotal += val;
 
             }
 
-            txt_nettotal.Text = nettotal.ToString();
+            txt_nettotal.Text = (Math.Round(nettotal,2)).ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ClearGrid(datagrid_bill);
+            
+            ClearItems();
+
+            /*ClearGrid(datagrid_bill);
             ClearAllText(this);
-            resetcustomer();
+            resetcustomer();*/
         }
 
         public void ClearGrid(DataGridView grid)
@@ -255,13 +348,18 @@ namespace EasyBookShop.com.easy.view
                     try
                     {
 
-                        Perchuspopup pup = new Perchuspopup();
-                        pup.Show();
+                        Popup pup = new Popup();
+                        
+                       
+
                         pup.SetBill(this);
                         ClearAllText(this);
                         ClearGrid(datagrid_bill);
                         resetcustomer();
-                        //item.Clear();
+                        this.Controls.Add(pup);
+                        pup.BringToFront();
+                        pup.Location = new Point(500, 200);
+                        
 
                     }
                     catch (Exception ex)
@@ -292,8 +390,16 @@ namespace EasyBookShop.com.easy.view
 
         private void metroTextBox3_KeyUp(object sender, KeyEventArgs e)
         {
-            getcustomer();
-            getpending();
+            try
+            {
+                getcustomer();
+                getpending();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void getcustomer()
@@ -305,7 +411,7 @@ namespace EasyBookShop.com.easy.view
             Customer cs = cus.getuser(nic);
 
                 String gen = cs.Gender;
-                MessageBox.Show("Gender "+gen);
+                
 
             try{
 
@@ -337,32 +443,49 @@ namespace EasyBookShop.com.easy.view
             String customer=lbl_cno.Text;
             String id = customer.Substring(13, len-13);
 
-            Customer_controal cus = new Customer_controal();
+            Customerdetail cus = new Customerdetail();
+            cus.Customer = int.Parse(id);
 
-            Customer cs = cus.getpending(id);
+            Customer_delControal cdc = new Customer_delControal();
 
-            lbl_pending.Text = "Pending :" + cs.Pendings;
+            Customerdetail cd = cdc.totalpending(cus);
+
+            decimal pending = cd.Pending;
+
+            if (pending != 0)
+            {
+                lbl_pending.Text = "Pending Payment Rs : " + pending.ToString();
+            }
+            else
+            {
+                lbl_pending.Text = "No Pending payments";
+            }
+
 
         }
 
         private void txt_rqty_KeyUp(object sender, KeyEventArgs e)
         {
-            Customer_validate cs = new Customer_validate();
+            if (e.KeyCode != Keys.Tab)
+            {
+                Customer_validate cs = new Customer_validate();
 
-            if (cs.Qty_validate(txt_qty.Text, txt_rqty.Text)==false)
-            {
-                txt_rqty.Clear();
-                txt_rqty.BackColor = Color.Red;
+                if (cs.Qty_validate(txt_qty.Text, txt_rqty.Text) == false)
+                {
+                    txt_rqty.Clear();
+                    txt_rqty.BackColor = Color.Red;
+                }
+                else
+                {
+                    txt_rqty.BackColor = SystemColors.Control;
+                }
             }
-            else
-            {
-                txt_rqty.BackColor = SystemColors.Control;
-            }
+            
         }
 
         private void metroTextBox8_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Rbtn_bname.Checked || Rbtn_iname.Checked)
+            if (Rbtn_barcode.Checked || Rbtn_iname.Checked)
             {
                 if (Rbtn_iname.Checked)
                 {
@@ -370,13 +493,24 @@ namespace EasyBookShop.com.easy.view
                 }
                 else
                 {
-
+                    search_by_barcode();
                 }
             }
             else
             {
                 MessageBox.Show("Select Search Option");
             }
+        }
+
+        private void search_by_barcode()
+        {
+            String barcode = txt_search.Text;
+
+            Productcontroaler pc = new Productcontroaler();
+            MySqlDataAdapter list = pc.search_byBarcode(barcode);
+            DataTable dt = new DataTable();
+            list.Fill(dt);
+            datagrid_srch.DataSource = dt;
         }
 
         private void search_by_iname()
@@ -395,6 +529,86 @@ namespace EasyBookShop.com.easy.view
         private void txt_search_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int len = lbl_cno.Text.Length;
+            String customer = lbl_cno.Text;
+            String id = customer.Substring(13, len - 13);
+
+            Customer_del cd = new Customer_del(id, "Credit payments");
+            cd.Show();
+        }
+
+        private void txt_icode_AcceptsTabChanged(object sender, EventArgs e)
+        {
+           
+            
+        }
+
+        private void txt_icode_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void Show_hide_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Show_hide.Checked)
+            {
+                txt_orprice.UseSystemPasswordChar = true;
+                Show_hide.Text = "Hide";
+            }
+            else
+            {
+                txt_orprice.UseSystemPasswordChar = false;
+                Show_hide.Text = "Show";
+            }
+            
+        }
+
+        private void Show_hide_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void wholesale_Load(object sender, EventArgs e)
+        {
+            
+            
+            
+        }
+
+        private void default_view()
+        {
+            datagrid_srch.ClearSelection();
+            txt_icode.Focus();
+        }
+
+        private void datagrid_srch_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ClearItems()
+        {
+            Control[] items = { txt_icode, txt_dis, txt_orprice, txt_rqty, txt_qty, txt_selprice };
+            foreach (Control item in items)
+            {
+                item.Text = String.Empty;
+            }
+
+            txt_icode.Focus();
+        }
+
+        private void txt_icode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            setTable();
         }
     }
 }

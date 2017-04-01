@@ -16,6 +16,27 @@ namespace EasyBookShop.com.easy.model
         private decimal patialpayment;
         private int invoice;
         private decimal pending;
+        private String ppmethod;
+        private String chno;
+        private String chstatus;
+
+        public String Chstatus
+        {
+            get { return chstatus; }
+            set { chstatus = value; }
+        }
+
+        public String Chno
+        {
+            get { return chno; }
+            set { chno = value; }
+        }
+
+        public String Ppmethod
+        {
+            get { return ppmethod; }
+            set { ppmethod = value; }
+        }
 
         public decimal Pending
         {

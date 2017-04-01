@@ -1,49 +1,29 @@
-﻿using EasyBookShop.com.easy.controal;
-using EasyBookShop.com.easy.model;
-using EasyBookShop.com.easy.utility;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EasyBookShop.com.easy.controal;
+using EasyBookShop.com.easy.model;
+using EasyBookShop.com.easy.utility;
 
 namespace EasyBookShop.com.easy.view
 {
-    public partial class Perchuspopup : MetroFramework.Forms.MetroForm
+    public partial class Popup : UserControl
     {
+
         Spliter sp = new Spliter();
         int customer;
         String cuslevel;
         List<String[]> items = new List<string[]>();
 
-        public Perchuspopup()
+        public Popup()
         {
             InitializeComponent();
-            
-        }
-
-        public void getdata(String[] data, String total)
-        {
-
-        }
-
-        private void Perchuspopup_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -51,31 +31,25 @@ namespace EasyBookShop.com.easy.view
 
         }
 
-        private void metroLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void SetBill(wholesale obj)
         {
             Perchuspopup_controaler ppc = new Perchuspopup_controaler();
-            Puschespopup pp=ppc.setbilno();
-            
-            int id=pp.Id;
-            
+            Puschespopup pp = ppc.setbilno();
+
+            int id = pp.Id;
             txt_bno.Text = id.ToString();
 
             txt_nettotal.Text = obj.txt_nettotal.Text;
 
             /*assining values*/
             this.items = wholesale.item;
-            String cus=obj.lbl_cno.Text;
-            customer = int.Parse(cus.Substring(13, (cus.Length-13)));
+            String cus = obj.lbl_cno.Text;
+            customer = int.Parse(cus.Substring(13, (cus.Length - 13)));
             cuslevel = obj.lbl_level.Text;
 
             txt_cusno.Text = customer.ToString();
 
-            
+
         }
 
         public void insert_invoice(String method)
@@ -86,13 +60,13 @@ namespace EasyBookShop.com.easy.view
             char[] chaeset = { '[', ']' };
             String[] rtxt = sp.Split_text(user, chaeset);
 
-            
+
             /*set model object...*/
             Puschespopup pup = new Puschespopup();
             pup.Total = decimal.Parse(txt_nettotal.Text);
             pup.Cus = customer;
             pup.Cuslevel = cuslevel;
-            pup.Method=method;
+            pup.Method = method;
             pup.Cashire = int.Parse(rtxt[1]);
 
             /*set controller object...*/
@@ -117,12 +91,11 @@ namespace EasyBookShop.com.easy.view
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
         private void ClearList()
         {
-            
+
             items.Clear();
             wholesale.item.Clear();
         }
@@ -143,24 +116,23 @@ namespace EasyBookShop.com.easy.view
                 MessageBox.Show("Invalide Number");
                 txt_pmnt.Text = "";
             }
-            
-
         }
 
         private void add_invoice_items()
         {
             Perchuspopup_controaler ppc = new Perchuspopup_controaler();
             Puschespopup pup = new Puschespopup();
-            
 
-            foreach(String[] item in items){
-                
+
+            foreach (String[] item in items)
+            {
+
                 pup.Id = int.Parse(txt_bno.Text);
                 pup.Item = int.Parse(item[3]);
                 pup.Qty = int.Parse(item[1]);
-                pup.Uprice=decimal.Parse(item[2]);
+                pup.Uprice = decimal.Parse(item[2]);
 
-                
+
                 ppc.insert_items(pup);
 
             }
@@ -199,14 +171,13 @@ namespace EasyBookShop.com.easy.view
             }
         }
 
-        
-
         private void insertpaymentsteps(String method)
         {
 
-            switch(method){
+            switch (method)
+            {
 
-                case "credit" :
+                case "credit":
 
                     if (!txt_pmnt.Text.Equals(""))
                     {
@@ -216,7 +187,7 @@ namespace EasyBookShop.com.easy.view
                             Invoice_payment_steps ips = new Invoice_payment_steps();
                             ips.Invoice = int.Parse(txt_bno.Text);
                             ips.Patial_payment1 = pay;
-                            
+
 
                             Invoice_payment_steps_controal ipsc = new Invoice_payment_steps_controal();
                             ipsc.insert_step(ips);
@@ -232,7 +203,7 @@ namespace EasyBookShop.com.easy.view
                         Invoice_payment_steps ips = new Invoice_payment_steps();
                         ips.Invoice = int.Parse(txt_bno.Text);
                         ips.Patial_payment1 = pay;
-                        
+
 
                         Invoice_payment_steps_controal ipsc = new Invoice_payment_steps_controal();
                         ipsc.insert_step(ips);
@@ -242,44 +213,52 @@ namespace EasyBookShop.com.easy.view
 
                 case "cash":
 
-                        try
-                        {
-                            decimal pay = decimal.Parse(txt_nettotal.Text);
-                            Invoice_payment_steps ips = new Invoice_payment_steps();
-                            ips.Invoice = int.Parse(txt_bno.Text);
-                            ips.Patial_payment1 = pay;
-                            ips.Method = "cash";
+                    try
+                    {
+                        decimal pay = decimal.Parse(txt_nettotal.Text);
+                        Invoice_payment_steps ips = new Invoice_payment_steps();
+                        ips.Invoice = int.Parse(txt_bno.Text);
+                        ips.Patial_payment1 = pay;
+                        ips.Method = "cash";
 
-                            Invoice_payment_steps_controal ipsc = new Invoice_payment_steps_controal();
-                            ipsc.insert_step(ips);
-                        }
-                        catch (Exception e)
-                        {
-                            MessageBox.Show("Invalied number");
-                        }
+                        Invoice_payment_steps_controal ipsc = new Invoice_payment_steps_controal();
+                        ipsc.insert_step(ips);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Invalied number");
+                    }
 
                     break;
 
             }
 
-            
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            wholesale.item.Clear();
+            this.Dispose();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*Cheque_Payment chp = new Cheque_Payment();
-
+            Cheque_Payment chp = new Cheque_Payment();
             String[] details = new String[4];
             details[0] = txt_bno.Text;
             details[1] = txt_cusno.Text;
             details[2] = txt_nettotal.Text;
             //details[3] = customer.ToString();
             details[3] = cuslevel;
-            
+
             chp.SetBill(details);
-            //Parent.Controls.Add(chp);
-            //chp.BringToFront();
-            chp.Location = new Point(200, 200);*/
+            Parent.Controls.Add(chp);
+            chp.Location = new Point(200, 200);
+            chp.BringToFront();
+            //this.Dispose();
         }
+
+
     }
 }

@@ -10,9 +10,15 @@ namespace EasyBookShop.com.easy.model
     {
 
         private int invoice;
-
+        private String method;
         private decimal Patial_payment;
         private String date;
+
+        public String Method
+        {
+            get { return method; }
+            set { method = value; }
+        }
 
         public String Date
         {

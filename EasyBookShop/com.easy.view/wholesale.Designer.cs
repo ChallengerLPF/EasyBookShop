@@ -30,11 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wholesale));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Show_hide = new MetroFramework.Controls.MetroCheckBox();
             this.lbl_id = new System.Windows.Forms.Label();
             this.btn_sell = new System.Windows.Forms.Button();
             this.txt_nettotal = new MetroFramework.Controls.MetroTextBox();
@@ -61,7 +64,6 @@
             this.txt_icode = new MetroFramework.Controls.MetroTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_cno = new MetroFramework.Controls.MetroLabel();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lbl_pending = new MetroFramework.Controls.MetroLabel();
             this.lbl_level = new MetroFramework.Controls.MetroLabel();
@@ -71,7 +73,7 @@
             this.cus_nic = new MetroFramework.Controls.MetroTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.datagrid_srch = new System.Windows.Forms.DataGridView();
-            this.Rbtn_bname = new MetroFramework.Controls.MetroRadioButton();
+            this.Rbtn_barcode = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.Rbtn_iname = new MetroFramework.Controls.MetroRadioButton();
             this.txt_search = new MetroFramework.Controls.MetroTextBox();
@@ -89,6 +91,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Show_hide);
             this.panel3.Controls.Add(this.lbl_id);
             this.panel3.Controls.Add(this.btn_sell);
             this.panel3.Controls.Add(this.txt_nettotal);
@@ -113,6 +116,20 @@
             this.panel3.Size = new System.Drawing.Size(797, 670);
             this.panel3.TabIndex = 12;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // Show_hide
+            // 
+            this.Show_hide.AutoSize = true;
+            this.Show_hide.CustomForeColor = true;
+            this.Show_hide.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Show_hide.Location = new System.Drawing.Point(728, 91);
+            this.Show_hide.Name = "Show_hide";
+            this.Show_hide.Size = new System.Drawing.Size(52, 15);
+            this.Show_hide.TabIndex = 29;
+            this.Show_hide.Text = "Show";
+            this.Show_hide.UseVisualStyleBackColor = true;
+            this.Show_hide.CheckedChanged += new System.EventHandler(this.Show_hide_CheckedChanged);
+            this.Show_hide.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Show_hide_MouseClick);
             // 
             // lbl_id
             // 
@@ -180,6 +197,14 @@
             // 
             this.datagrid_bill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagrid_bill.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagrid_bill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.datagrid_bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagrid_bill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
@@ -187,13 +212,25 @@
             this.Qty,
             this.Uprice,
             this.total});
+            this.datagrid_bill.EnableHeadersVisualStyles = false;
             this.datagrid_bill.Location = new System.Drawing.Point(3, 203);
             this.datagrid_bill.Name = "datagrid_bill";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datagrid_bill.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagrid_bill.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.datagrid_bill.RowHeadersVisible = false;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datagrid_bill.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.datagrid_bill.RowTemplate.Height = 30;
             this.datagrid_bill.Size = new System.Drawing.Size(789, 423);
             this.datagrid_bill.TabIndex = 23;
+            this.datagrid_bill.TabStop = false;
             this.datagrid_bill.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid_bill_CellContentClick);
             this.datagrid_bill.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagrid_bill_CellMouseClick);
             this.datagrid_bill.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.datagrid_bill_CellMouseUp);
@@ -228,11 +265,11 @@
             // 
             // total
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            this.total.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Sanpya", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(1);
+            this.total.DefaultCellStyle = dataGridViewCellStyle14;
             this.total.FillWeight = 109.0154F;
             this.total.HeaderText = "Total Price";
             this.total.Name = "total";
@@ -272,10 +309,12 @@
             // 
             // txt_orprice
             // 
+            this.txt_orprice.CustomBackground = true;
             this.txt_orprice.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txt_orprice.Location = new System.Drawing.Point(520, 112);
+            this.txt_orprice.Multiline = true;
             this.txt_orprice.Name = "txt_orprice";
-            this.txt_orprice.ReadOnly = true;
+            this.txt_orprice.PasswordChar = '$';
             this.txt_orprice.Size = new System.Drawing.Size(260, 30);
             this.txt_orprice.TabIndex = 20;
             this.txt_orprice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -394,6 +433,9 @@
             this.txt_icode.Size = new System.Drawing.Size(325, 30);
             this.txt_icode.TabIndex = 4;
             this.txt_icode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_icode.AcceptsTabChanged += new System.EventHandler(this.txt_icode_AcceptsTabChanged);
+            this.txt_icode.Click += new System.EventHandler(this.txt_icode_Click);
+            this.txt_icode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_icode_KeyDown);
             this.txt_icode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBox1_KeyPress);
             this.txt_icode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_icode_KeyUp);
             // 
@@ -402,7 +444,6 @@
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.lbl_cno);
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.lbl_pending);
             this.panel2.Controls.Add(this.lbl_level);
@@ -429,20 +470,6 @@
             this.lbl_cno.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbl_cno.Click += new System.EventHandler(this.metroLabel14_Click);
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(421, 129);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(98, 25);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Pay";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Gray;
@@ -458,6 +485,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "     Full Report";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // lbl_pending
             // 
@@ -537,7 +565,7 @@
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.datagrid_srch);
-            this.panel4.Controls.Add(this.Rbtn_bname);
+            this.panel4.Controls.Add(this.Rbtn_barcode);
             this.panel4.Controls.Add(this.metroLabel12);
             this.panel4.Controls.Add(this.Rbtn_iname);
             this.panel4.Controls.Add(this.txt_search);
@@ -549,39 +577,40 @@
             // 
             // datagrid_srch
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.datagrid_srch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.datagrid_srch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.datagrid_srch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagrid_srch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagrid_srch.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagrid_srch.DefaultCellStyle = dataGridViewCellStyle18;
             this.datagrid_srch.Location = new System.Drawing.Point(4, 76);
             this.datagrid_srch.Name = "datagrid_srch";
             this.datagrid_srch.RowTemplate.Height = 30;
             this.datagrid_srch.Size = new System.Drawing.Size(546, 424);
             this.datagrid_srch.TabIndex = 23;
             this.datagrid_srch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid_srch_CellContentClick);
+            this.datagrid_srch.SelectionChanged += new System.EventHandler(this.datagrid_srch_SelectionChanged);
             // 
-            // Rbtn_bname
+            // Rbtn_barcode
             // 
-            this.Rbtn_bname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Rbtn_bname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Rbtn_bname.Location = new System.Drawing.Point(352, 38);
-            this.Rbtn_bname.Name = "Rbtn_bname";
-            this.Rbtn_bname.Size = new System.Drawing.Size(109, 20);
-            this.Rbtn_bname.TabIndex = 24;
-            this.Rbtn_bname.TabStop = true;
-            this.Rbtn_bname.Text = "Brand Name";
-            this.Rbtn_bname.UseVisualStyleBackColor = true;
+            this.Rbtn_barcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Rbtn_barcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Rbtn_barcode.Location = new System.Drawing.Point(352, 38);
+            this.Rbtn_barcode.Name = "Rbtn_barcode";
+            this.Rbtn_barcode.Size = new System.Drawing.Size(109, 20);
+            this.Rbtn_barcode.TabIndex = 24;
+            this.Rbtn_barcode.TabStop = true;
+            this.Rbtn_barcode.Text = "Barcode";
+            this.Rbtn_barcode.UseVisualStyleBackColor = true;
             // 
             // metroLabel12
             // 
@@ -683,7 +712,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txt_icode;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private MetroFramework.Controls.MetroLabel lbl_pending;
         private System.Windows.Forms.Panel panel1;
@@ -694,11 +722,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroRadioButton Rbtn_iname;
         private MetroFramework.Controls.MetroTextBox txt_search;
-        private MetroFramework.Controls.MetroRadioButton Rbtn_bname;
+        private MetroFramework.Controls.MetroRadioButton Rbtn_barcode;
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView datagrid_srch;
         private System.Windows.Forms.DataGridView datagrid_bill;
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroLabel metroLabel2;
@@ -714,5 +741,7 @@
         public MetroFramework.Controls.MetroTextBox txt_nettotal;
         public MetroFramework.Controls.MetroLabel lbl_cno;
         public MetroFramework.Controls.MetroLabel lbl_level;
+        private MetroFramework.Controls.MetroCheckBox Show_hide;
+        private System.Windows.Forms.DataGridView datagrid_srch;
     }
 }

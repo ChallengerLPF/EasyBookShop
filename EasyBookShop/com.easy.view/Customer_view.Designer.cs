@@ -467,6 +467,7 @@
             this.txt_cunic.Size = new System.Drawing.Size(284, 30);
             this.txt_cunic.TabIndex = 18;
             this.txt_cunic.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_cunic.Click += new System.EventHandler(this.txt_cunic_Click);
             this.txt_cunic.KeyUp += new System.Windows.Forms.KeyEventHandler(this.metroTextBox5_KeyUp);
             // 
             // panel3
@@ -521,6 +522,7 @@
             this.datagv_cus.Size = new System.Drawing.Size(1031, 593);
             this.datagv_cus.TabIndex = 33;
             this.datagv_cus.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagv_cus_CellClick);
+            this.datagv_cus.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagv_cus_CellContentClick);
             // 
             // metroLabel16
             // 

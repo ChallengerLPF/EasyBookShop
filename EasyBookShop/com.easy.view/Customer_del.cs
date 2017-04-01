@@ -181,7 +181,15 @@ namespace EasyBookShop.com.easy.view
             }
             else if (e.ColumnIndex == 8 && e.RowIndex >= 0)
             {
-                               
+                payment_steps ps = new payment_steps();
+                String blno = datagrid_cusdel.Rows[e.RowIndex].Cells[0].Value.ToString();
+                ps.loadtb(int.Parse(blno));
+                
+
+                this.Controls.Add(ps);
+                ps.BringToFront();
+                ps.Location = new Point(200, 200);
+                
             }
 
         }
@@ -193,11 +201,10 @@ namespace EasyBookShop.com.easy.view
 
         private void setDefault()
         {
-            txt_payment.Enabled = false;
-            txt_balance.Enabled = false;
             txt_chno.Enabled = false;
             txt_chvalue.Enabled = false;
             txt_expmt.Enabled = false;
+            cmb_bank.Enabled = false;
         }
 
         private void metroRadioButton1_Click(object sender, EventArgs e)
@@ -206,6 +213,7 @@ namespace EasyBookShop.com.easy.view
             txt_chno.Enabled = false;
             txt_chvalue.Enabled = false;
             txt_expmt.Enabled = false;
+            cmb_bank.Enabled = false;
         }
 
         private void metroRadioButton2_Click(object sender, EventArgs e)
@@ -214,11 +222,13 @@ namespace EasyBookShop.com.easy.view
             txt_chno.Enabled = true;
             txt_chvalue.Enabled = true;
             txt_expmt.Enabled = true;
+            cmb_bank.Enabled = true;
 
             Customer_delControal cdc = new Customer_delControal();
             Customerdetail chid = cdc.getCheckid();
             int chno=chid.Checkid+1;
-            txt_chno.Text = chno.ToString();
+            MessageBox.Show(chno.ToString());
+            lbl_chid.Text = chno.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -227,6 +237,10 @@ namespace EasyBookShop.com.easy.view
             {
                 add_pamentStep();
                 findmethod();
+            }
+            else if (rbtn_checque.Checked)
+            {
+                add_paymentstepChecque();
             }
         }
 
@@ -243,11 +257,13 @@ namespace EasyBookShop.com.easy.view
             {
                 try
                 {
-                    cus.Method = "cash";
+                    cus.Ppmethod = "cash";
                     cus.Patialpayment = pending;
                     cus.Invoice = int.Parse(txt_blno.Text);
+                    cus.Method = "cash";
                     cdc.addpayment_step(cus);
-                    cdc.updateinvoice(cus);
+                    updateinvoicestatus();
+                    
                 }
                 catch (Exception e)
                 {
@@ -258,11 +274,118 @@ namespace EasyBookShop.com.easy.view
             }
             else
             {
+                cus.Ppmethod = "cash";
                 cus.Patialpayment = payment;
                 cus.Invoice = int.Parse(txt_blno.Text);
                 cdc.addpayment_step(cus);
                 
             }
+        }
+
+        private void add_paymentstepChecque()
+        {
+            decimal pending = decimal.Parse(txt_pending.Text);
+            decimal chvalue = decimal.Parse(txt_chvalue.Text);
+
+            Customerdetail cus = new Customerdetail();
+            Customer_delControal cdc = new Customer_delControal();
+
+            if (!txt_expmt.Text.Equals(""))
+            {
+                decimal expmt = decimal.Parse(txt_expmt.Text);
+
+                if ((chvalue + expmt) >= pending)
+                {
+                    addcheck();
+                    insertchecque();
+                    addcashpayment();
+                    updateinvoicestatus();
+                    findmethod();
+                }
+                else
+                {
+                    addcheck();
+                    insertchecque();
+                    addcashpayment();
+                    findmethod();
+                }
+
+            }
+            else
+            {
+                if (chvalue >= pending)
+                {
+                    addcheck();
+                    insertchecque();
+                    updateinvoicestatus();
+                    findmethod();
+                }
+                else
+                {
+                    addcheck();
+                    insertchecque();
+                    findmethod();
+                }
+            }
+                 
+        }
+
+        private void insertchecque()
+        {
+            
+            Customerdetail cus = new Customerdetail();
+            Customer_delControal cdc = new Customer_delControal();
+
+            cus.Patialpayment = decimal.Parse(txt_chvalue.Text);
+            cus.Invoice = int.Parse(txt_blno.Text);
+            cus.Ppmethod = "cheque";
+            cus.Checkid = int.Parse(lbl_chid.Text);
+
+            cdc.addpayment_step(cus);
+
+        }
+
+        private void addcashpayment()
+        {
+            
+            Customerdetail cus = new Customerdetail();
+            Customer_delControal cdc = new Customer_delControal();
+
+            decimal pending = decimal.Parse(txt_pending.Text);
+            decimal chvalue = decimal.Parse(txt_chvalue.Text);
+            decimal paying = pending - chvalue;
+
+            cus.Patialpayment = paying;
+            cus.Invoice = int.Parse(txt_blno.Text);
+            cus.Ppmethod = "cash";
+
+            cdc.addpayment_step(cus);
+        }
+
+        private void addcheck()
+        {
+            
+            Customerdetail cus = new Customerdetail();
+            Customer_delControal cdc = new Customer_delControal();
+
+            cus.Chno = txt_chno.Text;
+            cus.Patialpayment = decimal.Parse(txt_chvalue.Text);
+            cus.Chstatus = "not_cashed";
+
+            cdc.addcheque(cus);
+
+        }
+
+        private void updateinvoicestatus()
+        {
+            Customerdetail cus = new Customerdetail();
+            Customer_delControal cdc = new Customer_delControal();
+
+            cus.Invoice = int.Parse(txt_blno.Text);
+            cus.Method = "cash";
+
+            cdc.updateinvoice(cus);
+
         }
     }
 }
